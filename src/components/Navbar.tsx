@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Instagram, Facebook, Menu as MenuIcon } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+
+// Ajout du type Language
+type Language = 'ES' | 'FR' | 'EN';
 
 const Navbar = () => {
   const { t, language, setLanguage } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,18 +28,25 @@ const Navbar = () => {
 
   const handleLanguageChange = () => {
     const languages: Language[] = ['ES', 'FR', 'EN'];
-    const currentIndex = languages.indexOf(language);
+    const currentIndex = languages.indexOf(language as Language);
     const nextIndex = (currentIndex + 1) % languages.length;
     setLanguage(languages[nextIndex]);
   };
 
   const handleLocationClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const element = document.getElementById('visit-us');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const currentPath = location.pathname;
+
+    if (currentPath === '/') {
+      // Si on est déjà sur la page d'accueil
+      document.getElementById('visit-us')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Si on est sur une autre page, rediriger vers la page d'accueil avec l'ancre
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('visit-us')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
-    setIsMenuOpen(false);
   };
 
   return (
@@ -61,9 +72,12 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#visit-us" onClick={handleLocationClick} className="hover:underline">
+          <button 
+            onClick={handleLocationClick} 
+            className="hover:underline text-white bg-transparent border-none cursor-pointer"
+          >
             {t('nav.locations')}
-          </a>
+          </button>
           <Link to="/menu" className={`hover:underline ${location.pathname === '/menu' ? 'underline' : ''}`}>
             {t('nav.menu')}
           </Link>
@@ -118,13 +132,12 @@ const Navbar = () => {
               </button>
             </div>
             <div className="flex flex-col space-y-4">
-              <a
-                href="#visit-us"
+              <button
                 onClick={handleLocationClick}
-                className="block py-2 hover:underline"
+                className="block py-2 hover:underline text-white bg-transparent border-none cursor-pointer text-left"
               >
                 {t('nav.locations')}
-              </a>
+              </button>
               <Link
                 to="/menu"
                 className={`block py-2 hover:underline ${location.pathname === '/menu' ? 'underline' : ''}`}

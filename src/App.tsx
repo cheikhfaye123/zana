@@ -1,12 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 // Pages
-import Home from './pages/Home.tsx';  // Ajout de l'extension .tsx
-import Menu from './pages/Menu.tsx';  // Ajout de l'extension .tsx
-import News from './pages/News.tsx';  // Ajout de l'extension .tsx
-import Career from './pages/Career.tsx';  // Ajout de l'extension .tsx
-import Feedback from './pages/Feedback.tsx';  // Ajout de l'extension .tsx
-import Franchising from './pages/Franchising.tsx';  // Ajout de l'extension .tsx
+import Home from './pages/Home';  // Enlever l'extension .tsx
+import Menu from './pages/Menu';
+import News from './pages/News';
+import Career from './pages/Career';
+import Feedback from './pages/Feedback';
+import Franchising from './pages/Franchising';
 
 // Components
 import Navbar from './components/Navbar';
@@ -15,10 +16,30 @@ import Footer from './components/Footer';
 // Context
 import { LanguageProvider } from './context/LanguageContext';
 
+// Nouveau composant pour gérer le scroll
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Gérer le scroll vers les ancres (#) après changement de page
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <LanguageProvider>
       <Router>
+        <ScrollToTop />
         <div className="app">
           <Navbar />
           <Routes>

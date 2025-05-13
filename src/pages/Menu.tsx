@@ -24,7 +24,7 @@ const Menu = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-['Dancing_Script'] text-[#ff4b4b] mb-4"
+            className="text-5xl md:text-6xl dancing-script text-[#ff4b4b] mb-4"
           >
             {t('nav.menu')}
           </motion.h1>
