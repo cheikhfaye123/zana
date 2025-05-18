@@ -42,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 bg-[#c23a3a] text-white py-2 px-4 md:px-8`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 bg-[#211515] text-white py-2 px-4 md:px-8`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3">
           {/* Logo container avec styles optimisés */}

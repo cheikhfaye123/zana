@@ -51,7 +51,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative bg-[#ff4b4b] w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <div className="relative bg-[#a3a2a2] w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center">
         <AnimatePresence mode="wait">
           <motion.div
