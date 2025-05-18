@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Instagram, Facebook, Menu as MenuIcon } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-// Ajout du type Language
+// Définition du type Language
 type Language = 'ES' | 'FR' | 'EN';
 
 const Navbar = () => {
@@ -11,7 +11,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,34 +34,33 @@ const Navbar = () => {
 
   const handleLocationClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const currentPath = location.pathname;
-
-    if (currentPath === '/') {
-      // Si on est déjà sur la page d'accueil
-      document.getElementById('visit-us')?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // Si on est sur une autre page, rediriger vers la page d'accueil avec l'ancre
-      navigate('/');
-      setTimeout(() => {
-        document.getElementById('visit-us')?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+    const element = document.getElementById('visit-us');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false);
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 bg-[#ff4b4b] text-white py-4 px-4 md:px-8`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 bg-[#c23a3a] text-white py-2 px-4 md:px-8`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link to="/" className="flex items-center">
-          <div className="text-white w-10 h-10 mr-2 flex items-center justify-center rounded-full">
-            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none">
-              <path d="M6 14c.111-.87 5-5.501 5-7a1 1 0 012 0c0 1.498 4.889 6.13 5 7" />
-              <path d="M8 12l-1 8h10l-1-8" />
-            </svg>
+        <Link to="/" className="flex items-center gap-3">
+          {/* Logo container avec styles optimisés */}
+          <div className="h-16 w-16 md:h-20 md:w-20 flex items-center justify-center">
+            <img 
+              src="/images/logo.png"
+              alt="Zana Logo"
+              className="w-full h-full object-contain"
+              style={{ 
+                WebkitBackfaceVisibility: 'hidden',
+                backfaceVisibility: 'hidden',
+                transform: 'scale(1.3)',
+                
+               
+              }}
+            />
           </div>
-          <div className="flex flex-col items-center">
-            <span className="text-3xl font-['Dancing_Script'] whitespace-nowrap tracking-wider">ZANA</span>
-            <span className="text-sm whitespace-nowrap -mt-1">Street world Pasta</span>
-          </div>
+         
         </Link>
 
         {/* Mobile Menu Button */}
@@ -72,12 +70,9 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <button 
-            onClick={handleLocationClick} 
-            className="hover:underline text-white bg-transparent border-none cursor-pointer"
-          >
+          <a href="#visit-us" onClick={handleLocationClick} className="hover:underline">
             {t('nav.locations')}
-          </button>
+          </a>
           <Link to="/menu" className={`hover:underline ${location.pathname === '/menu' ? 'underline' : ''}`}>
             {t('nav.menu')}
           </Link>
@@ -132,12 +127,13 @@ const Navbar = () => {
               </button>
             </div>
             <div className="flex flex-col space-y-4">
-              <button
+              <a
+                href="#visit-us"
                 onClick={handleLocationClick}
-                className="block py-2 hover:underline text-white bg-transparent border-none cursor-pointer text-left"
+                className="block py-2 hover:underline"
               >
                 {t('nav.locations')}
-              </button>
+              </a>
               <Link
                 to="/menu"
                 className={`block py-2 hover:underline ${location.pathname === '/menu' ? 'underline' : ''}`}

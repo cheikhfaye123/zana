@@ -2,21 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Montserrat and Dancing Script fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
-/* Apply Dancing Script to all text elements by default */
-* {
-  font-family: 'Dancing Script', cursive;
-}
-
-/* Adjust font sizes for better readability */
+/* Base styles */
 body {
   color: #333;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   line-height: 1.5;
 }
 
+/* Brand typography */
+.brand-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 /* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 h1 {
   font-size: 3.5rem;
   line-height: 1.2;
@@ -34,21 +47,30 @@ h3 {
 
 /* Navigation and button text */
 .nav-item {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 button, a {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.3rem;
+  letter-spacing: 1px;
 }
 
 /* Form elements */
 input, select, textarea {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
 }
 
 /* Paragraph text */
 p {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.4rem;
+  letter-spacing: 0.5px;
 }
 
 /* Add smooth scrolling */
@@ -61,6 +83,33 @@ html {
   padding-top: 80px;
 }
 
+/* Dancing Script specific styles */
 .dancing-script {
   font-family: 'Dancing Script', cursive !important;
+}
+
+/* Brand specific styles */
+.zana-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: #ff4b4b;
+  font-size: 2.5rem;
+}
+
+.zana-slogan {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* Fresh pasta with soul style */
+.fresh-pasta-text {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 1rem;
 }

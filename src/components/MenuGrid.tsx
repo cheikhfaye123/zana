@@ -51,7 +51,7 @@ const dishes: DishProps[] = [
     description: 'Pecorino romano, parmesano, crema de trufa',
     price: '7.9',
     category: 'ESPECIAL',
-    image: 'https://images.pexels.com/photos/5419336/pexels-photo-5419336.jpeg?auto=compress&cs=tinysrgb&w=600'
+    image: '/images/trufa.jpg'
   },
   {
     id: 'alfredo-pollo',

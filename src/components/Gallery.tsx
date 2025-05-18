@@ -13,11 +13,7 @@ const Gallery = () => {
       url: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       titleKey: 'gallery.interior'
     },
-    {
-      type: 'image',
-      url: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      titleKey: 'gallery.private'
-    },
+    
     {
       type: 'image',
       url: 'https://images.pexels.com/photos/2544829/pexels-photo-2544829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
@@ -27,6 +23,11 @@ const Gallery = () => {
       type: 'image',
       url: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       titleKey: 'gallery.outdoor'
+    },
+    {
+      type: 'image',
+      url: '/images/zanacup.png', // ✅ Chemin relatif à "public"
+      titleKey: 'gallery.zanacup'  // 🔤 Ajoute cette clé à tes fichiers de traduction
     }
   ];
 
@@ -58,7 +59,7 @@ const Gallery = () => {
             <img
               src={galleryItems[currentIndex].url}
               alt={t(galleryItems[currentIndex].titleKey)}
-              className="w-full h-full object-cover"
+              className="w-full max-h-[600px]  object-contain mx-auto"
             />
           </div>
 

@@ -67,7 +67,7 @@ const Home = () => {
             viewport={{ once: true }}
             className="bg-white rounded-lg shadow-md overflow-hidden max-w-4xl mx-auto hover:shadow-lg transition-shadow"
           >
-            <div className="h-[400px] overflow-hidden bg-gray-100">
+            <div className="h-[500px] overflow-hidden bg-gray-100">
               <img 
                 src="/images/location.jpg"
                 alt="Valencia Location"
