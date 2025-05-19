@@ -17,14 +17,14 @@ const Menu = () => {
   ];
 
   return (
-    <div className="pt-20 pb-16">
+    <div className="pt-20 pb-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl dancing-script text-[#ff4b4b] mb-4"
+            className="text-5xl md:text-6xl font-bold text-[#ff4b4b] mb-4"
           >
             {t('nav.menu')}
           </motion.h1>
@@ -39,16 +39,16 @@ const Menu = () => {
         </div>
 
         {/* Category Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => setActiveCategory(null)}
-            className={`px-6 py-2 rounded-full transition-colors ${
+            className={`px-5 py-2 rounded-full border transition-all ${
               activeCategory === null
-                ? 'bg-[#ff4b4b] text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-[#434040] text-white border-[#e7e0e0]'
+                : 'bg-white text-gray-700 border-gray-300 hover:border-[#d2c8c8]'
             }`}
           >
             {t('menu.all')}
@@ -60,10 +60,10 @@ const Menu = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-2 rounded-full transition-colors ${
+              className={`px-5 py-2 rounded-full border transition-all ${
                 activeCategory === category.id
-                  ? 'bg-[#ff4b4b] text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-[#434040] text-white border-[#ebe7e7]'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-[#d2c8c8]'
               }`}
             >
               {t(category.translationKey)}

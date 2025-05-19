@@ -12,7 +12,7 @@ const translations = {
   ES: {
     'nav.locations': 'UBICACIÓN',
     'nav.menu': 'MENÚ',
-    'nav.news': 'NOTICIAS',
+    'nav.news': 'NOVEDADES',
     'nav.career': 'EMPLEO',
     'nav.feedback': 'OPINIONES',
     'nav.franchising': 'FRANQUICIA',
