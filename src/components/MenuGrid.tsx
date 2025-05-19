@@ -30,7 +30,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Pecorino, guanciale, huevo, parmesano, pimienta',
       price: '8.9',
       category: 'CLÁSICA',
-      image: '/images/carbonara.jpg'
+      image: '/images/carbonara.png'
     },
     {
       id: 'tomate-albahaca',
