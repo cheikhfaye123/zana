@@ -17,14 +17,14 @@ const Menu = () => {
   ];
 
   return (
-    <div className="pt-20 pb-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="text-center mb-16">
+    <div className="pt-20 pb-16 bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl font-bold text-[#ff4b4b] mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#ff4b4b] mb-3 sm:mb-4"
           >
             {t('nav.menu')}
           </motion.h1>
@@ -32,23 +32,23 @@ const Menu = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-2"
           >
             {t('menu.subtitle')}
           </motion.p>
         </div>
 
         {/* Category Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2">
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => setActiveCategory(null)}
-            className={`px-5 py-2 rounded-full border transition-all ${
+            className={`px-3 py-1 sm:px-5 sm:py-2 text-sm sm:text-base rounded-full border-2 transition-all ${
               activeCategory === null
-                ? 'bg-[#434040] text-white border-[#e7e0e0]'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-[#d2c8c8]'
+                ? 'bg-[#ff4b4b] text-white border-[#ff4b4b]'
+                : 'bg-white text-gray-700 border-gray-400 hover:border-[#ff4b4b]'
             }`}
           >
             {t('menu.all')}
@@ -60,10 +60,10 @@ const Menu = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-5 py-2 rounded-full border transition-all ${
+              className={`px-3 py-1 sm:px-5 sm:py-2 text-sm sm:text-base rounded-full border-2 transition-all ${
                 activeCategory === category.id
-                  ? 'bg-[#434040] text-white border-[#ebe7e7]'
-                  : 'bg-white text-gray-700 border-gray-300 hover:border-[#d2c8c8]'
+                  ? 'bg-[#ff4b4b] text-white border-[#ff4b4b]'
+                  : 'bg-white text-gray-700 border-gray-400 hover:border-[#ff4b4b]'
               }`}
             >
               {t(category.translationKey)}
