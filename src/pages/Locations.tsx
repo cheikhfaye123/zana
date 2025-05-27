@@ -1,18 +1,21 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock } from 'lucide-react';
-
-const locations = [
-  {
-    id: 1,
-    city: 'Valencia',
-    address: 'C/ Barcelonina, Ciutat Vella, 46002 Valencia, Valencia',
-    phone: '+1 (234) 567-8900',
-    hours: 'Mon-Sun: 11:00 AM - 10:00 PM',
-    image: 'https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&w=600'
-  }
-];
+import { useLocation } from '../context/LocationContext';
 
 const Locations = () => {
+  const locationInfo = useLocation();
+
+  const locations = [
+    {
+      id: 1,
+      city: 'Valencia',
+      address: locationInfo.address,
+      phone: locationInfo.phone,
+      hours: locationInfo.hours,
+      image: 'https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&w=600'
+    }
+  ];
+
   return (
     <div className="pt-20 pb-16">
       <div className="max-w-7xl mx-auto px-4 md:px-8">

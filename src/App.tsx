@@ -15,6 +15,7 @@ import Footer from './components/Footer';
 
 // Context
 import { LanguageProvider } from './context/LanguageContext';
+import { LocationProvider } from './context/LocationContext';
 
 // Nouveau composant pour gérer le scroll
 function ScrollToTop() {
@@ -38,21 +39,23 @@ function ScrollToTop() {
 function App() {
   return (
     <LanguageProvider>
-      <Router>
-        <ScrollToTop />
-        <div className="app">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/feedback" element={<Feedback />} />
-            <Route path="/franchising" element={<Franchising />} />
-          </Routes>
-          <Footer />
-        </div>
-      </Router>
+      <LocationProvider>
+        <Router>
+          <ScrollToTop />
+          <div className="app">
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/career" element={<Career />} />
+              <Route path="/feedback" element={<Feedback />} />
+              <Route path="/franchising" element={<Franchising />} />
+            </Routes>
+            <Footer />
+          </div>
+        </Router>
+      </LocationProvider>
     </LanguageProvider>
   );
 }

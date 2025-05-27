@@ -17,7 +17,7 @@ const slides = [
   },
   {
     id: 3,
-    image: '/images/tomate-albahaca.jpg',
+    image: '/images/harissa.png',
     title: 'SABORES DEL MUNDO',
     description: 'Pollo Tikka Masala, Harissa con Tomate y Atún, Huancaína'
   },
@@ -62,10 +62,10 @@ const HeroSlider = () => {
             transition={{ duration: 0.5 }}
             className="text-white text-center md:text-left md:w-1/2 mb-8 md:mb-0"
           >
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-['Dancing_Script'] mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-['Dancing_Script'] mb-4 sm:mb-6">
               {slides[currentIndex].title}
             </h1>
-            <p className="text-xl md:text-2xl max-w-md mx-auto md:mx-0">
+            <p className="text-lg sm:text-xl md:text-2xl max-w-md mx-auto md:mx-0">
               {slides[currentIndex].description}
             </p>
           </motion.div>
@@ -80,12 +80,14 @@ const HeroSlider = () => {
             transition={{ duration: 0.5 }}
             className="md:w-1/2 flex justify-center md:justify-end"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-white overflow-hidden">
-              <img
-                src={slides[currentIndex].image}
-                alt={slides[currentIndex].title}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-white p-2 border-4 border-white shadow-xl">
+              <div className="relative w-full h-full rounded-full overflow-hidden">
+                <img
+                  src={slides[currentIndex].image}
+                  alt={slides[currentIndex].title}
+                  className="absolute inset-0 w-full h-full object-contain p-4"
+                />
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -94,14 +96,14 @@ const HeroSlider = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-colors"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-colors z-10"
       >
         <ChevronLeft size={24} className="text-[#ff4b4b]" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-colors"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-colors z-10"
       >
         <ChevronRight size={24} className="text-[#ff4b4b]" />
       </button>

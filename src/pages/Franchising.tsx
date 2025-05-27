@@ -27,7 +27,7 @@ const Franchising = () => {
         {/* Hero Image */}
         <div className="relative h-80 md:h-96 rounded-lg overflow-hidden mb-16">
           <img 
-            src="https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+            src="/images/franchising/ZANA_LOGO.png" 
             alt="Franchise Opportunity" 
             className="w-full h-full object-cover"
           />

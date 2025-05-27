@@ -3,9 +3,11 @@ import HeroSlider from '../components/HeroSlider';
 import Gallery from '../components/Gallery';
 import { MapPin, Award, Phone, Clock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useLocation } from '../context/LocationContext';
 
 const Home = () => {
   const { t } = useLanguage();
+  const locationInfo = useLocation();
   
   return (
     <div className="pt-16">
@@ -83,15 +85,15 @@ const Home = () => {
               <div className="space-y-3">
                 <div className="flex items-start">
                   <MapPin size={20} className="text-[#ff4b4b] mr-3 mt-1 flex-shrink-0" />
-                  <p>C/ Barcelonina, Ciutat Vella, 46002 Valencia, Valencia</p>
+                  <p>{locationInfo.address}</p>
                 </div>
                 <div className="flex items-start">
                   <Phone size={20} className="text-[#ff4b4b] mr-3 mt-1 flex-shrink-0" />
-                  <p>+1 (234) 567-8900</p>
+                  <p>{locationInfo.phone}</p>
                 </div>
                 <div className="flex items-start">
                   <Clock size={20} className="text-[#ff4b4b] mr-3 mt-1 flex-shrink-0" />
-                  <p>{t('location.hours')}</p>
+                  <p>{locationInfo.hours}</p>
                 </div>
               </div>
             </div>

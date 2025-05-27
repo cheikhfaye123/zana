@@ -51,11 +51,11 @@ const Footer = () => {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center">
                 <MapPin size={18} className="mr-2 text-[#ff4b4b]" />
-                <span>C/ Barcelonina, Ciutat Vella, 46002 Valencia, Valencia</span>
+                <span>C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia</span>
               </div>
               <div className="flex items-center">
                 <Phone size={18} className="mr-2 text-[#ff4b4b]" />
-                <span>+1 (234) 567-8900</span>
+                <span>671 45 34 34</span>
               </div>
               <div className="flex items-center">
                 <Mail size={18} className="mr-2 text-[#ff4b4b]" />

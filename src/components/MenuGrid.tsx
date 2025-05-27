@@ -40,7 +40,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Tomate, ajo, cebolla, albahaca, AOVE',
       price: '6.5',
       category: 'CLÁSICA',
-      image: '/images/tomate-albahaca.jpg'
+      image: '/images/tomate-albahaca.png'
     },
     // ESPECIAL
     {
@@ -57,7 +57,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Pecorino romano, parmesano, crema de trufa',
       price: '7.9',
       category: 'ESPECIAL',
-      image: '/images/trufa.jpg'
+      image: '/images/trufa.png'
     },
     {
       id: 'alfredo-pollo',
@@ -65,7 +65,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Parmesano, pollo, pimienta, mantequilla',
       price: '8.9',
       category: 'ESPECIAL',
-      image: 'https://images.pexels.com/photos/6941010/pexels-photo-6941010.jpeg'
+      image: '/images/alfredo.png'
     },
     // SABORES DEL MUNDO
     {
@@ -74,7 +74,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Pollo, tomates, cebolla, ajo, nata, jengibre, cúrcuma, chili',
       price: '8.9',
       category: 'SABORES DEL MUNDO',
-      image: 'https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg'
+      image: '/images/tikka-massala.png'
     },
     {
       id: 'harissa-atun',
@@ -82,7 +82,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Ajo, alcaravea, chili, comino, cilantro, atún',
       price: '7.9',
       category: 'SABORES DEL MUNDO',
-      image: 'https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg'
+      image: '/images/harissa.png'
     },
     // LOCAL
     {
@@ -91,7 +91,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Parmesano, salchicha, vino, cebolla, ajo, queso crema, nata',
       price: '7.9',
       category: 'LOCAL',
-      image: 'https://images.pexels.com/photos/1487511/pexels-photo-1487511.jpeg'
+      image: '/images/ragu-blanco.png'
     }
   ];
 
@@ -113,7 +113,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Delicate white chocolate mousse with lotus biscuit crumble',
       price: '5.9',
       category: 'DULCE',
-      image: 'https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg'
+      image: '/images/dolce.png'
     },
     {
       id: 'ferrero-gold',
@@ -121,7 +121,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Hazelnut chocolate dessert with gold leaf decoration',
       price: '6.5',
       category: 'DULCE',
-      image: 'https://images.pexels.com/photos/132694/pexels-photo-132694.jpeg'
+      image: '/images/ferrero.png'
     }
   ];
 
@@ -154,7 +154,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                 className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
               />
             </div>
-            <div className="p-3 sm:p-4 border-t-2 border-gray-300">
+            <div className="p-3 sm:p-4 ">
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{dish.name}</h3>
               <div className="flex justify-between items-center mt-2">
                 <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
@@ -248,7 +248,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
               className="bg-white rounded-xl border-2 border-gray-300 shadow-xl w-full max-w-[95vw] sm:max-w-md max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative h-48 sm:h-56 w-full bg-gray-50 flex items-center justify-center border-b-2 border-gray-300">
+              <div className="relative h-48 sm:h-56 w-full bg-gray-50 flex items-center justify-center">
                 <img
                   src={selectedDish.image}
                   alt={selectedDish.name}

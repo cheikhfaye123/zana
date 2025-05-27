@@ -34,15 +34,20 @@ const Navbar = () => {
 
   const handleLocationClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const element = document.getElementById('visit-us');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const currentPath = location.pathname;
+
+    if (currentPath === '/') {
+      // Si on est déjà sur la page d'accueil
+      document.getElementById('visit-us')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Si on est sur une autre page, rediriger vers la page d'accueil avec l'ancre
+      window.location.href = '/#visit-us';
     }
     setIsMenuOpen(false);
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 bg-[#211515] text-white py-2 px-4 md:px-8`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 bg-[#292727] text-white py-2 px-4 md:px-8`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3">
           {/* Logo container avec styles optimisés */}
@@ -60,7 +65,7 @@ const Navbar = () => {
               }}
             />
           </div>
-         
+          
         </Link>
 
         {/* Mobile Menu Button */}
