@@ -29,7 +29,7 @@ const newsItems = [
     title: "Chefs' Special: Ragu blanco de salchicha de Requena",
     date: "March 5, 2025",
     excerpt: "Pide tus platos de pasta favoritos sobre la marcha con nuestra nueva aplicación móvil. Disponible ahora en iOS y Android.",
-    image: "/images/ragu-blanco.png"
+    image: "/images/menu/ragu-blanco.png"
   }
 ];
 
