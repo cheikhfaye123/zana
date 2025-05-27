@@ -10,13 +10,13 @@ const Gallery = () => {
   const galleryItems = [
     {
       type: 'image',
-      url: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      url: '/images/outdoor2.png',
       titleKey: 'gallery.interior'
     },
     
     {
       type: 'image',
-      url: '/images/zanapasta.jpg',
+      url: '/images/zanapasta.png',
       titleKey: 'gallery.bar'
     },
     {
