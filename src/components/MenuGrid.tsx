@@ -24,7 +24,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Ternera, zanahoria, ajo, cebolla, apio, tomate, AOVE',
       price: '8.9',
       category: 'CLÁSICA',
-      image: '/images/ragu-bolognese.png'
+      image: '/images/menu/ragu-bolognese.png'
     },
     {
       id: 'carbonara',
@@ -32,7 +32,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Pecorino, guanciale, huevo, parmesano, pimienta',
       price: '8.9',
       category: 'CLÁSICA',
-      image: '/images/carbonara.png'
+      image: '/images/menu/carbonara.png'
     },
     {
       id: 'tomate-albahaca',
@@ -40,7 +40,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Tomate, ajo, cebolla, albahaca, AOVE',
       price: '6.5',
       category: 'CLÁSICA',
-      image: '/images/tomate-albahaca.png'
+      image: '/images/menu/tomate-albahaca.png'
     },
     // ESPECIAL
     {
@@ -49,7 +49,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Albahaca, parmesano, pipas de calabaza, aguacate, ajo, limón, AOVE',
       price: '8.9',
       category: 'ESPECIAL',
-      image: '/images/pesto-de-aguacate.png'
+      image: '/images/menu/pesto-de-aguacate.png'
     },
     {
       id: 'trufa-parmesano',
@@ -57,7 +57,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Pecorino romano, parmesano, crema de trufa',
       price: '7.9',
       category: 'ESPECIAL',
-      image: '/images/trufa.png'
+      image: '/images/menu/trufa.png'
     },
     {
       id: 'alfredo-pollo',
@@ -65,7 +65,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Parmesano, pollo, pimienta, mantequilla',
       price: '8.9',
       category: 'ESPECIAL',
-      image: '/images/alfredo.png'
+      image: '/images/menu/alfredo.png'
     },
     // SABORES DEL MUNDO
     {
@@ -74,7 +74,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Pollo, tomates, cebolla, ajo, nata, jengibre, cúrcuma, chili',
       price: '8.9',
       category: 'SABORES DEL MUNDO',
-      image: '/images/tikka-massala.png'
+      image: '/images/menu/tikka-massala.png'
     },
     {
       id: 'harissa-atun',
@@ -82,7 +82,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Ajo, alcaravea, chili, comino, cilantro, atún',
       price: '7.9',
       category: 'SABORES DEL MUNDO',
-      image: '/images/harissa.png'
+      image: '/images/menu/harissa.png'
     },
     // LOCAL
     {
@@ -91,7 +91,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Parmesano, salchicha, vino, cebolla, ajo, queso crema, nata',
       price: '7.9',
       category: 'LOCAL',
-      image: '/images/ragu-blanco.png'
+      image: '/images/menu/ragu-blanco.png'
     }
   ];
 
@@ -113,7 +113,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Delicate white chocolate mousse with lotus biscuit crumble',
       price: '5.9',
       category: 'DULCE',
-      image: '/images/dolce.png'
+      image: '/images/menu/dolce.png'
     },
     {
       id: 'ferrero-gold',
@@ -121,7 +121,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       description: 'Hazelnut chocolate dessert with gold leaf decoration',
       price: '6.5',
       category: 'DULCE',
-      image: '/images/ferrero.png'
+      image: '/images/menu/ferrero.png'
     }
   ];
 

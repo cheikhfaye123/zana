@@ -11,19 +11,19 @@ const slides = [
   },
   {
     id: 2,
-    image: '/images/pesto-de-aguacate.png',
+    image: '/images/menu/pesto-de-aguacate.png',
     title: 'ESPECIAL',
     description: 'Pesto de aguacate, Trufa y Parmesano, Mac&Cheese'
   },
   {
     id: 3,
-    image: '/images/harissa.png',
+    image: '/images/menu/harissa.png',
     title: 'SABORES DEL MUNDO',
     description: 'Pollo Tikka Masala, Harissa con Tomate y Atún, Huancaína'
   },
   {
     id: 4,
-    image: '/images/ragu-bolognese.png',
+    image: '/images/menu/ragu-bolognese.png',
     title: 'LOCAL',
     description: 'Ragú blanco de salchicha de Requena'
   }
