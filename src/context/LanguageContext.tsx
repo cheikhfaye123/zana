@@ -45,7 +45,20 @@ const translations = {
     'feedback.title': 'Tu Opinión',
     'feedback.subtitle': 'Valoramos tu opinión y nos esforzamos por mejorar tu experiencia',
     'franchising.title': 'Oportunidades de Franquicia',
-    'franchising.subtitle': 'Únete a la familia Zana Street world Pasta y comienza tu propio negocio exitoso'
+    'franchising.subtitle': 'Únete a la familia Zana Street world Pasta y comienza tu propio negocio exitoso',
+    'news.latest': 'Últimas Noticias',
+    'news.stay_updated': 'Mantente al día con las últimas novedades de Zana Street world Pasta',
+    'news.read_more': 'Leer Más →',
+    'news.show_less': 'Mostrar Menos ↑',
+    'news.coming_soon': 'Próximamente',
+    'news.summer_pasta.title': 'En breve nuestra pasta de verano',
+    'news.summer_pasta.excerpt': 'Prueba nuestros refrescantes platos de pasta de verano con ingredientes de temporada y salsas ligeras, perfectos para el clima cálido.',
+    'news.new_location.title': 'Nueva apertura en Benidorm',
+    'news.new_location.excerpt': '¡Estamos emocionados de anunciar nuestra nueva ubicación en Benidorm. ¡Únete a nosotros para la gran inauguración!',
+    'news.app.title': 'En breve nuestra app Zana',
+    'news.app.excerpt': 'Pide tus platos de pasta favoritos sobre la marcha con nuestra nueva aplicación móvil. Disponible ahora en iOS y Android.',
+    'news.special.title': 'Chefs Special: Ragu blanco de salchicha de Requena',
+    'news.special.excerpt': 'Nuestro chef premiado presenta una lujosa pasta con setas silvestres y parmesano envejecido.'
   },
   FR: {
     'nav.locations': 'EMPLACEMENT',
@@ -74,7 +87,6 @@ const translations = {
     'gallery.interior': 'Notre Intérieur Cosy',
     'gallery.private': 'Espace Privé',
     'gallery.bar': 'Notre Bar',
-    
     'gallery.outdoor': 'Nos menus',
     'gallery.zanacup': 'Nos pots',
     'news.title': 'Dernières Actualités',
@@ -84,7 +96,20 @@ const translations = {
     'feedback.title': 'Votre Avis',
     'feedback.subtitle': "Nous apprécions votre opinion et nous nous efforçons d'améliorer votre expérience",
     'franchising.title': 'Opportunités de Franchise',
-    'franchising.subtitle': 'Rejoignez la famille Zana Street world Pasta et lancez votre entreprise prospère'
+    'franchising.subtitle': 'Rejoignez la famille Zana Street world Pasta et lancez votre entreprise prospère',
+    'news.latest': 'Dernières Actualités',
+    'news.stay_updated': 'Restez informé des dernières nouvelles de Zana Street world Pasta',
+    'news.read_more': 'Lire Plus →',
+    'news.show_less': 'Voir Moins ↑',
+    'news.coming_soon': 'Bientôt Disponible',
+    'news.summer_pasta.title': 'Bientôt nos pâtes d\'été',
+    'news.summer_pasta.excerpt': 'Essayez nos plats de pâtes d\'été rafraîchissants avec des ingrédients de saison et des sauces légères, parfaits pour les temps chauds.',
+    'news.new_location.title': 'Nouvelle ouverture à Benidorm',
+    'news.new_location.excerpt': 'Nous sommes ravis d\'annoncer notre nouveau restaurant à Benidorm. Rejoignez-nous pour la grande ouverture !',
+    'news.app.title': 'Bientôt notre application Zana',
+    'news.app.excerpt': 'Commandez vos plats de pâtes préférés en déplacement avec notre nouvelle application mobile. Disponible maintenant sur iOS et Android.',
+    'news.special.title': 'Spécial Chef : Ragu blanc à la saucisse de Requena',
+    'news.special.excerpt': 'Notre chef étoilé présente des pâtes luxueuses aux champignons sauvages et parmesan affiné.'
   },
   EN: {
     'nav.locations': 'LOCATION',
@@ -122,7 +147,20 @@ const translations = {
     'feedback.title': 'Your Feedback',
     'feedback.subtitle': 'We value your opinion and strive to improve your dining experience',
     'franchising.title': 'Franchise Opportunities',
-    'franchising.subtitle': 'Join the Zana Street world Pasta family and start your own successful business'
+    'franchising.subtitle': 'Join the Zana Street world Pasta family and start your own successful business',
+    'news.latest': 'Latest News',
+    'news.stay_updated': 'Stay updated with the latest happenings at Zana Street world Pasta',
+    'news.read_more': 'Read More →',
+    'news.show_less': 'Show Less ↑',
+    'news.coming_soon': 'Coming Soon',
+    'news.summer_pasta.title': 'Coming Soon: Our Summer Pasta',
+    'news.summer_pasta.excerpt': 'Try our refreshing summer pasta dishes with seasonal ingredients and light sauces, perfect for warm weather.',
+    'news.new_location.title': 'New Opening in Benidorm',
+    'news.new_location.excerpt': 'We are excited to announce our new location in Benidorm. Join us for the grand opening celebration!',
+    'news.app.title': 'Coming Soon: Zana App',
+    'news.app.excerpt': 'Order your favorite pasta dishes on the go with our new mobile app. Available now on iOS and Android.',
+    'news.special.title': 'Chefs\' Special: White Ragu with Requena Sausage',
+    'news.special.excerpt': 'Our award-winning chef presents a luxurious pasta with wild mushrooms and aged parmesan.'
   }
 };
 

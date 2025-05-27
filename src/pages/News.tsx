@@ -1,40 +1,42 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar } from 'lucide-react';
-
-const newsItems = [
-  {
-    id: 1,
-    title: "En breve nuestra pasta de verano",
-    date: "June 15, 2025",
-    excerpt: "Prueba nuestros refrescantes platos de pasta de verano con ingredientes de temporada y salsas ligeras, perfectos para el clima cálido.",
-    image: "/images/franchising/ZANA_LOGO.png"
-  },
-  {
-    id: 2,
-    title: "Nueva apertura en Benidorm",
-    date: "May 28, 2025",
-    excerpt: "¡Estamos emocionados de anunciar nuestra nueva ubicación en Benidorm. Únete a nosotros para la celebración de la gran inauguración!",
-    image: "/images/franchising/ZANA_LOGO.png"
-  },
-  {
-    id: 3,
-    title: "En breve nuestra app Zana",
-    date: "April 10, 2025",
-    excerpt: "Nuestro chef galardonado presenta una pasta lujosa con setas silvestres y parmesano añejo.",
-    image: "/images/franchising/ZANA_LOGO.png"
-  },
-  {
-    id: 4,
-    title: "Chefs' Special: Ragu blanco de salchicha de Requena",
-    date: "March 5, 2025",
-    excerpt: "Pide tus platos de pasta favoritos sobre la marcha con nuestra nueva aplicación móvil. Disponible ahora en iOS y Android.",
-    image: "/images/menu/ragu-blanco.png"
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const News = () => {
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  const { t } = useLanguage();
+
+  const newsItems = [
+    {
+      id: 1,
+      title: t('news.summer_pasta.title'),
+      date: "June 15, 2025",
+      excerpt: t('news.summer_pasta.excerpt'),
+      image: "/images/franchising/ZANA_LOGO.png"
+    },
+    {
+      id: 2,
+      title: t('news.new_location.title'),
+      date: "May 28, 2025",
+      excerpt: t('news.new_location.excerpt'),
+      image: "/images/franchising/ZANA_LOGO.png"
+    },
+    {
+      id: 3,
+      title: t('news.app.title'),
+      date: "April 10, 2025",
+      excerpt: t('news.app.excerpt'),
+      image: "/images/franchising/ZANA_LOGO.png"
+    },
+    {
+      id: 4,
+      title: t('news.special.title'),
+      date: "March 5, 2025",
+      excerpt: t('news.special.excerpt'),
+      image: "/images/menu/ragu-blanco.png"
+    }
+  ];
 
   return (
     <div className="pt-20 pb-16 bg-gray-50">
@@ -46,7 +48,7 @@ const News = () => {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl font-['Dancing_Script'] text-[#ff4b4b] mb-3"
           >
-            Latest News
+            {t('news.latest')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -54,7 +56,7 @@ const News = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            Stay updated with the latest happenings at Zana Street world Pasta.
+            {t('news.stay_updated')}
           </motion.p>
         </div>
         
@@ -81,20 +83,14 @@ const News = () => {
                   <span>{item.date}</span>
                 </div>
                 <h2 className="text-lg font-semibold mb-2">{item.title}</h2>
-
-                {/* Texte affiché complet si l'article est étendu */}
                 <p className="text-gray-600 text-sm mb-3">
                   {expandedId === item.id ? item.excerpt : item.excerpt.slice(0, 180) + '...'}
                 </p>
-
-                {/* Bouton d'affichage */}
                 <button
-                  onClick={() =>
-                    setExpandedId(expandedId === item.id ? null : item.id)
-                  }
+                  onClick={() => setExpandedId(expandedId === item.id ? null : item.id)}
                   className="text-[#ff4b4b] text-sm font-medium hover:underline"
                 >
-                  {expandedId === item.id ? 'Show Less ↑' : 'Read More →'}
+                  {expandedId === item.id ? t('news.show_less') : t('news.read_more')}
                 </button>
               </div>
             </motion.article>
