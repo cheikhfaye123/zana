@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const slides = [
   {
     id: 1,
-    image: '/images/ragu-bolognese.png',
+    image: '/images/menu/ragu-bolognese.png',
     title: 'CLÁSICA',
     description: 'Ragú a la Bolognese, Carbonara, Tomate albahaca'
   },
