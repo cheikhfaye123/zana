@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar } from 'lucide-react';
 
@@ -33,6 +34,8 @@ const newsItems = [
 ];
 
 const News = () => {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
   return (
     <div className="pt-20 pb-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -78,13 +81,21 @@ const News = () => {
                   <span>{item.date}</span>
                 </div>
                 <h2 className="text-lg font-semibold mb-2">{item.title}</h2>
-                <p className="text-gray-600 text-sm mb-3">{item.excerpt}</p>
-                <a 
-                  href={`/news/${item.id}`} 
-                  className="inline-block text-[#ff4b4b] text-sm font-medium hover:underline"
+
+                {/* Texte affiché complet si l'article est étendu */}
+                <p className="text-gray-600 text-sm mb-3">
+                  {expandedId === item.id ? item.excerpt : item.excerpt.slice(0, 180) + '...'}
+                </p>
+
+                {/* Bouton d'affichage */}
+                <button
+                  onClick={() =>
+                    setExpandedId(expandedId === item.id ? null : item.id)
+                  }
+                  className="text-[#ff4b4b] text-sm font-medium hover:underline"
                 >
-                  Read More →
-                </a>
+                  {expandedId === item.id ? 'Show Less ↑' : 'Read More →'}
+                </button>
               </div>
             </motion.article>
           ))}
