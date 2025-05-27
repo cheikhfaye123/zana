@@ -6,28 +6,28 @@ const newsItems = [
     id: 1,
     title: "En breve nuestra pasta de verano",
     date: "June 15, 2025",
-    excerpt: "Try our refreshing summer pasta dishes featuring seasonal ingredients and light sauces perfect for warm weather.",
+    excerpt: "Prueba nuestros refrescantes platos de pasta de verano con ingredientes de temporada y salsas ligeras, perfectos para el clima cálido.",
     image: "/images/franchising/ZANA_LOGO.png"
   },
   {
     id: 2,
     title: "Nueva apertura en Benidorm",
     date: "May 28, 2025",
-    excerpt: "We're excited to announce our newest location in downtown Chicago. Join us for the grand opening celebration!",
+    excerpt: "¡Estamos emocionados de anunciar nuestra nueva ubicación en Benidorm. Únete a nosotros para la celebración de la gran inauguración!",
     image: "/images/franchising/ZANA_LOGO.png"
   },
   {
     id: 3,
     title: "En breve nuestra app Zana",
     date: "April 10, 2025",
-    excerpt: "Our award-winning chef introduces a luxurious truffle pappardelle with wild mushrooms and aged parmesan.",
+    excerpt: "Nuestro chef galardonado presenta una pasta lujosa con setas silvestres y parmesano añejo.",
     image: "/images/franchising/ZANA_LOGO.png"
   },
   {
     id: 4,
     title: "Chefs' Special: Ragu blanco de salchicha de Requena",
     date: "March 5, 2025",
-    excerpt: "Order your favorite pasta dishes on the go with our new mobile app. Available now on iOS and Android.",
+    excerpt: "Pide tus platos de pasta favoritos sobre la marcha con nuestra nueva aplicación móvil. Disponible ahora en iOS y Android.",
     image: "/images/ragu-blanco.png"
   }
 ];
