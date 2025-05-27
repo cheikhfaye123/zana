@@ -30,7 +30,7 @@ const Home = () => {
                 <MapPin size={24} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">{t('nav.locations')}</h3>
-              <p className="text-gray-600">C/ Barcelonina, Ciutat Vella, 46002 Valencia, Valencia</p>
+              <p className="text-gray-600">C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia</p>
             </motion.div>
             
             <motion.div
@@ -107,7 +107,7 @@ const Home = () => {
           <h2 className="text-4xl md:text-5xl font-['Dancing_Script'] mb-6">{t('cta.hungry')}</h2>
           <p className="text-xl mb-8 max-w-xl mx-auto">{t('cta.visit')}</p>
           <a 
-            href="https://maps.google.com/?q=C/ Barcelonina, Ciutat Vella, 46002 Valencia, Valencia"
+            href="https://maps.google.com/?q=C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white text-[#ff4b4b] font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors"
