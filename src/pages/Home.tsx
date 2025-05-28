@@ -102,7 +102,7 @@ const Home = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="bg-[#ff4b4b] py-16 text-white text-center">
+      <section className="bg-[#7e7979] py-16 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-['Dancing_Script'] mb-6">{t('cta.hungry')}</h2>
           <p className="text-xl mb-8 max-w-xl mx-auto">{t('cta.visit')}</p>
@@ -110,7 +110,7 @@ const Home = () => {
             href="https://maps.google.com/?q=C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-[#ff4b4b] font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors"
+            className="inline-block bg-black text-[#ede9e9] font-bold px-8 py-3 rounded-full hover:bg-gray-100 hover:text-black transition-colors"
           >
             {t('cta.directions')}
           </a>

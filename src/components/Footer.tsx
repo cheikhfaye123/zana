@@ -171,7 +171,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4 normal-case">ENLACES RÁPIDOS</h3>
             <ul className="space-y-2 text-sm sm:text-base">
               <li>
                 <Link 
@@ -212,7 +212,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="text-center sm:text-left">
-            <h3 className="text-lg font-bold mb-4">Contact Us</h3>
+            <h3 className="text-lg font-bold mb-4">CONTACTANOS</h3>
             <div className="space-y-3 text-gray-400 text-sm sm:text-base">
               <div className="flex items-center justify-center sm:justify-start">
                 <MapPin size={18} className="mr-2 text-[#ff4b4b]" />
