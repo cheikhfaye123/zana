@@ -10,6 +10,8 @@ const Career = () => {
     resume: null as File | null,
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -25,6 +27,37 @@ const Career = () => {
         resume: e.target.files![0]
       }));
     }
+  };
+
+  // Cette fonction est appelée à la soumission
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Création d'un FormData à envoyer via fetch à Formspree
+    const data = new FormData();
+    data.append('fullName', formData.fullName);
+    data.append('phone', formData.phone);
+    data.append('email', formData.email);
+    if (formData.resume) {
+      data.append('resume', formData.resume);
+    }
+
+    fetch('https://formspree.io/f/xyzwrbwd', {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ fullName: '', phone: '', email: '', resume: null });
+      } else {
+        alert('Hubo un error al enviar el formulario. Intente de nuevo.');
+      }
+    }).catch(() => {
+      alert('Hubo un error al enviar el formulario. Intente de nuevo.');
+    });
   };
 
   return (
@@ -49,106 +82,103 @@ const Career = () => {
           </motion.p>
         </div>
 
-        {/* Formulaire Netlify */}
-        <motion.form
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          name="career-form"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          encType="multipart/form-data"
-          className="bg-white rounded-lg shadow-md p-8"
-        >
-          <input type="hidden" name="form-name" value="career-form" />
-          
-          {/* Champ caché pour Netlify */}
-          <input type="hidden" name="bot-field" />
-
-          <div className="mb-6">
-            <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
-              Nombre Completo *
-            </label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              required
-              value={formData.fullName}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-            />
+        {submitted ? (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-8 text-center font-medium">
+            Su solicitud ha sido enviada correctamente.
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
-                Teléfono *
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                value={formData.phone}
-                onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                Correo Electrónico *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-              />
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <label htmlFor="resume" className="block text-gray-700 font-medium mb-2">
-              Subir CV *
-            </label>
-            <div className="relative">
-              <input
-                type="file"
-                id="resume"
-                name="resume"
-                accept=".pdf,.doc,.docx"
-                required
-                onChange={handleFileChange}
-                className="hidden"
-              />
-              <label
-                htmlFor="resume"
-                className="flex items-center justify-center w-full px-4 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50"
-              >
-                <Upload size={20} className="mr-2 text-gray-500" />
-                <span className="text-gray-500">
-                  {formData.resume ? formData.resume.name : 'Selecciona un archivo'}
-                </span>
-              </label>
-              <p className="mt-2 text-sm text-gray-500">
-                Formatos aceptados: PDF, DOC, DOCX (Máx. 5MB)
-              </p>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-[#ff4b4b] text-white py-3 rounded-md hover:bg-[#e64444] transition-colors font-medium"
+        ) : (
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+            className="bg-white rounded-lg shadow-md p-8"
           >
-            Enviar Solicitud
-          </button>
-        </motion.form>
+            <div className="mb-6">
+              <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
+                Nombre Completo *
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                required
+                value={formData.fullName}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+                  Teléfono *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                  Correo Electrónico *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+                />
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <label htmlFor="resume" className="block text-gray-700 font-medium mb-2">
+                Subir CV *
+              </label>
+              <div className="relative">
+                <input
+                  type="file"
+                  id="resume"
+                  name="resume"
+                  accept=".pdf,.doc,.docx"
+                  required
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+                <label
+                  htmlFor="resume"
+                  className="flex items-center justify-center w-full px-4 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50"
+                >
+                  <Upload size={20} className="mr-2 text-gray-500" />
+                  <span className="text-gray-500">
+                    {formData.resume ? formData.resume.name : 'Selecciona un archivo'}
+                  </span>
+                </label>
+                <p className="mt-2 text-sm text-gray-500">
+                  Formatos aceptados: PDF, DOC, DOCX (Máx. 5MB)
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-[#ff4b4b] text-white py-3 rounded-md hover:bg-[#e64444] transition-colors font-medium"
+            >
+              Enviar Solicitud
+            </button>
+          </motion.form>
+        )}
       </div>
     </div>
   );
