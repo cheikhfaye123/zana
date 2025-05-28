@@ -97,12 +97,12 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
 
   const beverages = [
     // ... (insérez ici vos données de boissons)
-    { id: 'coca-cola', name: 'Coca Cola', price: '1.9' },
-    { id: 'coca-zero', name: 'Coca Cola Zero', price: '1.9' },
-    { id: 'agua', name: 'Agua', price: '1.9' },
-    { id: 'limonada', name: 'Limonada', price: '1.9' },
-    { id: 'cerveza-turia', name: 'Cerveza TURIA', price: '1.9' },
-    { id: 'cerveza-sin', name: 'Cerveza sin alcohol', price: '1.9' }
+    { id: 'coca-cola', name: 'Coca Cola', price: '2' },
+    { id: 'coca-zero', name: 'Coca Cola Zero', price: '2' },
+    { id: 'agua', name: 'Agua', price: '2' },
+    { id: 'limonada', name: 'Limonada', price: '2' },
+    { id: 'cerveza-turia', name: 'Cerveza TURIA', price: '2' },
+    { id: 'cerveza-sin', name: 'Cerveza sin alcohol', price: '2' }
   ];
 
   const desserts = [
@@ -111,7 +111,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       id: 'white-lotus',
       name: 'Dolce White Lotus',
       description: 'Delicate white chocolate mousse with lotus biscuit crumble',
-      price: '5.9',
+      price: '5.5',
       category: 'DULCE',
       image: '/images/menu/dolce.png'
     },
@@ -119,7 +119,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       id: 'ferrero-gold',
       name: 'Ferrero GOLD Rocher',
       description: 'Hazelnut chocolate dessert with gold leaf decoration',
-      price: '6.5',
+      price: '5.5',
       category: 'DULCE',
       image: '/images/menu/ferrero.png'
     }
