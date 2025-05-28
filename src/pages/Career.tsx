@@ -7,12 +7,10 @@ const Career = () => {
     fullName: '',
     phone: '',
     email: '',
-    position: '',
-    areaOfInterest: '',
     resume: null as File | null,
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -29,12 +27,6 @@ const Career = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-  };
-
   return (
     <div className="pt-20 pb-16">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
@@ -45,7 +37,7 @@ const Career = () => {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl font-['Dancing_Script'] text-[#ff4b4b] mb-4"
           >
-            Join Our Team
+            Únete a Nuestro Equipo
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -53,20 +45,30 @@ const Career = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl text-gray-600 max-w-2xl mx-auto"
           >
-            Start your journey with Zana Street world Pasta
+            Comienza tu trayectoria en Zana Street world Pasta
           </motion.p>
         </div>
 
+        {/* Formulaire Netlify */}
         <motion.form
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          onSubmit={handleSubmit}
+          name="career-form"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          encType="multipart/form-data"
           className="bg-white rounded-lg shadow-md p-8"
         >
+          <input type="hidden" name="form-name" value="career-form" />
+          
+          {/* Champ caché pour Netlify */}
+          <input type="hidden" name="bot-field" />
+
           <div className="mb-6">
             <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
-              Full Name *
+              Nombre Completo *
             </label>
             <input
               type="text"
@@ -82,7 +84,7 @@ const Career = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
               <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
-                Phone Number *
+                Teléfono *
               </label>
               <input
                 type="tel"
@@ -97,7 +99,7 @@ const Career = () => {
 
             <div>
               <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                Email Address *
+                Correo Electrónico *
               </label>
               <input
                 type="email"
@@ -111,51 +113,9 @@ const Career = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label htmlFor="position" className="block text-gray-700 font-medium mb-2">
-                Position *
-              </label>
-              <select
-                id="position"
-                name="position"
-                required
-                value={formData.position}
-                onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-              >
-                <option value="">Select a position</option>
-                <option value="Store Manager">Store Manager</option>
-                <option value="Line Cook">Line Cook</option>
-                <option value="Server">Server</option>
-                <option value="Marketing Coordinator">Marketing Coordinator</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="areaOfInterest" className="block text-gray-700 font-medium mb-2">
-                Area of Interest *
-              </label>
-              <select
-                id="areaOfInterest"
-                name="areaOfInterest"
-                required
-                value={formData.areaOfInterest}
-                onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-              >
-                <option value="">Select an area</option>
-                <option value="Kitchen Operations">Kitchen Operations</option>
-                <option value="Customer Service">Customer Service</option>
-                <option value="Management">Management</option>
-                <option value="Marketing">Marketing</option>
-              </select>
-            </div>
-          </div>
-
           <div className="mb-8">
             <label htmlFor="resume" className="block text-gray-700 font-medium mb-2">
-              Upload Resume *
+              Subir CV *
             </label>
             <div className="relative">
               <input
@@ -173,11 +133,11 @@ const Career = () => {
               >
                 <Upload size={20} className="mr-2 text-gray-500" />
                 <span className="text-gray-500">
-                  {formData.resume ? formData.resume.name : 'Choose a file'}
+                  {formData.resume ? formData.resume.name : 'Selecciona un archivo'}
                 </span>
               </label>
               <p className="mt-2 text-sm text-gray-500">
-                Accepted formats: PDF, DOC, DOCX (Max 5MB)
+                Formatos aceptados: PDF, DOC, DOCX (Máx. 5MB)
               </p>
             </div>
           </div>
@@ -186,7 +146,7 @@ const Career = () => {
             type="submit"
             className="w-full bg-[#ff4b4b] text-white py-3 rounded-md hover:bg-[#e64444] transition-colors font-medium"
           >
-            Submit Application
+            Enviar Solicitud
           </button>
         </motion.form>
       </div>
