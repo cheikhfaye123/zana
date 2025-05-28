@@ -62,42 +62,41 @@ const Career = () => {
 
   if (submitted) {
     return (
-      <div className="pt-20 pb-16 max-w-3xl mx-auto px-4 md:px-8 text-center">
-        <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-3xl font-semibold mb-4 text-[#ff4b4b]"
+      <div className="fixed inset-0 bg-white flex items-center justify-center p-6">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="text-center max-w-md"
         >
-          ¡Gracias por tu interés!
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          Hemos recibido tu información. Por favor, envía tu CV a nuestro correo electrónico.
-        </motion.p>
+          <h2 className="text-2xl font-bold text-[#ff4b4b] mb-4">¡Gracias por tu interés!</h2>
+          <p className="mb-6">Hemos recibido tu información. Por favor, envía tu CV a nuestro correo electrónico.</p>
+          <a 
+            href={`mailto:streetpastazana@gmail.com?subject=CV%20para%20Zana%20Street%20Pasta%20-%20${encodeURIComponent(formData.fullName)}`}
+            className="inline-flex items-center justify-center px-4 py-2 bg-[#ff4b4b] text-white rounded-md hover:bg-[#e64444]"
+          >
+            <Mail className="mr-2" size={16} />
+            Enviar CV por email
+          </a>
+        </motion.div>
       </div>
     );
   }
 
   return (
-    <div className="pt-24 pb-16">
-      <div className="max-w-3xl mx-auto px-4 md:px-8">
-        <div className="text-center mb-16 pt-9">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+      <div className="max-w-md mx-auto">
+        <div className="text-center mb-8 pt-9">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-['Dancing_Script'] text-[#ff4b4b] mb-4"
+            className="text-3xl font-['Dancing_Script'] text-[#ff4b4b] mb-2 pt-9"
           >
             Únete a Nuestro Equipo
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className=" text-sm text-gray-600"
           >
             Comienza tu trayectoria en Zana Street world Pasta
           </motion.p>
@@ -106,91 +105,89 @@ const Career = () => {
         <motion.form
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
           onSubmit={handleSubmit}
-          className="bg-white rounded-lg shadow-md p-8"
+          className="bg-white rounded-xl shadow-sm p-6"
         >
-          <div className="mb-6">
-            <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
-              Nombre Completo *
-            </label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              required
-              value={formData.fullName}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="space-y-4">
             <div>
-              <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
-                Teléfono *
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                Nombre Completo *
               </label>
               <input
-                type="tel"
-                id="phone"
-                name="phone"
+                type="text"
+                id="fullName"
+                name="fullName"
                 required
-                value={formData.phone}
+                value={formData.fullName}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b] focus:border-transparent"
               />
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                Correo Electrónico *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-              />
+            <div className="grid grid-cols-1 gap-4">
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  Teléfono *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Correo Electrónico *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="mb-8">
-            <p className="text-gray-700 font-medium mb-2">
-              Para enviar tu CV, por favor envíalo a:
-            </p>
-            <a 
-              href={`mailto:streetpastazana@gmail.com?subject=CV%20para%20Zana%20Street%20Pasta%20-%20${encodeURIComponent(formData.fullName)}&body=${encodeURIComponent(
-                `Nombre: ${formData.fullName}\nTeléfono: ${formData.phone}\nEmail: ${formData.email}\n\nDirección del restaurante:\nC/ Barcelonina 2, Ciutat Vella\n46002 Valencia, Valencia`
-              )}`}
-              className="text-[#ff4b4b] hover:text-[#e64444] transition-colors inline-flex items-center"
+            <div className="pt-2">
+              <p className="text-sm font-medium text-gray-700 mb-2">
+                Para enviar tu CV:
+              </p>
+              <a 
+                href={`mailto:streetpastazana@gmail.com?subject=CV%20para%20Zana%20Street%20Pasta%20-%20${encodeURIComponent(formData.fullName)}`}
+                className="inline-flex items-center text-sm text-[#ff4b4b] hover:text-[#e64444]"
+              >
+                <Mail className="mr-2" size={16} />
+                streetpastazana@gmail.com
+              </a>
+            </div>
+
+            {error && (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="p-3 text-sm text-red-700 bg-red-100 rounded-lg"
+              >
+                {error}
+              </motion.div>
+            )}
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={`w-full py-3 px-4 bg-[#ff4b4b] text-white font-medium rounded-lg hover:bg-[#e64444] transition-colors ${
+                isSubmitting ? "opacity-70" : ""
+              }`}
             >
-              <Mail className="mr-2" size={20} />
-              streetpastazana@gmail.com
-            </a>
+              {isSubmitting ? "Enviando..." : "Enviar Solicitud"}
+            </button>
           </div>
-
-          {error && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded"
-            >
-              {error}
-            </motion.div>
-          )}
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={`w-full bg-[#ff4b4b] text-white py-3 rounded-md hover:bg-[#e64444] transition-colors font-medium ${
-              isSubmitting ? "opacity-70 cursor-not-allowed" : ""
-            }`}
-          >
-            {isSubmitting ? "Enviando..." : "Enviar Solicitud"}
-          </button>
         </motion.form>
       </div>
     </div>
