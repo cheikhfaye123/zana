@@ -41,45 +41,41 @@ const Career = () => {
     setIsSubmitting(true);
     setError('');
 
-    if (!formData.fullName || !formData.phone || !formData.email) {
+    // Validation de base
+    if (!formData.fullName || !formData.phone || !formData.email || !formData.resume) {
       setError('Por favor, complete todos los campos obligatorios.');
       setIsSubmitting(false);
       return;
     }
 
-    if (!formData.resume) {
-      setError('Por favor, sube tu CV.');
-      setIsSubmitting(false);
-      return;
+    const formDataToSend = new FormData();
+    formDataToSend.append('fullName', formData.fullName);
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('email', formData.email);
+    if (formData.resume) {
+      formDataToSend.append('resume', formData.resume);
     }
 
-    const formDataToSend = new FormData();
-    formDataToSend.append('name', formData.fullName); // Champ standard pour Formspree
-    formDataToSend.append('phone', formData.phone);
-    formDataToSend.append('email', formData.email); // Champ standard pour Formspree
-    formDataToSend.append('file', formData.resume); // 'file' est le nom attendu par Formspree pour les fichiers
-
     try {
-      const response = await fetch('https://formspree.io/f/xyzwrbwd', {
+      const response = await fetch('https://formspree.io/f/xyzwrbwd', { // Remplacez par votre ID Formspree
         method: 'POST',
         body: formDataToSend,
         headers: {
           'Accept': 'application/json'
-        }
+        },
+        mode: 'cors'
       });
 
-      const responseData = await response.json();
-
-      if (response.ok) {
-        setSubmitted(true);
-        setFormData({ fullName: '', phone: '', email: '', resume: null });
-      } else {
-        setError(`Error: ${responseData.error || 'Hubo un problema al enviar el formulario'}`);
-        console.error('Formspree error:', responseData);
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
       }
+
+      setSubmitted(true);
+      setFormData({ fullName: '', phone: '', email: '', resume: null });
+      
     } catch (err) {
-      setError('Error de conexión. Por favor, intente nuevamente.');
-      console.error('Submission error:', err);
+      console.error('Error:', err);
+      setError('Error al enviar el formulario. Por favor, inténtelo de nuevo.');
     } finally {
       setIsSubmitting(false);
     }
@@ -135,6 +131,8 @@ const Career = () => {
           onSubmit={handleSubmit}
           className="bg-white rounded-lg shadow-md p-8"
           encType="multipart/form-data"
+          method="POST"
+          action="https://formspree.io/f/xyzwrbwd" // Remplacez par votre ID Formspree
         >
           <input type="hidden" name="_replyto" value="streetpastazana@gmail.com" />
           <input type="hidden" name="_subject" value="Nueva solicitud de empleo - Zana Pasta" />
