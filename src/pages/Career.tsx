@@ -24,7 +24,6 @@ const Career = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      // Vérifier la taille du fichier (max 5MB)
       if (e.target.files[0].size > 5 * 1024 * 1024) {
         setError('El archivo es demasiado grande (máx. 5MB)');
         return;
@@ -33,7 +32,7 @@ const Career = () => {
         ...prev,
         resume: e.target.files![0]
       }));
-      setError(''); // Effacer les erreurs précédentes
+      setError('');
     }
   };
 
@@ -42,7 +41,6 @@ const Career = () => {
     setIsSubmitting(true);
     setError('');
 
-    // Validation supplémentaire
     if (!formData.fullName || !formData.phone || !formData.email) {
       setError('Por favor, complete todos los campos obligatorios.');
       setIsSubmitting(false);
@@ -56,10 +54,10 @@ const Career = () => {
     }
 
     const formDataToSend = new FormData();
-    formDataToSend.append('Nombre', formData.fullName);
-    formDataToSend.append('Teléfono', formData.phone);
-    formDataToSend.append('Email', formData.email);
-    formDataToSend.append('CV', formData.resume);
+    formDataToSend.append('name', formData.fullName); // Champ standard pour Formspree
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('email', formData.email); // Champ standard pour Formspree
+    formDataToSend.append('file', formData.resume); // 'file' est le nom attendu par Formspree pour les fichiers
 
     try {
       const response = await fetch('https://formspree.io/f/xyzwrbwd', {
@@ -72,15 +70,15 @@ const Career = () => {
 
       const responseData = await response.json();
 
-      if (response.ok && responseData.success) {
+      if (response.ok) {
         setSubmitted(true);
         setFormData({ fullName: '', phone: '', email: '', resume: null });
       } else {
-        setError('Hubo un error al enviar el formulario. Intente de nuevo.');
+        setError(`Error: ${responseData.error || 'Hubo un problema al enviar el formulario'}`);
         console.error('Formspree error:', responseData);
       }
     } catch (err) {
-      setError('Error de conexión. Por favor, verifique su conexión a internet e intente nuevamente.');
+      setError('Error de conexión. Por favor, intente nuevamente.');
       console.error('Submission error:', err);
     } finally {
       setIsSubmitting(false);
@@ -138,6 +136,10 @@ const Career = () => {
           className="bg-white rounded-lg shadow-md p-8"
           encType="multipart/form-data"
         >
+          <input type="hidden" name="_replyto" value="streetpastazana@gmail.com" />
+          <input type="hidden" name="_subject" value="Nueva solicitud de empleo - Zana Pasta" />
+          <input type="hidden" name="_language" value="es" />
+
           <div className="mb-6">
             <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
               Nombre Completo *
