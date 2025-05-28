@@ -2,8 +2,6 @@ import { motion } from 'framer-motion';
 import { Upload } from 'lucide-react';
 import { useState } from 'react';
 
-const FORM_ENDPOINT = 'https://formspree.io/f/xyzwrbwd'; // Remplace par ton vrai endpoint
-
 const Career = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -32,7 +30,7 @@ const Career = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     if (!formData.resume) {
@@ -45,49 +43,38 @@ const Career = () => {
     data.append('phone', formData.phone);
     data.append('email', formData.email);
     data.append('resume', formData.resume);
-    data.append('form-name', 'career-form'); // champ caché nécessaire parfois
 
     try {
-      const response = await fetch(FORM_ENDPOINT, {
+      const response = await fetch('https://formspree.io/f/xyzwrbwd', { // Remplace par ton endpoint Formspree
         method: 'POST',
         body: data,
         headers: {
-          'Accept': 'application/json',
-        },
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {
         setSubmitted(true);
         setFormData({ fullName: '', phone: '', email: '', resume: null });
       } else {
-        const json = await response.json();
-        setError(json.error || 'Hubo un error al enviar el formulario. Intenta de nuevo.');
+        setError('Hubo un error al enviar el formulario. Intente de nuevo.');
       }
     } catch (err) {
-      setError('Hubo un error de red. Intenta de nuevo.');
+      setError('Hubo un error al enviar el formulario. Intente de nuevo.');
     }
   };
 
   if (submitted) {
     return (
       <div className="pt-20 pb-16 max-w-3xl mx-auto px-4 md:px-8 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl font-semibold text-[#ff4b4b]"
-        >
-          ¡Tu solicitud ha sido enviada con éxito!
-        </motion.h2>
-        <p className="mt-4 text-gray-700">
-          Gracias por unirte a nuestro equipo. Nos pondremos en contacto contigo pronto.
-        </p>
+        <h2 className="text-3xl font-semibold mb-4 text-[#ff4b4b]">¡Gracias!</h2>
+        <p>Su solicitud ha sido enviada correctamente. ¡Esperamos contar con usted pronto!</p>
       </div>
     );
   }
 
   return (
-    <div className="pt-20 pb-16">
+    <div className="pt-24 pb-16"> {/* pt-24 pour baisser le titre */}
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         <div className="text-center mb-16 pt-9">
           <motion.h1 
@@ -113,8 +100,8 @@ const Career = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           onSubmit={handleSubmit}
-          encType="multipart/form-data"
           className="bg-white rounded-lg shadow-md p-8"
+          encType="multipart/form-data"
         >
           <div className="mb-6">
             <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
@@ -175,7 +162,16 @@ const Career = () => {
                 accept=".pdf,.doc,.docx"
                 required
                 onChange={handleFileChange}
-                className="hidden"
+                style={{
+                  position: 'absolute',
+                  width: '1px',
+                  height: '1px',
+                  padding: 0,
+                  margin: '-1px',
+                  overflow: 'hidden',
+                  clip: 'rect(0,0,0,0)',
+                  border: 0,
+                }}
               />
               <label
                 htmlFor="resume"
@@ -192,9 +188,7 @@ const Career = () => {
             </div>
           </div>
 
-          {error && (
-            <p className="mb-4 text-red-600 font-medium">{error}</p>
-          )}
+          {error && <p className="mb-4 text-red-600">{error}</p>}
 
           <button
             type="submit"
