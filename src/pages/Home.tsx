@@ -110,7 +110,7 @@ const Home = () => {
             href="https://maps.google.com/?q=C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-black text-[#ede9e9] font-bold px-8 py-3 rounded-full hover:bg-gray-100 hover:text-black transition-colors"
+            className="inline-block bg-black text-[#ede9e9] font-bold px-8 py-3 rounded-full hover:bg-[#0a1f3c] hover:text-white transition-colors"
           >
             {t('cta.directions')}
           </a>
