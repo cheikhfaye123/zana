@@ -104,10 +104,10 @@ const Navbar = () => {
             {language}
           </button>
           <a href="https://www.instagram.com/zanapasta?igsh=MnZyOWYyeWNkMHdo" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-            <Instagram size={20} />
+            <Instagram size={28} />
           </a>
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-            <Facebook size={20} />
+            <Facebook size={28} />
           </a>
         </div>
 
@@ -177,10 +177,10 @@ const Navbar = () => {
             </div>
             <div className="flex space-x-4 mt-8">
               <a href="https://www.instagram.com/zanapasta?igsh=MnZyOWYyeWNkMHdo" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-                <Instagram size={20} />
+                <Instagram size={28} />
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-                <Facebook size={20} />
+                <Facebook size={28} />
               </a>
             </div>
           </div>

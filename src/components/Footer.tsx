@@ -111,7 +111,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-[#ff4b4b] transition-colors"
             >
-              <Instagram size={20} />
+              <Instagram size={28} />
             </a>
             <a
               href="https://facebook.com"
@@ -119,7 +119,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-[#ff4b4b] transition-colors"
             >
-              <Facebook size={20} />
+              <Facebook size={28} />
             </a>
           </div>
 
@@ -157,7 +157,7 @@ const Footer = () => {
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-[#ff4b4b] transition-colors"
               >
-                <Instagram size={20} />
+                <Instagram size={28} />
               </a>
               <a 
                 href="https://facebook.com" 
@@ -165,7 +165,7 @@ const Footer = () => {
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-[#ff4b4b] transition-colors"
               >
-                <Facebook size={20} />
+                <Facebook size={28} />
               </a>
             </div>
           </div>
