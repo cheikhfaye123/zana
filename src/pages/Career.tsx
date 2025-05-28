@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion';
-import { Upload } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useState } from 'react';
 
 const Career = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
-    email: '',
-    resume: null as File | null,
+    email: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -22,67 +21,36 @@ const Career = () => {
     }));
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      // Vérifier la taille du fichier (max 5MB)
-      if (e.target.files[0].size > 5 * 1024 * 1024) {
-        setError('El archivo es demasiado grande (máx. 5MB)');
-        return;
-      }
-      setFormData(prev => ({
-        ...prev,
-        resume: e.target.files![0]
-      }));
-      setError(''); // Effacer les erreurs précédentes
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
 
-    // Validation
-    if (!formData.fullName || !formData.phone || !formData.email || !formData.resume) {
+    if (!formData.fullName || !formData.phone || !formData.email) {
       setError('Por favor, complete todos los campos obligatorios.');
       setIsSubmitting(false);
       return;
     }
 
-    const formDataToSend = new FormData();
-    formDataToSend.append('name', formData.fullName);
-    formDataToSend.append('email', formData.email);
-    formDataToSend.append('phone', formData.phone);
-    formDataToSend.append('attachment', formData.resume);
-
-    // Logs de débogage
-    console.log('Sending form data:', {
-      name: formData.fullName,
-      email: formData.email,
-      phone: formData.phone,
-      file: formData.resume.name
-    });
-
     try {
-      // Remplacez xyzwrbwd par votre véritable ID Formspree
-      const response = await fetch('https://formspree.io/f/abc123', { // <-- Remplacez cet ID
+      const response = await fetch('https://formspree.io/f/mzzrnydr', {
         method: 'POST',
-        body: formDataToSend,
         headers: {
-          'Accept': 'application/json'
-        }
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          restaurantLocation: 'C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia'
+        })
       });
-
-      // Log de la réponse
-      console.log('Response status:', response.status);
-      const data = await response.json();
-      console.log('Response data:', data);
 
       if (response.ok) {
         setSubmitted(true);
-        setFormData({ fullName: '', phone: '', email: '', resume: null });
+        setFormData({ fullName: '', phone: '', email: '' });
       } else {
-        setError(`Error ${response.status}: ${data.error || 'Error al enviar el formulario'}`);
+        const data = await response.json();
+        setError(`Error: ${data.error || 'Error al enviar el formulario'}`);
       }
     } catch (err) {
       console.error('Error details:', err);
@@ -100,14 +68,14 @@ const Career = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl font-semibold mb-4 text-[#ff4b4b]"
         >
-          ¡Gracias!
+          ¡Gracias por tu interés!
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Su solicitud ha sido enviada correctamente. ¡Esperamos contar con usted pronto!
+          Hemos recibido tu información. Por favor, envía tu CV a nuestro correo electrónico.
         </motion.p>
       </div>
     );
@@ -141,8 +109,6 @@ const Career = () => {
           transition={{ duration: 0.5 }}
           onSubmit={handleSubmit}
           className="bg-white rounded-lg shadow-md p-8"
-          encType="multipart/form-data"
-          action="https://formspree.io/f/xyzwrbwd" // <-- Remplacez aussi cet ID
         >
           <div className="mb-6">
             <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
@@ -192,33 +158,18 @@ const Career = () => {
           </div>
 
           <div className="mb-8">
-            <label htmlFor="resume" className="block text-gray-700 font-medium mb-2">
-              Subir CV * (PDF, DOC, DOCX - Máx. 5MB)
-            </label>
-            <div className="relative">
-              <input
-                type="file"
-                id="resume"
-                name="resume"
-                accept=".pdf,.doc,.docx"
-                required
-                onChange={handleFileChange}
-                className="hidden"
-              />
-              <label
-                htmlFor="resume"
-                className={`flex items-center justify-center w-full px-4 py-2 border rounded-md cursor-pointer ${
-                  formData.resume 
-                    ? "border-green-500 bg-green-50" 
-                    : "border-gray-300 hover:bg-gray-50"
-                }`}
-              >
-                <Upload size={20} className="mr-2 text-gray-500" />
-                <span className="text-gray-500">
-                  {formData.resume ? formData.resume.name : 'Selecciona un archivo'}
-                </span>
-              </label>
-            </div>
+            <p className="text-gray-700 font-medium mb-2">
+              Para enviar tu CV, por favor envíalo a:
+            </p>
+            <a 
+              href={`mailto:streetpastazana@gmail.com?subject=CV%20para%20Zana%20Street%20Pasta%20-%20${encodeURIComponent(formData.fullName)}&body=${encodeURIComponent(
+                `Nombre: ${formData.fullName}\nTeléfono: ${formData.phone}\nEmail: ${formData.email}\n\nDirección del restaurante:\nC/ Barcelonina 2, Ciutat Vella\n46002 Valencia, Valencia`
+              )}`}
+              className="text-[#ff4b4b] hover:text-[#e64444] transition-colors inline-flex items-center"
+            >
+              <Mail className="mr-2" size={20} />
+              streetpastazana@gmail.com
+            </a>
           </div>
 
           {error && (
