@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Upload } from 'lucide-react';
 import { useState } from 'react';
 
+const FORM_ENDPOINT = 'https://formspree.io/f/xyzwrbwd'; // Remplace par ton vrai endpoint
+
 const Career = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -9,7 +11,9 @@ const Career = () => {
     email: '',
     resume: null as File | null,
   });
+
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,37 +32,59 @@ const Career = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError('');
+    if (!formData.resume) {
+      setError('Por favor, sube tu CV.');
+      return;
+    }
 
     const data = new FormData();
     data.append('fullName', formData.fullName);
     data.append('phone', formData.phone);
     data.append('email', formData.email);
-    if (formData.resume) {
-      data.append('resume', formData.resume);
-    }
+    data.append('resume', formData.resume);
+    data.append('form-name', 'career-form'); // champ caché nécessaire parfois
 
     try {
-      const response = await fetch('https://formspree.io/f/xyzwrbwd', {
+      const response = await fetch(FORM_ENDPOINT, {
         method: 'POST',
+        body: data,
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
-        body: data
       });
 
       if (response.ok) {
         setSubmitted(true);
         setFormData({ fullName: '', phone: '', email: '', resume: null });
       } else {
-        alert('Hubo un error al enviar el formulario. Intente de nuevo.');
+        const json = await response.json();
+        setError(json.error || 'Hubo un error al enviar el formulario. Intenta de nuevo.');
       }
-    } catch (error) {
-      alert('Hubo un error al enviar el formulario. Intente de nuevo.');
-      console.error(error);
+    } catch (err) {
+      setError('Hubo un error de red. Intenta de nuevo.');
     }
   };
+
+  if (submitted) {
+    return (
+      <div className="pt-20 pb-16 max-w-3xl mx-auto px-4 md:px-8 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl font-semibold text-[#ff4b4b]"
+        >
+          ¡Tu solicitud ha sido enviada con éxito!
+        </motion.h2>
+        <p className="mt-4 text-gray-700">
+          Gracias por unirte a nuestro equipo. Nos pondremos en contacto contigo pronto.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-20 pb-16">
@@ -82,103 +108,101 @@ const Career = () => {
           </motion.p>
         </div>
 
-        {!submitted ? (
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            onSubmit={handleSubmit}
-            className="bg-white rounded-lg shadow-md p-8"
-            encType="multipart/form-data"
-          >
-            <div className="mb-6">
-              <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
-                Nombre Completo *
+        <motion.form
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+          className="bg-white rounded-lg shadow-md p-8"
+        >
+          <div className="mb-6">
+            <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
+              Nombre Completo *
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              value={formData.fullName}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+                Teléfono *
               </label>
               <input
-                type="text"
-                id="fullName"
-                name="fullName"
+                type="tel"
+                id="phone"
+                name="phone"
                 required
-                value={formData.fullName}
+                value={formData.phone}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
-                  Teléfono *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                  Correo Electrónico *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-                />
-              </div>
-            </div>
-
-            <div className="mb-8">
-              <label htmlFor="resume" className="block text-gray-700 font-medium mb-2">
-                Subir CV *
+            <div>
+              <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                Correo Electrónico *
               </label>
-              <div className="relative">
-                <input
-                  type="file"
-                  id="resume"
-                  name="resume"
-                  accept=".pdf,.doc,.docx"
-                  required
-                  onChange={handleFileChange}
-                  className="hidden"
-                />
-                <label
-                  htmlFor="resume"
-                  className="flex items-center justify-center w-full px-4 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50"
-                >
-                  <Upload size={20} className="mr-2 text-gray-500" />
-                  <span className="text-gray-500">
-                    {formData.resume ? formData.resume.name : 'Selecciona un archivo'}
-                  </span>
-                </label>
-                <p className="mt-2 text-sm text-gray-500">
-                  Formatos aceptados: PDF, DOC, DOCX (Máx. 5MB)
-                </p>
-              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+              />
             </div>
-
-            <button
-              type="submit"
-              className="w-full bg-[#ff4b4b] text-white py-3 rounded-md hover:bg-[#e64444] transition-colors font-medium"
-            >
-              Enviar Solicitud
-            </button>
-          </motion.form>
-        ) : (
-          <div className="text-center text-green-600 font-semibold text-xl">
-            Gracias! Su solicitud ha sido enviada con éxito.
           </div>
-        )}
+
+          <div className="mb-8">
+            <label htmlFor="resume" className="block text-gray-700 font-medium mb-2">
+              Subir CV *
+            </label>
+            <div className="relative">
+              <input
+                type="file"
+                id="resume"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                required
+                onChange={handleFileChange}
+                className="hidden"
+              />
+              <label
+                htmlFor="resume"
+                className="flex items-center justify-center w-full px-4 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50"
+              >
+                <Upload size={20} className="mr-2 text-gray-500" />
+                <span className="text-gray-500">
+                  {formData.resume ? formData.resume.name : 'Selecciona un archivo'}
+                </span>
+              </label>
+              <p className="mt-2 text-sm text-gray-500">
+                Formatos aceptados: PDF, DOC, DOCX (Máx. 5MB)
+              </p>
+            </div>
+          </div>
+
+          {error && (
+            <p className="mb-4 text-red-600 font-medium">{error}</p>
+          )}
+
+          <button
+            type="submit"
+            className="w-full bg-[#ff4b4b] text-white py-3 rounded-md hover:bg-[#e64444] transition-colors font-medium"
+          >
+            Enviar Solicitud
+          </button>
+        </motion.form>
       </div>
     </div>
   );
