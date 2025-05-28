@@ -24,7 +24,6 @@ const Career = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      // Vérifier la taille du fichier (max 5MB)
       if (e.target.files[0].size > 5 * 1024 * 1024) {
         setError('El archivo es demasiado grande (máx. 5MB)');
         return;
@@ -33,7 +32,7 @@ const Career = () => {
         ...prev,
         resume: e.target.files![0]
       }));
-      setError(''); // Effacer les erreurs précédentes
+      setError('');
     }
   };
 
@@ -42,7 +41,6 @@ const Career = () => {
     setIsSubmitting(true);
     setError('');
 
-    // Validation supplémentaire
     if (!formData.fullName || !formData.phone || !formData.email) {
       setError('Por favor, complete todos los campos obligatorios.');
       setIsSubmitting(false);
@@ -90,7 +88,7 @@ const Career = () => {
   if (submitted) {
     return (
       <div className="pt-20 pb-16 max-w-3xl mx-auto px-4 md:px-8 text-center">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl font-semibold mb-4 text-[#ff4b4b]"
@@ -112,7 +110,7 @@ const Career = () => {
     <div className="pt-24 pb-16">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         <div className="text-center mb-16 pt-9">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -195,15 +193,14 @@ const Career = () => {
                 id="resume"
                 name="resume"
                 accept=".pdf,.doc,.docx"
-                required
                 onChange={handleFileChange}
-                className="hidden"
+                className="sr-only"
               />
               <label
                 htmlFor="resume"
                 className={`flex items-center justify-center w-full px-4 py-2 border rounded-md cursor-pointer ${
-                  formData.resume 
-                    ? "border-green-500 bg-green-50" 
+                  formData.resume
+                    ? "border-green-500 bg-green-50"
                     : "border-gray-300 hover:bg-gray-50"
                 }`}
               >
@@ -216,7 +213,7 @@ const Career = () => {
           </div>
 
           {error && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded"
