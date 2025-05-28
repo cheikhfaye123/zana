@@ -102,7 +102,7 @@ const Home = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="bg-[#edeaea] py-16 text-black text-center">
+      <section className="bg-white py-16 text-black text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-['Dancing_Script'] mb-6">{t('cta.hungry')}</h2>
           <p className="text-xl mb-8 max-w-xl mx-auto">{t('cta.visit')}</p>
