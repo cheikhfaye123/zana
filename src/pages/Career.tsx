@@ -9,7 +9,6 @@ const Career = () => {
     email: '',
     resume: null as File | null,
   });
-
   const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,11 +28,9 @@ const Career = () => {
     }
   };
 
-  // Cette fonction est appelée à la soumission
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Création d'un FormData à envoyer via fetch à Formspree
     const data = new FormData();
     data.append('fullName', formData.fullName);
     data.append('phone', formData.phone);
@@ -42,28 +39,31 @@ const Career = () => {
       data.append('resume', formData.resume);
     }
 
-    fetch('https://formspree.io/f/xyzwrbwd', {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
+    try {
+      const response = await fetch('https://formspree.io/f/xyzwrbwd', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: data
+      });
+
       if (response.ok) {
         setSubmitted(true);
         setFormData({ fullName: '', phone: '', email: '', resume: null });
       } else {
         alert('Hubo un error al enviar el formulario. Intente de nuevo.');
       }
-    }).catch(() => {
+    } catch (error) {
       alert('Hubo un error al enviar el formulario. Intente de nuevo.');
-    });
+      console.error(error);
+    }
   };
 
   return (
     <div className="pt-20 pb-16">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 pt-9">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -82,18 +82,14 @@ const Career = () => {
           </motion.p>
         </div>
 
-        {submitted ? (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-8 text-center font-medium">
-            Su solicitud ha sido enviada correctamente.
-          </div>
-        ) : (
+        {!submitted ? (
           <motion.form
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             onSubmit={handleSubmit}
-            encType="multipart/form-data"
             className="bg-white rounded-lg shadow-md p-8"
+            encType="multipart/form-data"
           >
             <div className="mb-6">
               <label htmlFor="fullName" className="block text-gray-700 font-medium mb-2">
@@ -178,6 +174,10 @@ const Career = () => {
               Enviar Solicitud
             </button>
           </motion.form>
+        ) : (
+          <div className="text-center text-green-600 font-semibold text-xl">
+            Gracias! Su solicitud ha sido enviada con éxito.
+          </div>
         )}
       </div>
     </div>
