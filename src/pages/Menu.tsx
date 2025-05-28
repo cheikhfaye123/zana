@@ -24,7 +24,7 @@ const Menu = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#ff4b4b] mb-3 sm:mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#292727] mb-3 sm:mb-4 pt-9"
           >
             {t('nav.menu')}
           </motion.h1>
@@ -47,8 +47,8 @@ const Menu = () => {
             onClick={() => setActiveCategory(null)}
             className={`px-3 py-1 sm:px-5 sm:py-2 text-sm sm:text-base rounded-full border-2 transition-all ${
               activeCategory === null
-                ? 'bg-[#ff4b4b] text-white border-[#ff4b4b]'
-                : 'bg-white text-gray-700 border-gray-400 hover:border-[#ff4b4b]'
+                ? 'bg-[#292727] text-white border-white'
+                : 'bg-white text-gray-700 border-gray-400 hover:border-[#292727]'
             }`}
           >
             {t('menu.all')}
@@ -62,8 +62,8 @@ const Menu = () => {
               onClick={() => setActiveCategory(category.id)}
               className={`px-3 py-1 sm:px-5 sm:py-2 text-sm sm:text-base rounded-full border-2 transition-all ${
                 activeCategory === category.id
-                  ? 'bg-[#ff4b4b] text-white border-[#ff4b4b]'
-                  : 'bg-white text-gray-700 border-gray-400 hover:border-[#ff4b4b]'
+                  ? 'bg-[#292727] text-white border-white'
+                  : 'bg-white text-gray-700 border-gray-400 hover:border-gray-500'
               }`}
             >
               {t(category.translationKey)}

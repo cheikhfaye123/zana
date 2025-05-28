@@ -28,7 +28,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0a1f3c] text-white py-10">
+    <footer className="bg-[#133463] text-white py-10 rounded-tl-[50px] rounded-tr-[50px]">
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Mobile version */}
@@ -54,29 +55,29 @@ const Footer = () => {
               <li>
                 <Link
                   to="/#visit-us"
-                  className="text-gray-300 hover:text-[#ff4b4b] transition-colors block"
+                  className="text-gray-300 hover:underline hover:decoration-white transition-all block"
                   onClick={handleLocationClick}
                 >
                   Ubicación
                 </Link>
               </li>
               <li>
-                <Link to="/menu" className="text-gray-300 hover:text-[#ff4b4b] transition-colors block">
+                <Link to="/menu" className="text-gray-300 hover:underline hover:decoration-white transition-all block">
                   Menú
                 </Link>
               </li>
               <li>
-                <Link to="/news" className="text-gray-300 hover:text-[#ff4b4b] transition-colors block">
+                <Link to="/news" className="text-gray-300 hover:underline hover:decoration-white transition-all block">
                   Novedades
                 </Link>
               </li>
               <li>
-                <Link to="/career" className="text-gray-300 hover:text-[#ff4b4b] transition-colors block">
+                <Link to="/career" className="text-gray-300 hover:underline hover:decoration-white transition-all block">
                   Empleo
                 </Link>
               </li>
               <li>
-                <Link to="/feedback" className="text-gray-300 hover:text-[#ff4b4b] transition-colors block">
+                <Link to="/feedback" className="text-gray-300 hover:underline hover:decoration-white transition-all block">
                   Opiniones
                 </Link>
               </li>
@@ -128,7 +129,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Desktop version (inchangée) */}
+        {/* Desktop version */}
         <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Logo & réseaux sociaux */}
           <div className="text-center sm:text-left">
@@ -176,34 +177,34 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/#visit-us" 
-                  className="text-gray-400 hover:text-[#ff4b4b] transition-colors block py-1"
+                  className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1"
                   onClick={handleLocationClick}
                 >
                   {t('nav.locations')}
                 </Link>
               </li>
               <li>
-                <Link to="/menu" className="text-gray-400 hover:text-[#ff4b4b] transition-colors block py-1">
+                <Link to="/menu" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.menu')}
                 </Link>
               </li>
               <li>
-                <Link to="/news" className="text-gray-400 hover:text-[#ff4b4b] transition-colors block py-1">
+                <Link to="/news" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.news')}
                 </Link>
               </li>
               <li>
-                <Link to="/career" className="text-gray-400 hover:text-[#ff4b4b] transition-colors block py-1">
+                <Link to="/career" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.career')}
                 </Link>
               </li>
               <li>
-                <Link to="/feedback" className="text-gray-400 hover:text-[#ff4b4b] transition-colors block py-1">
+                <Link to="/feedback" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.feedback')}
                 </Link>
               </li>
               <li>
-                <Link to="/franchising" className="text-gray-400 hover:text-[#ff4b4b] transition-colors block py-1">
+                <Link to="/franchising" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.franchising')}
                 </Link>
               </li>

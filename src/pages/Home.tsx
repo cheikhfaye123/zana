@@ -26,7 +26,7 @@ const Home = () => {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-lg shadow-md text-center"
             >
-              <div className="w-16 h-16 bg-[#ff4b4b] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#292727] rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin size={24} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">{t('nav.locations')}</h3>
@@ -40,7 +40,7 @@ const Home = () => {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-lg shadow-md text-center"
             >
-              <div className="w-16 h-16 bg-[#ff4b4b] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#292727] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award size={24} className="text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">{t('location.quality')}</h3>
@@ -58,7 +58,7 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-center text-[#ff4b4b] mb-12"
+            className="text-4xl md:text-5xl font-bold text-center text-[#292727] mb-12"
           >
             {t('location.title')}
           </motion.h2>
@@ -84,11 +84,11 @@ const Home = () => {
               <h2 className="text-2xl font-bold mb-4">Valencia</h2>
               <div className="space-y-3">
                 <div className="flex items-start">
-                  <MapPin size={20} className="text-[#ff4b4b] mr-3 mt-1 flex-shrink-0" />
+                  <MapPin size={20} className="text-[#7b7979] mr-3 mt-1 flex-shrink-0" />
                   <p>{locationInfo.address}</p>
                 </div>
                 <div className="flex items-start">
-                  <Phone size={20} className="text-[#ff4b4b] mr-3 mt-1 flex-shrink-0" />
+                  <Phone size={20} className="text-[#7b7979] mr-3 mt-1 flex-shrink-0" />
                   <p>{locationInfo.phone}</p>
                 </div>
                 <div className="flex items-start">
@@ -102,7 +102,7 @@ const Home = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="bg-white py-16 text-black text-center">
+      <section className="bg-white py-16 text-[#292727] text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-['Dancing_Script'] mb-6">{t('cta.hungry')}</h2>
           <p className="text-xl mb-8 max-w-xl mx-auto">{t('cta.visit')}</p>

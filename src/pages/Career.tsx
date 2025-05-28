@@ -89,7 +89,7 @@ const Career = () => {
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl font-['Dancing_Script'] text-[#ff4b4b] mb-2 pt-9"
+            className="text-3xl font-['Dancing_Script'] text-[#292727] mb-2 pt-9"
           >
             Únete a Nuestro Equipo
           </motion.h1>
@@ -161,7 +161,7 @@ const Career = () => {
               </p>
               <a 
                 href={`mailto:streetpastazana@gmail.com?subject=CV%20para%20Zana%20Street%20Pasta%20-%20${encodeURIComponent(formData.fullName)}`}
-                className="inline-flex items-center text-sm text-[#ff4b4b] hover:text-[#e64444]"
+                className="inline-flex items-center text-sm text-[#292727] hover:text-[#535050]"
               >
                 <Mail className="mr-2" size={16} />
                 streetpastazana@gmail.com
@@ -181,7 +181,7 @@ const Career = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full py-3 px-4 bg-[#ff4b4b] text-white font-medium rounded-lg hover:bg-[#e64444] transition-colors ${
+              className={`w-full py-3 px-4 bg-[#292727] text-white font-medium rounded-lg hover:bg-[#726d6d] transition-colors ${
                 isSubmitting ? "opacity-70" : ""
               }`}
             >

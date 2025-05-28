@@ -46,7 +46,7 @@ const News = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-['Dancing_Script'] text-[#ff4b4b] mb-3"
+            className="text-4xl md:text-5xl font-['Dancing_Script'] text-[#292727] mb-3 pt-9"
           >
             {t('news.latest')}
           </motion.h1>
