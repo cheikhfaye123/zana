@@ -79,7 +79,7 @@ const Home = () => {
               />
             </div>
             <div className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Valencia</h2>
+             
               <div className="space-y-3">
                 <div className="flex items-start">
                   <MapPin size={20} className="text-[#ff4b4b] mr-3 mt-1 flex-shrink-0" />

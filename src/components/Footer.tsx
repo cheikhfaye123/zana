@@ -28,7 +28,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#133463] text-white py-10 rounded-tl-[50px] rounded-tr-[50px]">
+    <footer className="bg-[#68696a] text-white py-10 rounded-tl-[50px] rounded-tr-[50px]">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -50,34 +50,34 @@ const Footer = () => {
 
           {/* Enlaces rápidos */}
           <div>
-            <h3 className="text-lg font-bold mb-4">ENLACES RÁPIDOS</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">ENLACES RÁPIDOS</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   to="/#visit-us"
-                  className="text-gray-300 hover:underline hover:decoration-white transition-all block"
+                  className="text-white hover:underline hover:decoration-white transition-all block"
                   onClick={handleLocationClick}
                 >
                   Ubicación
                 </Link>
               </li>
               <li>
-                <Link to="/menu" className="text-gray-300 hover:underline hover:decoration-white transition-all block">
+                <Link to="/menu" className="text-white hover:underline hover:decoration-white transition-all block">
                   Menú
                 </Link>
               </li>
               <li>
-                <Link to="/news" className="text-gray-300 hover:underline hover:decoration-white transition-all block">
+                <Link to="/news" className="text-white hover:underline hover:decoration-white transition-all block">
                   Novedades
                 </Link>
               </li>
               <li>
-                <Link to="/career" className="text-gray-300 hover:underline hover:decoration-white transition-all block">
+                <Link to="/career" className="text-white hover:underline hover:decoration-white transition-all block">
                   Empleo
                 </Link>
               </li>
               <li>
-                <Link to="/feedback" className="text-gray-300 hover:underline hover:decoration-white transition-all block">
+                <Link to="/feedback" className="text-white hover:underline hover:decoration-white transition-all block">
                   Opiniones
                 </Link>
               </li>
@@ -86,8 +86,8 @@ const Footer = () => {
 
           {/* Contacto */}
           <div>
-            <h3 className="text-lg font-bold mb-4">CONTÁCTANOS</h3>
-            <div className="space-y-3 text-sm text-gray-300">
+            <h3 className="text-lg font-bold mb-4 text-white">CONTÁCTANOS</h3>
+            <div className="space-y-3 text-sm text-white">
               <div className="flex items-center justify-center">
                 <MapPin size={18} className="mr-2 text-[#ff4b4b]" />
                 <span>C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia</span>
@@ -109,7 +109,7 @@ const Footer = () => {
               href="https://www.instagram.com/zanapasta"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[#ff4b4b] transition-colors"
+              className="text-white hover:text-[#ff4b4b] transition-colors"
             >
               <Instagram size={28} />
             </a>
@@ -117,14 +117,14 @@ const Footer = () => {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[#ff4b4b] transition-colors"
+              className="text-white hover:text-[#ff4b4b] transition-colors"
             >
               <Facebook size={28} />
             </a>
           </div>
 
           {/* Copyright */}
-          <div className="text-gray-400 text-sm pt-6 border-t border-gray-700">
+          <div className="text-white text-sm pt-6 border-t border-gray-700">
             © 2025 Zana Street Pasta. Todos los derechos reservados.
           </div>
         </div>
@@ -147,7 +147,7 @@ const Footer = () => {
                 />
               </div>
             </div>
-            <p className="text-gray-400 mb-4 text-sm sm:text-base">
+            <p className="text-white mb-4 text-sm sm:text-base">
               Delicious pasta made fresh daily with quality ingredients.
             </p>
             <div className="flex justify-center sm:justify-start space-x-4">
@@ -155,7 +155,7 @@ const Footer = () => {
                 href="https://www.instagram.com/zanapasta" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-[#ff4b4b] transition-colors"
+                className="text-white hover:text-[#ff4b4b] transition-colors"
               >
                 <Instagram size={28} />
               </a>
@@ -163,7 +163,7 @@ const Footer = () => {
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-[#ff4b4b] transition-colors"
+                className="text-white hover:text-[#ff4b4b] transition-colors"
               >
                 <Facebook size={28} />
               </a>
@@ -172,39 +172,39 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
-            <h3 className="text-lg font-bold mb-4 normal-case">ENLACES RÁPIDOS</h3>
+            <h3 className="text-lg font-bold mb-4 normal-case text-white">ENLACES RÁPIDOS</h3>
             <ul className="space-y-2 text-sm sm:text-base">
               <li>
                 <Link 
                   to="/#visit-us" 
-                  className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1"
+                  className="text-white hover:underline hover:decoration-white transition-all block py-1"
                   onClick={handleLocationClick}
                 >
                   {t('nav.locations')}
                 </Link>
               </li>
               <li>
-                <Link to="/menu" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
+                <Link to="/menu" className="text-white hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.menu')}
                 </Link>
               </li>
               <li>
-                <Link to="/news" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
+                <Link to="/news" className="text-white hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.news')}
                 </Link>
               </li>
               <li>
-                <Link to="/career" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
+                <Link to="/career" className="text-white hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.career')}
                 </Link>
               </li>
               <li>
-                <Link to="/feedback" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
+                <Link to="/feedback" className="text-white hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.feedback')}
                 </Link>
               </li>
               <li>
-                <Link to="/franchising" className="text-gray-400 hover:underline hover:decoration-white transition-all block py-1">
+                <Link to="/franchising" className="text-white hover:underline hover:decoration-white transition-all block py-1">
                   {t('nav.franchising')}
                 </Link>
               </li>
@@ -213,8 +213,8 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="text-center sm:text-left">
-            <h3 className="text-lg font-bold mb-4">CONTACTANOS</h3>
-            <div className="space-y-3 text-gray-400 text-sm sm:text-base">
+            <h3 className="text-lg font-bold mb-4 text-white">CONTACTANOS</h3>
+            <div className="space-y-3 text-white text-sm sm:text-base">
               <div className="flex items-center justify-center sm:justify-start">
                 <MapPin size={18} className="mr-2 text-[#ff4b4b]" />
                 <span>C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia</span>
@@ -232,7 +232,7 @@ const Footer = () => {
         </div>
 
         {/* Desktop copyright */}
-        <div className="hidden lg:block border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+        <div className="hidden lg:block border-t border-gray-800 mt-8 pt-8 text-center text-white text-sm">
           <p>{t('footer.copyright')}</p>
         </div>
       </div>
