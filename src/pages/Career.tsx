@@ -33,7 +33,7 @@ const Career = () => {
     }
 
     try {
-      const response = await fetch('https://formspree.io/f/mzzrnydr', {
+      const response = await fetch('https://formspree.io/f/xwpoggrj', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
