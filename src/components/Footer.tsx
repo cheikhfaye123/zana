@@ -50,7 +50,7 @@ const Footer = () => {
 
           {/* Enlaces rápidos */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">ENLACES RÁPIDOS</h3>
+          <h3 className="text-lg font-bold mb-4 text-white">{t('footer.quicklinks')}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
@@ -86,7 +86,7 @@ const Footer = () => {
 
           {/* Contacto */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">CONTÁCTANOS</h3>
+          <h3 className="text-lg font-bold mb-4 text-white">{t('footer.contact')}</h3>
             <div className="space-y-3 text-sm text-white">
               <div className="flex items-center justify-center">
                 <MapPin size={18} className="mr-2 text-[#ff4b4b]" />
@@ -148,8 +148,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white mb-4 text-sm sm:text-base">
-              Delicious pasta made fresh daily with quality ingredients.
-            </p>
+  {t('footer.slogan')}
+</p>
             <div className="flex justify-center sm:justify-start space-x-4">
               <a 
                 href="https://www.instagram.com/zanapasta" 
@@ -172,7 +172,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
-            <h3 className="text-lg font-bold mb-4 normal-case text-white">ENLACES RÁPIDOS</h3>
+          <h3 className="text-lg font-bold mb-4 normal-case text-white">{t('footer.quicklinks')}</h3>
             <ul className="space-y-2 text-sm sm:text-base">
               <li>
                 <Link 
@@ -213,7 +213,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="text-center sm:text-left">
-            <h3 className="text-lg font-bold mb-4 text-white">CONTACTANOS</h3>
+          <h3 className="text-lg font-bold mb-4 text-white">{t('footer.contact')}</h3>
             <div className="space-y-3 text-white text-sm sm:text-base">
               <div className="flex items-center justify-center sm:justify-start">
                 <MapPin size={18} className="mr-2 text-[#ff4b4b]" />

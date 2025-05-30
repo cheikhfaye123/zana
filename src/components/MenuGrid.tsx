@@ -6,17 +6,16 @@ import { CATEGORIES, getTranslatedCategory, CategoryKey } from './categories';
 interface DishProps {
   id: string;
   name: string;
-  description: string;
+  description?: string;
   price: string;
   category: CategoryKey;
-  image: string;
+  image?: string;
 }
 
 const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
   const [selectedDish, setSelectedDish] = useState<DishProps | null>(null);
   const { t } = useLanguage();
 
-  // Fonction pour trouver la clé de catégorie à partir de la valeur traduite
   const getCategoryKeyFromTranslated = (translatedCategory: string): CategoryKey | null => {
     const categoryEntry = Object.entries(CATEGORIES).find(([_, value]) => {
       return getTranslatedCategory(value, t) === translatedCategory;
@@ -24,7 +23,6 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
     return categoryEntry ? (categoryEntry[1] as CategoryKey) : null;
   };
 
-  // Plats principaux
   const dishes: DishProps[] = [
     {
       id: 'classic-ragu',
@@ -100,18 +98,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
     }
   ];
 
-  // Boissons
-  const beverages = [
-    { id: 'coca-cola', name: t('menu.drinks.coca.title'), price: '2' },
-    { id: 'coca-zero', name: t('menu.drinks.coca.zero.title'), price: '2' },
-    { id: 'agua', name: t('menu.drinks.water.title'), price: '2' },
-    { id: 'limonada', name: t('menu.drinks.lemonade.title'), price: '2' },
-    { id: 'cerveza-turia', name: t('menu.drinks.turia.title'), price: '2' },
-    { id: 'cerveza-sin', name: t('menu.drinks.non.alcoholic.title'), price: '2' }
-  ];
-
-  // Desserts
-  const desserts = [
+  const desserts: DishProps[] = [
     {
       id: 'white-lotus',
       name: t('menu.desserts.white.lotus.title'),
@@ -130,9 +117,29 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
     }
   ];
 
-  // Filtrage des plats
+  const beverages: DishProps[] = [
+    { id: 'coca-cola', name: t('menu.drinks.coca.title'), price: '2', category: CATEGORIES.DRINKS, image: '/images/menu/coca-cola.png' },
+    { id: 'coca-zero', name: t('menu.drinks.coca.zero.title'), price: '2', category: CATEGORIES.DRINKS, image: '/images/menu/coca-colazero.png' },
+    { id: 'agua', name: t('menu.drinks.water.title'), price: '2', category: CATEGORIES.DRINKS , image: '/images/menu/eau.png' },
+    { id: 'limonada', name: t('menu.drinks.lemonade.title'), price: '2', category: CATEGORIES.DRINKS, image: '/images/menu/limond.png' },
+    {
+      id: 'cerveza-turia',
+      name: t('menu.drinks.turia.title'),
+      price: '2',
+      category: CATEGORIES.DRINKS,
+      image: '/images/menu/cerveza-turia.png'
+    },
+    {
+      id: 'cerveza-sin',
+      name: t('menu.drinks.non.alcoholic.title'),
+      price: '2',
+      category: CATEGORIES.DRINKS,
+      image: '/images/menu/zero-alcohol.png'
+    }
+  ];
+
   const activeCategoryKey = activeCategory ? getCategoryKeyFromTranslated(activeCategory) : null;
-  
+
   const filteredDishes = activeCategoryKey
     ? dishes.filter(dish => dish.category === activeCategoryKey)
     : dishes;
@@ -142,7 +149,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
 
   return (
     <div className="space-y-8 sm:space-y-12 px-2 sm:px-0">
-      {/* Plats principaux */}
+      {/* Dishes */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
         {filteredDishes.map((dish) => (
           <motion.div
@@ -175,7 +182,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
         ))}
       </div>
 
-      {/* Section Desserts */}
+      {/* Desserts */}
       {showDesserts && (
         <section className="mt-8 sm:mt-12">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-[#ff4b4b]">
@@ -215,7 +222,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
         </section>
       )}
 
-      {/* Section Boissons */}
+      {/* Beverages */}
       {showBeverages && (
         <section className="mt-8 sm:mt-12">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-[#ff4b4b]">
@@ -231,6 +238,13 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                 transition={{ duration: 0.3 }}
                 className="bg-white rounded-lg border-2 border-gray-300 shadow-sm p-3 text-center hover:shadow-md transition-all duration-300"
               >
+                {beverage.image && (
+                  <img
+                    src={beverage.image}
+                    alt={beverage.name}
+                    className="w-full h-24 object-contain mb-2"
+                  />
+                )}
                 <h3 className="text-sm sm:text-base font-medium text-gray-900">{beverage.name}</h3>
                 <p className="text-sm sm:text-base font-bold text-[#ff4b4b] mt-1 sm:mt-2">{beverage.price}€</p>
               </motion.div>
@@ -239,7 +253,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
         </section>
       )}
 
-      {/* Modal de détail du plat */}
+      {/* Modal */}
       <AnimatePresence>
         {selectedDish && (
           <motion.div
@@ -283,9 +297,11 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                     {getTranslatedCategory(selectedDish.category, t)}
                   </span>
                 </div>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  {selectedDish.description}
-                </p>
+                {selectedDish.description && (
+                  <p className="text-gray-700 text-sm sm:text-base">
+                    {selectedDish.description}
+                  </p>
+                )}
               </div>
             </motion.div>
           </motion.div>
