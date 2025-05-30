@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MenuGrid from '../components/MenuGrid';
 import { useLanguage } from '../context/LanguageContext';
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const { t } = useLanguage();
+  const [activeCategoryKey, setActiveCategoryKey] = useState<string | null>(null);
+  const { t, language } = useLanguage();
 
   const categories = [
     { id: 'CLÁSICA', translationKey: 'menu.category.classic' },
@@ -15,6 +16,26 @@ const Menu = () => {
     { id: 'DULCE', translationKey: 'menu.category.desserts' },
     { id: 'BEBIDA', translationKey: 'menu.category.drinks' }
   ];
+
+  // Effet pour mettre à jour la catégorie active quand la langue change
+  useEffect(() => {
+    if (activeCategoryKey) {
+      const category = categories.find(cat => cat.translationKey === activeCategoryKey);
+      if (category) {
+        setActiveCategory(t(category.translationKey));
+      }
+    }
+  }, [language, activeCategoryKey, t]);
+
+  const handleCategoryClick = (translationKey: string | null) => {
+    if (translationKey === null) {
+      setActiveCategory(null);
+      setActiveCategoryKey(null);
+    } else {
+      setActiveCategoryKey(translationKey);
+      setActiveCategory(t(translationKey));
+    }
+  };
 
   return (
     <div className="pt-20 pb-16 bg-gray-50 min-h-screen">
@@ -44,7 +65,7 @@ const Menu = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            onClick={() => setActiveCategory(null)}
+            onClick={() => handleCategoryClick(null)}
             className={`px-3 py-1 sm:px-5 sm:py-2 text-sm sm:text-base rounded-full border-2 transition-all ${
               activeCategory === null
                 ? 'bg-[#292727] text-white border-white'
@@ -53,24 +74,27 @@ const Menu = () => {
           >
             {t('menu.all')}
           </motion.button>
-          {categories.map((category, index) => (
-            <motion.button
-              key={category.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-3 py-1 sm:px-5 sm:py-2 text-sm sm:text-base rounded-full border-2 transition-all ${
-                activeCategory === category.id
-                  ? 'bg-[#292727] text-white border-white'
-                  : 'bg-white text-gray-700 border-gray-400 hover:border-gray-500'
-              }`}
-            >
-              {t(category.translationKey)}
-            </motion.button>
-          ))}
+          {categories.map((category, index) => {
+            const translatedCategory = t(category.translationKey);
+            return (
+              <motion.button
+                key={category.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                onClick={() => handleCategoryClick(category.translationKey)}
+                className={`px-3 py-1 sm:px-5 sm:py-2 text-sm sm:text-base rounded-full border-2 transition-all ${
+                  activeCategoryKey === category.translationKey
+                    ? 'bg-[#292727] text-white border-white'
+                    : 'bg-white text-gray-700 border-gray-400 hover:border-gray-500'
+                }`}
+              >
+                {translatedCategory}
+              </motion.button>
+            );
+          })}
         </div>
-        
+                
         <MenuGrid activeCategory={activeCategory} />
       </div>
     </div>

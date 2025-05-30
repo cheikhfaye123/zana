@@ -24,6 +24,47 @@ const translations = {
     'menu.category.local': 'LOCAL',
     'menu.category.desserts': 'DULCE',
     'menu.category.drinks': 'BEBIDA',
+	'menu.item.description': 'Descripción',
+    
+    // Plats classiques
+    'menu.classic.ragu.title': 'Ragú a la Bolognesa',
+    'menu.classic.ragu.description': 'Ternera, zanahoria, ajo, cebolla, apio, tomate, AOVE',
+    'menu.classic.carbonara.title': 'Carbonara',
+    'menu.classic.carbonara.description': 'Pecorino, guanciale, huevo, parmesano, pimienta',
+    'menu.tomate.albahaca.title': 'Tomate y Albahaca',
+    'menu.tomate.albahaca.description': 'Tomate fresco, albahaca, ajo, aceite de oliva virgen extra',
+	 // Plats spéciaux
+    'menu.trufa.parmesano.title': 'Trufa y Parmesano',
+    'menu.trufa.parmesano.description': 'Salsa de trufa negra, parmesano reggiano, mantequilla',
+    'menu.pesto.aguacate.title': 'Pesto de Aguacate',
+    'menu.pesto.aguacate.description': 'Aguacate, albahaca, piñones, ajo, aceite de oliva',
+    'menu.alfredo.pollo.title': 'Alfredo con Pollo',
+	'menu.alfredo.pollo.description': 'Pollo, salsa alfredo, champiñones, parmesano',
+    
+    // Saveurs du monde
+    'menu.pollo.tikka.title': 'Pollo Tikka Masala',
+    'menu.pollo.tikka.description': 'Pollo, tomate, cebolla, ajo, especias indias, nata',
+    'menu.world.harissa.title': 'Atún con Harissa',
+    'menu.world.harissa.description': 'Atún, harissa, pimiento rojo, ajo, comino',
+    
+    // Saveurs locales
+    'menu.local.requena.title': 'Ragú Blanco de Requena',
+    'menu.local.requena.description': 'Salchicha de Requena, setas, vino blanco, nata',
+	// Desserts
+    'menu.desserts.white.lotus.title': 'Loto Blanco',
+    'menu.desserts.white.lotus.description': 'Chocolate blanco, frambuesa, coco',
+    'menu.desserts.ferrero.gold.title': 'Ferrero Gold',
+    'menu.desserts.ferrero.gold.description': 'Chocolate, avellana, crocante',
+    
+    // Boissons
+    'menu.drinks.coca.title': 'Coca-Cola',
+    'menu.drinks.coca.zero.title': 'Coca-Cola Zero',
+    'menu.drinks.water.title': 'Agua Mineral',
+    'menu.drinks.lemonade.title': 'Limonada Casera',
+    'menu.drinks.turia.title': 'Cerveza Turia',
+    'menu.drinks.non.alcoholic.title': 'Cerveza Sin Alcohol',
+	
+	
     'location.title': 'VISÍTANOS',
     'location.hours': 'Lun-Dom: 11:00 - 22:00',
     'location.quality': 'Calidad Premium',
@@ -75,6 +116,51 @@ const translations = {
     'menu.category.local': 'LOCAL',
     'menu.category.desserts': 'DESSERT',
     'menu.category.drinks': 'BOISSON',
+	'menu.item.description': 'Description',
+    
+    // Plats classiques
+    'menu.classic.ragu.title': 'Ragù à la Bolognaise',
+    'menu.classic.ragu.description': 'Bœuf, carottes, ail, oignon, céleri, tomates, huile d\'olive',
+    'menu.classic.carbonara.title': 'Carbonara',
+    'menu.classic.carbonara.description': 'Pecorino, guanciale, œuf, parmesan, poivre',
+    'menu.tomate.albahaca.title': 'Tomate et Basilic',
+    'menu.tomate.albahaca.description': 'Tomate fraîche, basilic, ail, huile d\'olive extra vierge',
+    
+    // Plats spéciaux
+    'menu.trufa.parmesano.title': 'Truffe et Parmesan',
+    'menu.trufa.parmesano.description': 'Sauce à la truffe noire, parmesan reggiano, beurre',
+    'menu.pesto.aguacate.title': 'Pesto d\'Avocat',
+    'menu.pesto.aguacate.description': 'Avocat, basilic, pignons, ail, huile d\'olive',
+    'menu.alfredo.pollo.title': 'Alfredo au Poulet',
+    'menu.alfredo.pollo.description': 'Poulet, sauce alfredo, champignons, parmesan',
+    
+    // Saveurs du monde
+    'menu.pollo.tikka.title': 'Poulet Tikka Masala',
+    'menu.pollo.tikka.description': 'Poulet, tomates, oignons, ail, épices indiennes, crème',
+    'menu.world.harissa.title': 'Thon à la Harissa',
+    'menu.world.harissa.description': 'Thon, harissa, poivron rouge, ail, cumin',
+    
+    // Saveurs locales
+    'menu.local.requena.title': 'Ragù Blanc de Requena',
+    'menu.local.requena.description': 'Saucisse de Requena, champignons, vin blanc, crème',
+    
+    // Desserts
+    'menu.desserts.white.lotus.title': 'Lotus Blanc',
+    'menu.desserts.white.lotus.description': 'Chocolat blanc, framboise, noix de coco',
+    'menu.desserts.ferrero.gold.title': 'Ferrero Gold',
+    'menu.desserts.ferrero.gold.description': 'Chocolat, noisette, croustillant',
+    
+    // Boissons
+    'menu.drinks.coca.title': 'Coca-Cola',
+    'menu.drinks.coca.zero.title': 'Coca-Cola Zero',
+    'menu.drinks.water.title': 'Eau Minérale',
+    'menu.drinks.lemonade.title': 'Limonade Maison',
+    'menu.drinks.turia.title': 'Bière Turia',
+    'menu.drinks.non.alcoholic.title': 'Bière Sans Alcool',
+    
+	
+	
+	
     'location.title': 'VISITEZ-NOUS',
     'location.hours': 'Lun-Dim: 11h00 - 22h00',
     'location.quality': 'Qualité Premium',
@@ -126,6 +212,51 @@ const translations = {
     'menu.category.local': 'LOCAL',
     'menu.category.desserts': 'DESSERT',
     'menu.category.drinks': 'DRINKS',
+	'menu.item.description': 'Description',
+    
+    // Classic dishes
+    'menu.classic.ragu.title': 'Bolognese Ragu',
+    'menu.classic.ragu.description': 'Beef, carrots, garlic, onion, celery, tomatoes, olive oil',
+    'menu.classic.carbonara.title': 'Carbonara',
+    'menu.classic.carbonara.description': 'Pecorino, guanciale, egg, parmesan, pepper',
+    'menu.tomate.albahaca.title': 'Tomato and Basil',
+    'menu.tomate.albahaca.description': 'Fresh tomato, basil, garlic, extra virgin olive oil',
+    
+    // Special dishes
+    'menu.trufa.parmesano.title': 'Truffle and Parmesan',
+    'menu.trufa.parmesano.description': 'Black truffle sauce, parmesan reggiano, butter',
+    'menu.pesto.aguacate.title': 'Avocado Pesto',
+    'menu.pesto.aguacate.description': 'Avocado, basil, pine nuts, garlic, olive oil',
+    'menu.alfredo.pollo.title': 'Chicken Alfredo',
+    'menu.alfredo.pollo.description': 'Chicken, alfredo sauce, mushrooms, parmesan',
+    
+    // World flavors
+    'menu.pollo.tikka.title': 'Chicken Tikka Masala',
+    'menu.pollo.tikka.description': 'Chicken, tomatoes, onions, garlic, Indian spices, cream',
+    'menu.world.harissa.title': 'Harissa Tuna',
+    'menu.world.harissa.description': 'Tuna, harissa, red pepper, garlic, cumin',
+    
+    // Local flavors
+    'menu.local.requena.title': 'White Ragu with Requena Sausage',
+    'menu.local.requena.description': 'Requena sausage, mushrooms, white wine, cream',
+    
+    // Desserts
+    'menu.desserts.white.lotus.title': 'White Lotus',
+    'menu.desserts.white.lotus.description': 'White chocolate, raspberry, coconut',
+    'menu.desserts.ferrero.gold.title': 'Ferrero Gold',
+    'menu.desserts.ferrero.gold.description': 'Chocolate, hazelnut, crisp',
+    
+    // Drinks
+    'menu.drinks.coca.title': 'Coca-Cola',
+    'menu.drinks.coca.zero.title': 'Coca-Cola Zero',
+    'menu.drinks.water.title': 'Mineral Water',
+    'menu.drinks.lemonade.title': 'Homemade Lemonade',
+    'menu.drinks.turia.title': 'Turia Beer',
+    'menu.drinks.non.alcoholic.title': 'Non-Alcoholic Beer',
+    
+	
+	
+	
     'location.title': 'VISIT US',
     'location.hours': 'Mon-Sun: 11:00 AM - 10:00 PM',
     'location.quality': 'Premium Quality',

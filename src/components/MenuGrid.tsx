@@ -1,13 +1,14 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { CATEGORIES, getTranslatedCategory, CategoryKey } from './categories';
 
 interface DishProps {
   id: string;
   name: string;
   description: string;
   price: string;
-  category: string;
+  category: CategoryKey;
   image: string;
 }
 
@@ -15,126 +16,133 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
   const [selectedDish, setSelectedDish] = useState<DishProps | null>(null);
   const { t } = useLanguage();
 
-  // Données des plats (à adapter avec vos données réelles)
+  // Fonction pour trouver la clé de catégorie à partir de la valeur traduite
+  const getCategoryKeyFromTranslated = (translatedCategory: string): CategoryKey | null => {
+    const categoryEntry = Object.entries(CATEGORIES).find(([_, value]) => {
+      return getTranslatedCategory(value, t) === translatedCategory;
+    });
+    return categoryEntry ? (categoryEntry[1] as CategoryKey) : null;
+  };
+
+  // Plats principaux
   const dishes: DishProps[] = [
-    // ... (insérez ici vos données de plats existantes)
     {
-      id: 'ragu-bolognese',
-      name: 'Ragú a la Bolognese',
-      description: 'Ternera, zanahoria, ajo, cebolla, apio, tomate, AOVE',
+      id: 'classic-ragu',
+      name: t('menu.classic.ragu.title'),
+      description: t('menu.classic.ragu.description'),
       price: '8.9',
-      category: 'CLÁSICA',
+      category: CATEGORIES.CLASSIC,
       image: '/images/menu/ragu-bolognese.png'
     },
     {
-      id: 'carbonara',
-      name: 'Carbonara',
-      description: 'Pecorino, guanciale, huevo, parmesano, pimienta',
+      id: 'classic-carbonara',
+      name: t('menu.classic.carbonara.title'),
+      description: t('menu.classic.carbonara.description'),
       price: '8.9',
-      category: 'CLÁSICA',
+      category: CATEGORIES.CLASSIC,
       image: '/images/menu/carbonara.png'
     },
     {
       id: 'tomate-albahaca',
-      name: 'Tomate albahaca',
-      description: 'Tomate, ajo, cebolla, albahaca, AOVE',
+      name: t('menu.tomate.albahaca.title'),
+      description: t('menu.tomate.albahaca.description'),
       price: '6.5',
-      category: 'CLÁSICA',
+      category: CATEGORIES.CLASSIC,
       image: '/images/menu/tomate-albahaca.png'
     },
-    // ESPECIAL
     {
       id: 'pesto-aguacate',
-      name: 'Pesto de aguacate',
-      description: 'Albahaca, parmesano, pipas de calabaza, aguacate, ajo, limón, AOVE',
+      name: t('menu.pesto.aguacate.title'),
+      description: t('menu.pesto.aguacate.description'),
       price: '8.9',
-      category: 'ESPECIAL',
+      category: CATEGORIES.SPECIAL,
       image: '/images/menu/pesto-de-aguacate.png'
     },
     {
       id: 'trufa-parmesano',
-      name: 'Trufa y Parmesano',
-      description: 'Pecorino romano, parmesano, crema de trufa',
+      name: t('menu.trufa.parmesano.title'),
+      description: t('menu.trufa.parmesano.description'),
       price: '7.9',
-      category: 'ESPECIAL',
+      category: CATEGORIES.SPECIAL,
       image: '/images/menu/trufa.png'
     },
     {
       id: 'alfredo-pollo',
-      name: 'Alfredo pollo y champiñones',
-      description: 'Parmesano, pollo, pimienta, mantequilla',
+      name: t('menu.alfredo.pollo.title'),
+      description: t('menu.alfredo.pollo.description'),
       price: '8.9',
-      category: 'ESPECIAL',
+      category: CATEGORIES.SPECIAL,
       image: '/images/menu/alfredo.png'
     },
-    // SABORES DEL MUNDO
     {
       id: 'pollo-tikka',
-      name: 'Pollo Tikka Masala',
-      description: 'Pollo, tomates, cebolla, ajo, nata, jengibre, cúrcuma, chili',
+      name: t('menu.pollo.tikka.title'),
+      description: t('menu.pollo.tikka.description'),
       price: '8.9',
-      category: 'SABORES DEL MUNDO',
+      category: CATEGORIES.WORLD,
       image: '/images/menu/tikka-massala.png'
     },
     {
       id: 'harissa-atun',
-      name: 'Harissa con Tomate y Atún',
-      description: 'Ajo, alcaravea, chili, comino, cilantro, atún',
+      name: t('menu.world.harissa.title'),
+      description: t('menu.world.harissa.description'),
       price: '7.9',
-      category: 'SABORES DEL MUNDO',
+      category: CATEGORIES.WORLD,
       image: '/images/menu/harissa.png'
     },
-    // LOCAL
     {
       id: 'ragu-requena',
-      name: 'Ragú blanco de salchicha de Requena',
-      description: 'Parmesano, salchicha, vino, cebolla, ajo, queso crema, nata',
+      name: t('menu.local.requena.title'),
+      description: t('menu.local.requena.description'),
       price: '7.9',
-      category: 'LOCAL',
+      category: CATEGORIES.LOCAL,
       image: '/images/menu/ragu-blanco.png'
     }
   ];
 
+  // Boissons
   const beverages = [
-    // ... (insérez ici vos données de boissons)
-    { id: 'coca-cola', name: 'Coca Cola', price: '2' },
-    { id: 'coca-zero', name: 'Coca Cola Zero', price: '2' },
-    { id: 'agua', name: 'Agua', price: '2' },
-    { id: 'limonada', name: 'Limonada', price: '2' },
-    { id: 'cerveza-turia', name: 'Cerveza TURIA', price: '2' },
-    { id: 'cerveza-sin', name: 'Cerveza sin alcohol', price: '2' }
+    { id: 'coca-cola', name: t('menu.drinks.coca.title'), price: '2' },
+    { id: 'coca-zero', name: t('menu.drinks.coca.zero.title'), price: '2' },
+    { id: 'agua', name: t('menu.drinks.water.title'), price: '2' },
+    { id: 'limonada', name: t('menu.drinks.lemonade.title'), price: '2' },
+    { id: 'cerveza-turia', name: t('menu.drinks.turia.title'), price: '2' },
+    { id: 'cerveza-sin', name: t('menu.drinks.non.alcoholic.title'), price: '2' }
   ];
 
+  // Desserts
   const desserts = [
-    // ... (insérez ici vos données de desserts)
     {
       id: 'white-lotus',
-      name: 'Dolce White Lotus',
-      description: 'Delicate white chocolate mousse with lotus biscuit crumble',
+      name: t('menu.desserts.white.lotus.title'),
+      description: t('menu.desserts.white.lotus.description'),
       price: '5.5',
-      category: 'DULCE',
+      category: CATEGORIES.DESSERTS,
       image: '/images/menu/dolce.png'
     },
     {
       id: 'ferrero-gold',
-      name: 'Ferrero GOLD Rocher',
-      description: 'Hazelnut chocolate dessert with gold leaf decoration',
+      name: t('menu.desserts.ferrero.gold.title'),
+      description: t('menu.desserts.ferrero.gold.description'),
       price: '5.5',
-      category: 'DULCE',
+      category: CATEGORIES.DESSERTS,
       image: '/images/menu/ferrero.png'
     }
   ];
 
-  const filteredDishes = activeCategory
-    ? dishes.filter(dish => dish.category === activeCategory)
+  // Filtrage des plats
+  const activeCategoryKey = activeCategory ? getCategoryKeyFromTranslated(activeCategory) : null;
+  
+  const filteredDishes = activeCategoryKey
+    ? dishes.filter(dish => dish.category === activeCategoryKey)
     : dishes;
 
-  const showDesserts = !activeCategory || activeCategory === 'DULCE';
-  const showBeverages = !activeCategory || activeCategory === 'BEBIDA';
+  const showDesserts = !activeCategoryKey || activeCategoryKey === CATEGORIES.DESSERTS;
+  const showBeverages = !activeCategoryKey || activeCategoryKey === CATEGORIES.DRINKS;
 
   return (
     <div className="space-y-8 sm:space-y-12 px-2 sm:px-0">
-      {/* Main Dishes Grid */}
+      {/* Plats principaux */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
         {filteredDishes.map((dish) => (
           <motion.div
@@ -154,11 +162,11 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                 className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
               />
             </div>
-            <div className="p-3 sm:p-4 ">
+            <div className="p-3 sm:p-4">
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{dish.name}</h3>
               <div className="flex justify-between items-center mt-2">
                 <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
-                  {dish.category}
+                  {getTranslatedCategory(dish.category, t)}
                 </span>
                 <span className="text-base sm:text-lg font-bold text-[#ff4b4b]">{dish.price}€</span>
               </div>
@@ -167,7 +175,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
         ))}
       </div>
 
-      {/* Desserts Section */}
+      {/* Section Desserts */}
       {showDesserts && (
         <section className="mt-8 sm:mt-12">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-[#ff4b4b]">
@@ -196,7 +204,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                   <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{dessert.name}</h3>
                   <div className="flex justify-between items-center mt-2">
                     <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
-                      {dessert.category}
+                      {getTranslatedCategory(dessert.category, t)}
                     </span>
                     <span className="text-base sm:text-lg font-bold text-[#ff4b4b]">{dessert.price}€</span>
                   </div>
@@ -207,7 +215,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
         </section>
       )}
 
-      {/* Beverages Section */}
+      {/* Section Boissons */}
       {showBeverages && (
         <section className="mt-8 sm:mt-12">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-[#ff4b4b]">
@@ -231,7 +239,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
         </section>
       )}
 
-      {/* Dish Detail Modal - Optimisé pour mobile */}
+      {/* Modal de détail du plat */}
       <AnimatePresence>
         {selectedDish && (
           <motion.div
@@ -265,15 +273,19 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
               </div>
               <div className="p-4 sm:p-6">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-gray-200">
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-0">{selectedDish.name}</h2>
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-0">
+                    {selectedDish.name}
+                  </h2>
                   <span className="text-xl sm:text-2xl font-bold text-[#ff4b4b]">{selectedDish.price}€</span>
                 </div>
                 <div className="mb-4">
                   <span className="inline-block text-xs sm:text-sm font-medium text-gray-500 px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
-                    {selectedDish.category}
+                    {getTranslatedCategory(selectedDish.category, t)}
                   </span>
                 </div>
-                <p className="text-gray-700 text-sm sm:text-base">{selectedDish.description}</p>
+                <p className="text-gray-700 text-sm sm:text-base">
+                  {selectedDish.description}
+                </p>
               </div>
             </motion.div>
           </motion.div>
