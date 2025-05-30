@@ -228,28 +228,38 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-[#ff4b4b]">
             {t('menu.category.drinks')}
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
-            {beverages.map((beverage) => (
-              <motion.div
-                key={beverage.id}
-                whileHover={{ y: -3 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white rounded-lg border-2 border-gray-300 shadow-sm p-3 text-center hover:shadow-md transition-all duration-300"
-              >
-                {beverage.image && (
-                  <img
-                    src={beverage.image}
-                    alt={beverage.name}
-                    className="w-full h-24 object-contain mb-2"
-                  />
-                )}
-                <h3 className="text-sm sm:text-base font-medium text-gray-900">{beverage.name}</h3>
-                <p className="text-sm sm:text-base font-bold text-[#ff4b4b] mt-1 sm:mt-2">{beverage.price}€</p>
-              </motion.div>
-            ))}
-          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+  {beverages.map((beverage) => (
+    <motion.div
+      key={beverage.id}
+      whileHover={{ y: -3 }}
+      whileTap={{ scale: 0.98 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
+      onClick={() => setSelectedDish(beverage)}
+    >
+      <div className="relative pt-[70%] sm:pt-[75%] bg-gray-50">
+        <img
+          src={beverage.image}
+          alt={beverage.name}
+          className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
+        />
+      </div>
+      <div className="p-3 sm:p-4 border-t-2 border-gray-300">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{beverage.name}</h3>
+        <div className="flex justify-between items-center mt-2">
+          <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
+            {getTranslatedCategory(beverage.category, t)}
+          </span>
+          <span className="text-base sm:text-lg font-bold text-[#ff4b4b]">{beverage.price}€</span>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</div>
+
         </section>
       )}
 
