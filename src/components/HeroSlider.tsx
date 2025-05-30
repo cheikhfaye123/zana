@@ -23,7 +23,7 @@ const slides = [
   },
   {
     id: 4,
-    image: '/images/menu/ragu-bolognese.png',
+    image: '/images/menu/ragu-blanco.png',
     title: 'LOCAL',
     description: 'Ragú blanco de salchicha de Requena'
   }
