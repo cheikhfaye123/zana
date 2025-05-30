@@ -71,27 +71,27 @@ const Footer = () => {
                   className="text-white hover:underline hover:decoration-white transition-all block"
                   onClick={handleLocationClick}
                 >
-                  Ubicación
+                  {t('nav.locations')}
                 </Link>
               </li>
               <li>
                 <Link to="/menu" className="text-white hover:underline hover:decoration-white transition-all block">
-                  Menú
+                  {t('nav.menu')}
                 </Link>
               </li>
               <li>
                 <Link to="/news" className="text-white hover:underline hover:decoration-white transition-all block">
-                  Novedades
+                  {t('nav.news')}
                 </Link>
               </li>
               <li>
                 <Link to="/career" className="text-white hover:underline hover:decoration-white transition-all block">
-                  Empleo
+                  {t('nav.career')}
                 </Link>
               </li>
               <li>
                 <Link to="/feedback" className="text-white hover:underline hover:decoration-white transition-all block">
-                  Opiniones
+                  {t('nav.feedback')}
                 </Link>
               </li>
             </ul>
