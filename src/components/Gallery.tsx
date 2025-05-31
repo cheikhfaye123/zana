@@ -13,7 +13,6 @@ const Gallery = () => {
       url: '/images/outdoor2.png',
       titleKey: 'gallery.interior'
     },
-    
     {
       type: 'image',
       url: '/images/zanapasta.png',
@@ -26,8 +25,8 @@ const Gallery = () => {
     },
     {
       type: 'image',
-      url: '/images/zanacup.png', // ✅ Chemin relatif à "public"
-      titleKey: 'gallery.zanacup'  // 🔤 Ajoute cette clé à tes fichiers de traduction
+      url: '/images/zanacup.png',
+      titleKey: 'gallery.zanacup'
     }
   ];
 
@@ -42,57 +41,89 @@ const Gallery = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <motion.h2
+    <section className="relative py-16 bg-gray-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
+        <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center text-[#292727] mb-12"
+          className="text-4xl font-bold text-center mb-12 text-[#292727]"
         >
           {t('gallery.title')}
         </motion.h2>
 
-        <div className="relative">
-          <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-xl">
-            <img
-              src={galleryItems[currentIndex].url}
-              alt={t(galleryItems[currentIndex].titleKey)}
-              className="w-full max-h-[600px]  object-contain mx-auto"
-            />
+        <div className="relative h-[500px] w-full max-w-5xl mx-auto">
+          {/* Conteneur des images avec contraintes */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            {galleryItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={{ 
+                  opacity: index === currentIndex ? 1 : 0,
+                  scale: index === currentIndex ? 1 : 0.95
+                }}
+                transition={{ duration: 0.5 }}
+                className={`absolute inset-0 flex items-center justify-center ${
+                  index === currentIndex ? 'z-10' : 'z-0'
+                }`}
+              >
+                <img
+                  src={item.url}
+                  alt={t(item.titleKey)}
+                  className="max-h-full max-w-full object-contain rounded-lg shadow-xl"
+                  style={{
+                    width: 'auto',
+                    height: 'auto',
+                    maxHeight: '100%',
+                    maxWidth: '100%'
+                  }}
+                />
+              </motion.div>
+            ))}
           </div>
 
+          {/* Navigation */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+            aria-label="Previous image"
           >
-            <ChevronLeft size={24} className="text-[#ff4b4b]" />
+            <ChevronLeft size={32} />
           </button>
-
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+            aria-label="Next image"
           >
-            <ChevronRight size={24} className="text-[#ff4b4b]" />
+            <ChevronRight size={32} />
           </button>
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+          {/* Points indicateurs */}
+          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
             {galleryItems.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-colors ${
+                className={`w-3 h-3 rounded-full transition-colors ${
                   index === currentIndex ? 'bg-[#ff4b4b]' : 'bg-white/60'
                 }`}
+                aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
         </div>
 
-        <div className="mt-4 text-center">
-          <p className="text-xl text-gray-600">{t(galleryItems[currentIndex].titleKey)}</p>
-        </div>
+        {/* Titre de l'image actuelle */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-center mt-6 text-xl font-medium text-[#292727]"
+        >
+          {t(galleryItems[currentIndex].titleKey)}
+        </motion.p>
       </div>
     </section>
   );
