@@ -71,7 +71,7 @@ const Home = () => {
           >
             <div className="h-[500px] overflow-hidden bg-gray-100">
               <img 
-                src="/images/location.jpg"
+                src="/images/location.png"
                 alt="Valencia Location"
                 className="w-full h-full object-container hover:scale-105 transition-transform duration-500"
                 onError={(e) => {

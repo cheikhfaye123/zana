@@ -69,7 +69,7 @@ const Home = () => {
           >
             <div className="h-48 overflow-hidden">
               <img 
-                src="/images/location.jpg" // Vérifiez que l'image existe dans public/images/
+                src="/images/location.png" // Vérifiez que l'image existe dans public/images/
                 alt="Valencia Location"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 onError={(e) => {
