@@ -90,7 +90,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-white z-60 relative p-2 rounded-lg hover:bg-white/10 transition-colors duration-200" 
+          className="md:hidden text-white z-60 relative p-2 rounded-lg hover:bg-white/10 transition-colors duration-200 ml-auto" 
           onClick={toggleMenu}
         >
           <div className="w-6 h-5 relative flex flex-col justify-between">
