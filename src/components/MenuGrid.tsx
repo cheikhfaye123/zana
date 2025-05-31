@@ -247,7 +247,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
           className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
         />
       </div>
-      <div className="p-3 sm:p-4 border-t-2 ">
+      <div className="p-3 sm:p-4  ">
         <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{beverage.name}</h3>
         <div className="flex justify-between items-center mt-2">
           <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
