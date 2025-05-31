@@ -229,15 +229,15 @@ const Footer = () => {
           <h3 className="text-lg font-bold mb-4 text-white">{t('footer.contact')}</h3>
             <div className="space-y-3 text-white text-sm sm:text-base">
               <div className="flex items-center justify-center sm:justify-start">
-                <MapPin size={18} className="mr-2 text-[#ff4b4b]" />
+                <MapPin size={18} className="mr-2 text-[#f9f5f5]" />
                 <span>C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia</span>
               </div>
               <div className="flex items-center justify-center sm:justify-start">
-                <Phone size={18} className="mr-2 text-[#ff4b4b]" />
+                <Phone size={18} className="mr-2 text-[#f9f5f5]" />
                 <span>671 45 34 34</span>
               </div>
               <div className="flex items-center justify-center sm:justify-start">
-                <Mail size={18} className="mr-2 text-[#ff4b4b]" />
+                <Mail size={18} className="mr-2 text-[#f9f5f5]" />
                 <span>streetpastazana@gmail.com</span>
               </div>
             </div>

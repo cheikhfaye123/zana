@@ -73,7 +73,7 @@ const Home = () => {
               <img 
                 src="/images/location.jpg"
                 alt="Valencia Location"
-                className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-container hover:scale-105 transition-transform duration-500"
                 onError={(e) => {
                   console.error("Erreur de chargement de l'image location");
                   e.currentTarget.src = 'https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=1260';
@@ -92,7 +92,7 @@ const Home = () => {
                   <p>{locationInfo.phone}</p>
                 </div>
                 <div className="flex items-start">
-                  <Clock size={20} className="text-[#ff4b4b] mr-3 mt-1 flex-shrink-0" />
+                  <Clock size={20} className="text-[#7b7979] mr-3 mt-1 flex-shrink-0" />
                   <p>{locationInfo.hours}</p>
                 </div>
               </div>
