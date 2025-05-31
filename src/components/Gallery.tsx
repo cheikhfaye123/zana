@@ -48,7 +48,7 @@ const Gallery = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center  text-[#292727] mb-4"
+          className="text-4xl font-bold text-center mb-8 md:mb-12 text-[#292727]"
         >
           {t('gallery.title')}
         </motion.h2>
