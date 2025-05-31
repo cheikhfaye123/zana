@@ -237,7 +237,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
+      className="bg-white rounded-xl border-2  shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
       onClick={() => setSelectedDish(beverage)}
     >
       <div className="relative pt-[70%] sm:pt-[75%] bg-gray-50">
