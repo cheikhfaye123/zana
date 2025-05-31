@@ -156,7 +156,7 @@ const Navbar = () => {
 
           {/* Menu Panel */}
           <div
-            className={`fixed top-0 right-0 h-screen w-72 bg-gradient-to-br from-[#ff4b4b] to-[#e53e3e] shadow-2xl transform transition-all duration-500 ease-out ${
+            className={`fixed top-0 right-0 h-screen w-72 bg-gray-300 shadow-2xl transform transition-all duration-500 ease-out ${
               isMenuOpen 
                 ? 'translate-x-0 opacity-100 scale-100' 
                 : 'translate-x-full opacity-0 scale-95'
