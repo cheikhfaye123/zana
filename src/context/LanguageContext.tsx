@@ -51,7 +51,7 @@ const translations = {
     'menu.local.requena.title': 'Ragú Blanco de Requena',
     'menu.local.requena.description': 'Salchicha de Requena, setas, vino blanco, nata',
 	// Desserts
-    'menu.desserts.white.lotus.title': 'Loto Blanco',
+    'menu.desserts.white.lotus.title': ' White Lotus',
     'menu.desserts.white.lotus.description': 'Chocolate blanco, frambuesa, coco',
     'menu.desserts.ferrero.gold.title': 'Ferrero Gold',
     'menu.desserts.ferrero.gold.description': 'Chocolate, avellana, crocante',
@@ -148,7 +148,7 @@ const translations = {
     'menu.local.requena.description': 'Saucisse de Requena, champignons, vin blanc, crème',
     
     // Desserts
-    'menu.desserts.white.lotus.title': 'Lotus Blanc',
+    'menu.desserts.white.lotus.title': ' White Lotus',
     'menu.desserts.white.lotus.description': 'Chocolat blanc, framboise, noix de coco',
     'menu.desserts.ferrero.gold.title': 'Ferrero Gold',
     'menu.desserts.ferrero.gold.description': 'Chocolat, noisette, croustillant',
