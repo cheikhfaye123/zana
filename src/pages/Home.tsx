@@ -162,7 +162,7 @@ const Home = () => {
               href="https://maps.google.com/?q=C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, España"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#ff4b4b] to-[#ff6b6b] text-white font-semibold px-6 py-3 rounded-full hover:from-[#ff3b3b] hover:to-[#ff5b5b] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7e7a7a] to-[#7e7a7a] text-white font-semibold px-6 py-3 rounded-full hover:from-[#ff3b3b] hover:to-[#ff5b5b] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               <MapPin size={18} />
               {t('cta.view_map')}

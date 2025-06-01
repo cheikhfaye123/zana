@@ -3,7 +3,6 @@ import { useLanguage } from '../context/LanguageContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { MouseEvent } from 'react';
 
-// Composant TikTok SVG personnalisé
 const TikTokIcon = ({ size = 28 }: { size?: number }) => (
   <svg
     width={size}
@@ -42,11 +41,10 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#68696a] text-white py-10 rounded-tl-[50px] rounded-tr-[50px]">
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Mobile version */}
-        <div className="block lg:hidden space-y-10 text-center">
+        {/* Version mobile */}
+        <div className="block lg:hidden space-y-10">
           {/* Logo */}
           <div className="h-20 w-20 mx-auto">
             <img
@@ -61,9 +59,9 @@ const Footer = () => {
             />
           </div>
 
-          {/* Enlaces rápidos */}
-          <div>
-          <h3 className="text-lg font-bold mb-4 text-white">{t('footer.quicklinks')}</h3>
+          {/* Liens rapides */}
+          <div className="text-center">
+            <h3 className="text-lg font-bold mb-4 text-white">{t('footer.quicklinks')}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
@@ -97,20 +95,31 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contacto */}
-          <div>
-          <h3 className="text-lg font-bold mb-4 text-white">{t('footer.contact')}</h3>
-            <div className="space-y-3 text-sm text-white">
-              <div className="flex items-center justify-center">
-                <MapPin size={18} className="mr-2 text-[#ff4b4b]" />
-                <span>C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia</span>
+          {/* Contact - Version colonne avec icônes alignées */}
+          <div className="text-center">
+            <h3 className="text-lg font-bold mb-4 text-white">{t('footer.contact')}</h3>
+            <div className="flex flex-col items-center space-y-3 text-sm">
+              {/* Adresse */}
+              <div className="flex w-full max-w-xs mx-auto">
+                <div className="flex-shrink-0 mr-3">
+                  <MapPin size={18} className="text-[#ff4b4b] mt-0.5" />
+                </div>
+                <span className="text-left">C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, Valencia</span>
               </div>
-              <div className="flex items-center justify-center">
-                <Phone size={18} className="mr-2 text-[#ff4b4b]" />
+              
+              {/* Téléphone */}
+              <div className="flex w-full max-w-xs mx-auto">
+                <div className="flex-shrink-0 mr-3">
+                  <Phone size={18} className="text-[#ff4b4b]" />
+                </div>
                 <span>671 45 34 34</span>
               </div>
-              <div className="flex items-center justify-center">
-                <Mail size={18} className="mr-2 text-[#ff4b4b]" />
+              
+              {/* Email */}
+              <div className="flex w-full max-w-xs mx-auto">
+                <div className="flex-shrink-0 mr-3">
+                  <Mail size={18} className="text-[#ff4b4b]" />
+                </div>
                 <span>streetpastazana@gmail.com</span>
               </div>
             </div>
@@ -142,7 +151,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Desktop version */}
+        {/* Version desktop */}
         <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Logo & réseaux sociaux */}
           <div className="text-center sm:text-left">
@@ -161,8 +170,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white mb-4 text-sm sm:text-base">
-  {t('footer.slogan')}
-</p>
+              {t('footer.slogan')}
+            </p>
             <div className="flex justify-center sm:justify-start space-x-4">
               <a 
                 href="https://www.instagram.com/zanapasta" 
@@ -185,7 +194,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
-          <h3 className="text-lg font-bold mb-4 normal-case text-white">{t('footer.quicklinks')}</h3>
+            <h3 className="text-lg font-bold mb-4 normal-case text-white">{t('footer.quicklinks')}</h3>
             <ul className="space-y-2 text-sm sm:text-base">
               <li>
                 <Link 
@@ -226,7 +235,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="text-center sm:text-left">
-          <h3 className="text-lg font-bold mb-4 text-white">{t('footer.contact')}</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">{t('footer.contact')}</h3>
             <div className="space-y-3 text-white text-sm sm:text-base">
               <div className="flex items-center justify-center sm:justify-start">
                 <MapPin size={18} className="mr-2 text-[#f9f5f5]" />
@@ -244,7 +253,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Desktop copyright */}
+        {/* Copyright desktop */}
         <div className="hidden lg:block border-t border-gray-800 mt-8 pt-8 text-center text-white text-sm">
           <p>{t('footer.copyright')}</p>
         </div>
