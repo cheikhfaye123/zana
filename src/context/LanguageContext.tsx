@@ -64,7 +64,10 @@ const translations = {
     'menu.drinks.turia.title': 'Cerveza Turia',
     'menu.drinks.non.alcoholic.title': 'Cerveza Sin Alcohol',
 	
-	
+	   'location.address': 'Dirección',
+'location.phone': 'Teléfono',
+'location.hours_title': 'Horario',
+'cta.view_map': 'Ver en el mapa',
     'location.title': 'VISÍTANOS',
     'location.hours': 'Lun-Dom: 11:00 - 22:00',
     'location.quality': 'Calidad Premium',
@@ -162,7 +165,10 @@ const translations = {
     'menu.drinks.non.alcoholic.title': 'Bière Sans Alcool',
     
 	
-	
+	'location.address': 'Adresse',
+'location.phone': 'Téléphone',
+'location.hours_title': 'Horaires',
+'cta.view_map': 'Voir sur la carte',
 	
     'location.title': 'VISITEZ-NOUS',
     'location.hours': 'Lun-Dim: 11h00 - 22h00',
@@ -259,6 +265,12 @@ const translations = {
     'menu.drinks.lemonade.title': 'Homemade Lemonade',
     'menu.drinks.turia.title': 'Turia Beer',
     'menu.drinks.non.alcoholic.title': 'Non-Alcoholic Beer',
+
+
+    'location.address': 'Address',
+'location.phone': 'Phone',
+'location.hours_title': 'Opening Hours',
+'cta.view_map': 'View on Map',
     
 	
 	
