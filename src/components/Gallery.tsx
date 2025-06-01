@@ -41,21 +41,23 @@ const Gallery = () => {
   };
 
   return (
-    <section className="relative py-16 bg-gray-50 overflow-hidden">
+    <section className="relative py-8 sm:py-16 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
+        {/* Titre avec meilleur responsive */}
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center text-[#292727] mb-2 sm:mb-6 md:mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#292727] mb-4 sm:mb-6 md:mb-12 px-2"
         >
           {t('gallery.title')}
         </motion.h2>
 
-        <div className="relative h-[500px] w-full max-w-5xl mx-auto">
-          {/* Conteneur des images avec contraintes */}
-          <div className="absolute inset-0 flex items-center justify-center">
+        {/* Container de la galerie avec hauteur responsive */}
+        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full max-w-5xl mx-auto">
+          {/* Conteneur des images avec contraintes améliorées */}
+          <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4">
             {galleryItems.map((item, index) => (
               <motion.div
                 key={index}
@@ -65,7 +67,7 @@ const Gallery = () => {
                   scale: index === currentIndex ? 1 : 0.95
                 }}
                 transition={{ duration: 0.5 }}
-                className={`absolute inset-0 flex items-center justify-center ${
+                className={`absolute inset-2 sm:inset-4 flex items-center justify-center ${
                   index === currentIndex ? 'z-10' : 'z-0'
                 }`}
               >
@@ -84,29 +86,29 @@ const Gallery = () => {
             ))}
           </div>
 
-          {/* Navigation */}
+          {/* Navigation avec taille responsive */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-1.5 sm:p-2 rounded-full hover:bg-black/50 transition-colors"
             aria-label="Previous image"
           >
-            <ChevronLeft size={32} />
+            <ChevronLeft size={24} className="sm:w-8 sm:h-8" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-1.5 sm:p-2 rounded-full hover:bg-black/50 transition-colors"
             aria-label="Next image"
           >
-            <ChevronRight size={32} />
+            <ChevronRight size={24} className="sm:w-8 sm:h-8" />
           </button>
 
-          {/* Points indicateurs */}
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+          {/* Points indicateurs avec meilleur espacement mobile */}
+          <div className="absolute bottom-2 sm:bottom-4 left-0 right-0 flex justify-center gap-1.5 sm:gap-2 z-20 px-4">
             {galleryItems.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${
                   index === currentIndex ? 'bg-[#ff4b4b]' : 'bg-white/60'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -115,12 +117,13 @@ const Gallery = () => {
           </div>
         </div>
 
-        {/* Titre de l'image actuelle */}
+        {/* Titre de l'image actuelle avec meilleur responsive */}
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="text-center mt-6 text-xl font-medium text-[#292727]"
+          key={currentIndex} // Force re-render pour animation
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
+          className="text-center mt-4 sm:mt-6 text-base sm:text-lg md:text-xl font-medium text-[#292727] px-4"
         >
           {t(galleryItems[currentIndex].titleKey)}
         </motion.p>
