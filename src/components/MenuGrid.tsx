@@ -81,6 +81,14 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       image: '/images/menu/tikka-massala.png'
     },
     {
+      id: 'Huancaina',
+      name: t('menu.pollo.tikka.title'),
+      description: t('menu.pollo.tikka.description'),
+      price: '8.9',
+      category: CATEGORIES.WORLD,
+      image: '/images/menu/huancaina.png'
+    },
+    {
       id: 'harissa-atun',
       name: t('menu.world.harissa.title'),
       description: t('menu.world.harissa.description'),
