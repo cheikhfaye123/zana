@@ -11,22 +11,25 @@ const Feedback = () => {
     rating: 0,
     comments: '',
   });
+
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [hoveredStar, setHoveredStar] = useState(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData(prev => ({
+      ...prev,
       [name]: value,
-    });
+    }));
   };
 
   const handleStarClick = (rating: number) => {
-    setFormData({
-      ...formData,
+    setFormData(prev => ({
+      ...prev,
       rating,
-    });
+    }));
   };
 
   const handleStarHover = (rating: number) => {
@@ -37,143 +40,169 @@ const Feedback = () => {
     setHoveredStar(0);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
+    setError('');
+    setIsSubmitting(true);
+
+    const { name, email, visitDate, location, rating } = formData;
+    if (!name || !email || !visitDate || !location || rating === 0) {
+      setError('Por favor, completa todos los campos obligatorios.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://formspree.io/f/xqabaqko', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          visitDate: '',
+          location: '',
+          rating: 0,
+          comments: '',
+        });
+      } else {
+        const data = await response.json();
+        setError(data.error || 'Error al enviar el formulario');
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Error de conexión. Por favor, inténtelo de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
+  if (submitted) {
+    return (
+      <div className="fixed inset-0 bg-white flex items-center justify-center p-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="text-center max-w-md"
+        >
+          <CheckCircle size={64} className="text-green-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-[#94ba85] mb-2">¡Gracias por tu opinión!</h2>
+          <p className="mb-6 text-gray-700">Hemos recibido tu feedback. ¡Gracias por ayudarnos a mejorar!</p>
+          <button
+            onClick={() => {
+              setSubmitted(false);
+            }}
+            className="inline-block bg-[#ff4b4b] text-white px-6 py-2 rounded-md hover:bg-[#e64444] transition-colors"
+          >
+            Enviar otra opinión
+          </button>
+        </motion.div>
+      </div>
+    );
+  }
+
   return (
-    <div className="pt-20 pb-16">
-      <div className="max-w-3xl mx-auto px-4 md:px-8">
-        <div className="text-center mb-16">
-          <motion.h1 
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+      <div className="max-w-2xl mx-auto">
+        <div className="text-center mb-8 pt-9">
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-['Dancing_Script'] text-[#ff4b4b] mb-4"
+            className="text-3xl font-['Dancing_Script'] text-[#292727] mb-2 pt-9"
           >
-            Your Feedback
+            Danos tu Opinión
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-sm text-gray-600"
           >
-            We value your opinion and strive to improve your dining experience.
+            Ayúdanos a mejorar tu experiencia.
           </motion.p>
         </div>
-        
-        {submitted ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-green-50 border border-green-200 rounded-lg p-8 text-center"
-          >
-            <div className="flex justify-center mb-4">
-              <CheckCircle size={64} className="text-green-500" />
-            </div>
-            <h2 className="text-2xl font-bold text-green-800 mb-2">Thank You!</h2>
-            <p className="text-green-700 mb-6">
-              We appreciate your feedback. It helps us improve and serve you better.
-            </p>
-            <button
-              onClick={() => {
-                setFormData({
-                  name: '',
-                  email: '',
-                  visitDate: '',
-                  location: '',
-                  rating: 0,
-                  comments: '',
-                });
-                setSubmitted(false);
-              }}
-              className="inline-block bg-[#ff4b4b] text-white px-6 py-2 rounded-md hover:bg-[#e64444] transition-colors"
-            >
-              Submit Another Response
-            </button>
-          </motion.div>
-        ) : (
-          <motion.form 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            onSubmit={handleSubmit}
-            className="bg-white rounded-lg shadow-md p-8"
-          >
-            <div className="mb-6">
-              <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-                Name
+
+        <motion.form
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          onSubmit={handleSubmit}
+          className="bg-white rounded-xl shadow-sm p-6"
+        >
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                Nombre *
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
+                required
                 value={formData.name}
                 onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
               />
             </div>
-            
-            <div className="mb-6">
-              <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                Email
+
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                Correo Electrónico *
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
+                required
                 value={formData.email}
                 onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
               />
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="visitDate" className="block text-gray-700 font-medium mb-2">
-                  Visit Date
+                <label htmlFor="visitDate" className="block text-sm font-medium text-gray-700 mb-1">
+                  Fecha de Visita *
                 </label>
                 <input
                   type="date"
                   id="visitDate"
                   name="visitDate"
+                  required
                   value={formData.visitDate}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="location" className="block text-gray-700 font-medium mb-2">
-                  Location
+                <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">
+                  Local *
                 </label>
                 <select
                   id="location"
                   name="location"
+                  required
                   value={formData.location}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
                 >
-                  <option value="">Select a location</option>
-                  <option value="New York">New York</option>
-                  <option value="Los Angeles">Los Angeles</option>
-                  <option value="Chicago">Chicago</option>
-                  <option value="Miami">Miami</option>
+                  <option value="">Selecciona un local</option>
+                  <option value="C/ Barcelonina 2, Valencia">C/ Barcelonina 2, Valencia</option>
+                  <option value="Otro">Otro</option>
                 </select>
               </div>
             </div>
-            
-            <div className="mb-6">
-              <label className="block text-gray-700 font-medium mb-2">
-                Rate Your Experience
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Califica tu experiencia *
               </label>
               <div className="flex items-center space-x-2">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -194,30 +223,43 @@ const Feedback = () => {
                 ))}
               </div>
             </div>
-            
-            <div className="mb-6">
-              <label htmlFor="comments" className="block text-gray-700 font-medium mb-2">
-                Comments
+
+            <div>
+              <label htmlFor="comments" className="block text-sm font-medium text-gray-700 mb-1">
+                Comentarios
               </label>
               <textarea
                 id="comments"
                 name="comments"
                 value={formData.comments}
                 onChange={handleChange}
-                rows={5}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff4b4b]"
-                placeholder="Tell us about your experience..."
-              ></textarea>
+                rows={4}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                placeholder="Comparte tu experiencia..."
+              />
             </div>
-            
+
+            {error && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="p-3 text-sm text-red-700 bg-red-100 rounded-lg"
+              >
+                {error}
+              </motion.div>
+            )}
+
             <button
               type="submit"
-              className="w-full bg-[#ff4b4b] text-white py-3 rounded-md hover:bg-[#e64444] transition-colors font-medium"
+              disabled={isSubmitting}
+              className={`w-full py-3 px-4 bg-[#292727] text-white font-medium rounded-lg hover:bg-[#726d6d] transition-colors ${
+                isSubmitting ? 'opacity-70' : ''
+              }`}
             >
-              Submit Feedback
+              {isSubmitting ? 'Enviando...' : 'Enviar Opinión'}
             </button>
-          </motion.form>
-        )}
+          </div>
+        </motion.form>
       </div>
     </div>
   );
