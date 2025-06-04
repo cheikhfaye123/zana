@@ -146,7 +146,7 @@ const Feedback = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2"
               />
             </div>
 
@@ -161,7 +161,7 @@ const Feedback = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 "
               />
             </div>
 
@@ -177,7 +177,7 @@ const Feedback = () => {
                   required
                   value={formData.visitDate}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2"
                 />
               </div>
 
@@ -191,7 +191,7 @@ const Feedback = () => {
                   required
                   value={formData.location}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 "
                 >
                   <option value="">Selecciona un local</option>
                   <option value="C/ Barcelonina 2, Valencia">C/ Barcelonina 2, Valencia</option>
@@ -234,7 +234,7 @@ const Feedback = () => {
                 value={formData.comments}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 "
                 placeholder="Comparte tu experiencia..."
               />
             </div>
