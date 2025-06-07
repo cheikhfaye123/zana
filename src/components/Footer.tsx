@@ -94,13 +94,14 @@ const Footer = () => {
                 { to: "/menu", text: t('nav.menu') },
                 { to: "/news", text: t('nav.news') },
                 { to: "/career", text: t('nav.career') },
-                { to: "/feedback", text: t('nav.feedback'), colSpan: true }
+                { to: "/franchising", text: t('nav.franchising') },
+                { to: "/feedback", text: t('nav.feedback') }
               ].map((link, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`${link.colSpan ? 'col-span-2' : ''}`}
+                  className="w-full"
                 >
                   <Link
                     to={link.to}
