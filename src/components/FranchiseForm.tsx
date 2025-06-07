@@ -68,13 +68,13 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          className="fixed inset-0 bg-gray-50 bg-opacity-90 flex items-center justify-center p-4 z-50"
         >
           <motion.div
             initial={{ scale: 0.95, y: 20 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.95, y: 20 }}
-            className="bg-white rounded-xl p-6 w-full max-w-md relative"
+            className="bg-white rounded-xl shadow-sm p-6 w-full max-w-md relative"
           >
             <button
               onClick={onClose}
@@ -83,7 +83,9 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
               <X size={24} />
             </button>
 
-            <h2 className="text-2xl font-bold mb-6">Franchise Application</h2>
+            <h2 className="text-3xl font-['Dancing_Script'] text-[#292727] mb-6 text-center">
+              Franchise Application
+            </h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -96,7 +98,7 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
                   required
                   value={formData.fullName}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b] focus:border-transparent"
                 />
               </div>
 
@@ -110,7 +112,7 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b] focus:border-transparent"
                 />
               </div>
 
@@ -124,7 +126,7 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b] focus:border-transparent"
                 />
               </div>
 
@@ -137,7 +139,7 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
                   name="location"
                   value={formData.location}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b] focus:border-transparent"
                 />
               </div>
 
@@ -150,7 +152,7 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
                   name="experience"
                   value={formData.experience}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b] focus:border-transparent"
                 />
               </div>
 
@@ -163,19 +165,25 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
                   name="investment"
                   value={formData.investment}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b] focus:border-transparent"
                 />
               </div>
 
               {error && (
-                <div className="text-red-600 text-sm">{error}</div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="p-3 text-sm text-red-700 bg-red-100 rounded-lg"
+                >
+                  {error}
+                </motion.div>
               )}
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-2 px-4 bg-[#ff4b4b] text-white rounded-lg hover:bg-[#e64444] transition-colors ${
-                  isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                className={`w-full py-3 px-4 bg-[#292727] text-white font-medium rounded-lg hover:bg-[#726d6d] transition-colors ${
+                  isSubmitting ? "opacity-70" : ""
                 }`}
               >
                 {isSubmitting ? "Submitting..." : "Submit Application"}

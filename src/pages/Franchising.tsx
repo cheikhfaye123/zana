@@ -30,21 +30,22 @@ const Franchising = () => {
         </div>
         
         {/* Hero Image */}
-        <div className="relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden mb-10 sm:mb-16 mx-2 sm:mx-0">
-          <img 
-            src="/images/franchising/ZANA_LOGO.png" 
-            alt="Franchise Opportunity" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <div className="text-center text-white px-4">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">A Recipe for Success</h2>
-              <p className="text-sm sm:text-base md:text-xl max-w-md sm:max-w-xl">
-                Own a piece of the fastest growing pasta chain in the country
-              </p>
-            </div>
-          </div>
-        </div>
+        <div className="relative bg-white h-60 sm:h-80 md:h-96 rounded-lg overflow-hidden mb-10 sm:mb-16 mx-2 sm:mx-0 flex items-center justify-center">
+  <img 
+    src="/images/franchising/ZANA_LOGO.png" 
+    alt="Franchise Opportunity" 
+    className="max-h-full max-w-full object-contain"
+  />
+  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center px-4">
+    <div className="text-center text-white">
+      <h2 className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">A Recipe for Success</h2>
+      <p className="text-xs sm:text-base md:text-xl max-w-md sm:max-w-xl mx-auto">
+        Own a piece of the fastest growing pasta chain in the country
+      </p>
+    </div>
+  </div>
+</div>
+
         
         {/* Benefits */}
         <div className="mb-12 sm:mb-16 px-2 sm:px-0">
