@@ -7,19 +7,19 @@ const slides = [
     id: 1,
     image: '/images/menu/ragu-bolognese.png',
     title: 'CLÁSICA',
-    description: 'Ragú a la Bolognese, Carbonara, Tomate albahaca'
+    description: 'Ragú a la Bolognese'
   },
   {
     id: 2,
     image: '/images/menu/pesto-de-aguacate.png',
     title: 'ESPECIAL',
-    description: 'Pesto de aguacate, Trufa y Parmesano, Mac&Cheese'
+    description: 'Pesto de aguacate'
   },
   {
     id: 3,
     image: '/images/menu/harissa.png',
     title: 'SABORES DEL MUNDO',
-    description: 'Pollo Tikka Masala, Harissa con Tomate y Atún, Huancaína'
+    description: ' Harissa con Tomate y Atún'
   },
   {
     id: 4,
