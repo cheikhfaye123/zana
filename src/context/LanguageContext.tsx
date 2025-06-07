@@ -46,6 +46,8 @@ const translations = {
     'menu.pollo.tikka.description': 'Pollo, tomate, cebolla, ajo, especias indias, nata',
     'menu.world.harissa.title': 'Atún con Harissa',
     'menu.world.harissa.description': 'Atún, harissa, pimiento rojo, ajo, comino',
+    'menu.world.huancaina.title': ' Huancaína',
+    'menu.world.huancaina.description': 'Queso crema, aji amarillo,leche evaporada',
     
     // Saveurs locales
     'menu.local.requena.title': 'Ragú Blanco de Requena',
