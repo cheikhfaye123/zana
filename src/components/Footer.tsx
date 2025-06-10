@@ -41,7 +41,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#292727] text-white py-10 rounded-tl-[50px] rounded-tr-[50px]">
+    <footer className="bg-[#3A3A39] text-white py-10 rounded-tl-[50px] rounded-tr-[50px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Version mobile - Design amélioré */}
