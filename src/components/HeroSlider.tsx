@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext'; // Ajout de l'import
 
 const slides = [
   {
@@ -19,7 +21,7 @@ const slides = [
     id: 3,
     image: '/images/menu/harissa.png',
     title: 'SABORES DEL MUNDO',
-    description: ' Harissa con Tomate y Atún'
+    description: 'Harissa con Tomate y Atún'
   },
   {
     id: 4,
@@ -31,12 +33,13 @@ const slides = [
 
 const HeroSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const { t } = useLanguage(); // Ajout du hook useLanguage
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -45,14 +48,14 @@ const HeroSlider = () => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? slides.length - 1 : prevIndex - 1
     );
   };
 
   return (
     <div className="relative bg-[#a3a2a2] w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center relative">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -78,7 +81,7 @@ const HeroSlider = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="md:w-1/2 flex justify-center md:justify-end"
+            className="md:w-1/2 flex justify-center md:justify-end relative"
           >
             <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-white p-2 border-4 border-white shadow-xl">
               <div className="relative w-full h-full rounded-full overflow-hidden">
@@ -91,22 +94,56 @@ const HeroSlider = () => {
             </div>
           </motion.div>
         </AnimatePresence>
+
+        {/* Bouton Menu modifié pour utiliser la traduction */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <Link to="/menu">
+            <motion.button
+              className="bg-[#FE5000] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "#e64800",
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.95 }}
+              onHoverStart={() => setIsHovered(true)}
+              onHoverEnd={() => setIsHovered(false)}
+            >
+              <motion.span
+                animate={{
+                  x: isHovered ? [0, 2, -2, 2, 0] : 0
+                }}
+                transition={{
+                  duration: 0.5,
+                  repeat: isHovered ? Infinity : 0
+                }}
+              >
+                {t('menu.button.view')} {/* Utilisation de la traduction */}
+              </motion.span>
+            </motion.button>
+          </Link>
+        </motion.div>
       </div>
 
       {/* Navigation Arrows */}
       <button
-  onClick={prevSlide}
-  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
->
-  <ChevronLeft size={32} />
-</button>
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+      >
+        <ChevronLeft size={32} />
+      </button>
 
-<button
-  onClick={nextSlide}
-  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
->
-  <ChevronRight size={32} />
-</button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
+      >
+        <ChevronRight size={32} />
+      </button>
 
       {/* Dots Navigation */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">

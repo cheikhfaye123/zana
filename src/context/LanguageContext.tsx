@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, ReactNode } from 'react';
+import { menuButtonTranslations } from './menuButtonTranslations';
 
 type Language = 'ES' | 'FR' | 'EN';
 
@@ -10,6 +11,7 @@ interface LanguageContextType {
 
 const translations = {
   ES: {
+    ...menuButtonTranslations.ES,
     'nav.locations': 'UBICACIÓN',
     'nav.menu': 'MENÚ',
     'nav.news': 'NOVEDADES',
@@ -110,6 +112,7 @@ const translations = {
     'news.special.excerpt': 'Nuestro chef premiado presenta una lujosa pasta con setas silvestres y parmesano envejecido.'
   },
   FR: {
+    ...menuButtonTranslations.FR,
     'nav.locations': 'EMPLACEMENT',
     'nav.menu': 'MENU',
     'nav.news': 'ACTUALITÉS',
@@ -212,6 +215,7 @@ const translations = {
     'news.special.excerpt': 'Notre chef étoilé présente des pâtes luxueuses aux champignons sauvages et parmesan affiné.'
   },
   EN: {
+    ...menuButtonTranslations.EN,
     'nav.locations': 'LOCATION',
     'nav.menu': 'MENU',
     'nav.news': 'NEWS',
