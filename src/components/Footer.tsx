@@ -41,7 +41,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#68696a] text-white py-10 rounded-tl-[50px] rounded-tr-[50px]">
+    <footer className="bg-[#292727] text-white py-10 rounded-tl-[50px] rounded-tr-[50px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Version mobile - Design amélioré */}
@@ -221,6 +221,7 @@ const Footer = () => {
         </div>
 
         {/* Version desktop - Inchangée */}
+        {/* Version desktop - Updated social icons */}
         <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Logo & réseaux sociaux */}
           <div className="text-center sm:text-left">
@@ -246,20 +247,25 @@ const Footer = () => {
                 href="https://www.instagram.com/zanapasta" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-white hover:text-[#ff4b4b] transition-colors"
+                className="transition-all transform hover:scale-105"
               >
-                <Instagram size={28} />
+                <div className="bg-[#FE5000] rounded-full p-2 shadow-lg">
+                  <Instagram size={24} className="text-white" />
+                </div>
               </a>
               <a 
                 href="https://www.tiktok.com/@zana_pasta?_t=ZN-8wnBQVfvclq&_r=1" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-white hover:text-[#ff4b4b] transition-colors"
+                className="transition-all transform hover:scale-105"
               >
-                <TikTokIcon />
+                <div className="bg-[#FE5000] rounded-full p-2 shadow-lg">
+                  <TikTokIcon />
+                </div>
               </a>
             </div>
           </div>
+          {/* Logo & réseaux sociaux */}
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
