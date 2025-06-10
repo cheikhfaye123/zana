@@ -1,10 +1,14 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import ViteRewriteAll from 'vite-plugin-rewrite-all';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [
-    react(),
-    ViteRewriteAll(),
-  ],
-});
+  plugins: [react()],
+  server: {
+    port: 3000
+  },
+  base: '/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  }
+})
