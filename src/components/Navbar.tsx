@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Instagram, Menu as MenuIcon } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-// Définition du type Language
 type Language = 'ES' | 'FR' | 'EN';
 
-// Mise à jour du composant TikTokIcon pour accepter className
 const TikTokIcon = ({ size = 28, className = '' }: { size?: number; className?: string }) => (
   <svg
     width={size}
@@ -26,25 +24,35 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
+  // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prévenir le scroll quand le menu est ouvert
+  // Prevent scroll when menu is open, and fix desktop resize issue
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false); // close mobile menu if resizing to desktop
+        document.body.style.overflow = 'unset';
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
       document.body.style.overflow = 'unset';
+      window.removeEventListener('resize', handleResize);
     };
   }, [isMenuOpen]);
 
@@ -54,7 +62,7 @@ const Navbar = () => {
 
   const handleLanguageChange = () => {
     const languages: Language[] = ['ES', 'FR', 'EN'];
-    const currentIndex = languages.indexOf(language as Language);
+    const currentIndex = languages.indexOf(language);
     const nextIndex = (currentIndex + 1) % languages.length;
     setLanguage(languages[nextIndex]);
   };
@@ -72,7 +80,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 bg-[#292727] text-white py-2 px-4 md:px-8`}>
+    <nav className="fixed w-full z-50 transition-all duration-300 bg-[#292727] text-white py-2 px-4 md:px-8">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3">
           <div className="h-16 w-16 md:h-20 md:w-20 flex items-center justify-center">
@@ -89,7 +97,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Mobile Menu Button */}
+        {/* Burger menu for mobile */}
         <button 
           className="md:hidden text-white z-60 relative p-2 rounded-lg hover:bg-white/10 transition-colors duration-200 ml-auto" 
           onClick={toggleMenu}
@@ -107,29 +115,17 @@ const Navbar = () => {
           </div>
         </button>
 
-        {/* Desktop Navigation */}
+        {/* Desktop links */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#visit-us" onClick={handleLocationClick} className="hover:underline">
-            {t('nav.locations')}
-          </a>
-          <Link to="/menu" className={`hover:underline ${location.pathname === '/menu' ? 'underline' : ''}`}>
-            {t('nav.menu')}
-          </Link>
-          <Link to="/news" className={`hover:underline ${location.pathname === '/news' ? 'underline' : ''}`}>
-            {t('nav.news')}
-          </Link>
-          <Link to="/career" className={`hover:underline ${location.pathname === '/career' ? 'underline' : ''}`}>
-            {t('nav.career')}
-          </Link>
-          <Link to="/feedback" className={`hover:underline ${location.pathname === '/feedback' ? 'underline' : ''}`}>
-            {t('nav.feedback')}
-          </Link>
-          <Link to="/franchising" className={`hover:underline ${location.pathname === '/franchising' ? 'underline' : ''}`}>
-            {t('nav.franchising')}
-          </Link>
+          <a href="#visit-us" onClick={handleLocationClick} className="hover:underline">{t('nav.locations')}</a>
+          <Link to="/menu" className={`hover:underline ${location.pathname === '/menu' ? 'underline' : ''}`}>{t('nav.menu')}</Link>
+          <Link to="/news" className={`hover:underline ${location.pathname === '/news' ? 'underline' : ''}`}>{t('nav.news')}</Link>
+          <Link to="/career" className={`hover:underline ${location.pathname === '/career' ? 'underline' : ''}`}>{t('nav.career')}</Link>
+          <Link to="/feedback" className={`hover:underline ${location.pathname === '/feedback' ? 'underline' : ''}`}>{t('nav.feedback')}</Link>
+          <Link to="/franchising" className={`hover:underline ${location.pathname === '/franchising' ? 'underline' : ''}`}>{t('nav.franchising')}</Link>
         </div>
 
-        {/* Social Icons & Language */}
+        {/* Social icons and language */}
         <div className="hidden md:flex items-center space-x-4">
           <button
             onClick={handleLanguageChange}
@@ -155,9 +151,8 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu and Backdrop */}
         <div className="md:hidden">
-          {/* Backdrop */}
           <div
             className={`fixed inset-0 bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-sm transition-all duration-500 ease-out ${
               isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
@@ -165,7 +160,6 @@ const Navbar = () => {
             onClick={toggleMenu}
           ></div>
 
-          {/* Menu Panel */}
           <div
             className={`fixed top-0 right-0 h-screen w-72 bg-[#FE5000] shadow-2xl transform transition-all duration-500 ease-out ${
               isMenuOpen 
@@ -176,7 +170,7 @@ const Navbar = () => {
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
             }}
           >
-            {/* Menu Header */}
+            {/* Mobile Header */}
             <div className="p-6 border-b border-white/10">
               <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-3">
@@ -191,8 +185,8 @@ const Navbar = () => {
                 </button>
               </div>
             </div>
-            
-            {/* Menu Items */}
+
+            {/* Mobile Links */}
             <div className="px-6 py-8 space-y-2">
               {[
                 { href: "#visit-us", onClick: handleLocationClick, text: t('nav.locations') },
@@ -205,13 +199,9 @@ const Navbar = () => {
                 <div
                   key={index}
                   className={`transform transition-all duration-500 ease-out ${
-                    isMenuOpen 
-                      ? 'translate-x-0 opacity-100' 
-                      : 'translate-x-12 opacity-0'
+                    isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
                   }`}
-                  style={{ 
-                    transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : '0ms'
-                  }}
+                  style={{ transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : '0ms' }}
                 >
                   {item.href ? (
                     <a
@@ -221,12 +211,7 @@ const Navbar = () => {
                     >
                       <span className="flex items-center justify-between">
                         {item.text}
-                        <svg 
-                          className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
+                        <svg className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                         </svg>
                       </span>
@@ -241,12 +226,7 @@ const Navbar = () => {
                     >
                       <span className="flex items-center justify-between">
                         {item.text}
-                        <svg 
-                          className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
+                        <svg className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                         </svg>
                       </span>
@@ -255,8 +235,8 @@ const Navbar = () => {
                 </div>
               ))}
             </div>
-            
-            {/* Menu Footer */}
+
+            {/* Mobile Footer */}
             <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10 bg-black/10">
               <div className="flex justify-center space-x-6">
                 <a 
