@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { MobileRedirect } from './components/MobileRedirect'; // Assurez-vous que le chemin est correct
 
 // Pages
 import Home from './pages/Home';  // Enlever l'extension .tsx
@@ -41,6 +42,7 @@ function App() {
     <LanguageProvider>
       <LocationProvider>
         <Router>
+        <MobileRedirect />
           <ScrollToTop />
           <div className="app">
             <Navbar />
