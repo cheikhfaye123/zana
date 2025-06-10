@@ -132,19 +132,9 @@ const HeroSlider = () => {
       </div>
 
       {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
-      >
-        <ChevronLeft size={32} />
-      </button>
+      
 
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-colors"
-      >
-        <ChevronRight size={32} />
-      </button>
+      
 
       {/* Dots Navigation */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
