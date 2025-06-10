@@ -19,7 +19,7 @@ const translations = {
     'nav.feedback': 'OPINIONES',
     'nav.franchising': 'FRANQUICIA',
     'menu.all': 'TODOS',
-    'menu.subtitle': 'Elige tu tipo de pasta después descubre nuestras salsas auténticas, elaboradas con productos de alta calidad de forma artesanal por chef profesionales y déjate viajar por el mundo bocado tras bocado.',
+    'menu.subtitle': 'Elige tu tipo de pasta después descubre nuestras salsas auténticas, elaboradas con productos de alta calidad de forma artesanal por chefs profesionales y déjate viajar por el mundo bocado tras bocado.',
     'menu.category.classic': 'CLÁSICA',
     'menu.category.special': 'ESPECIAL',
     'menu.category.world': 'SABORES DEL MUNDO',

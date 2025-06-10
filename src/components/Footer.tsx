@@ -44,7 +44,7 @@ const Footer = () => {
     <footer className="bg-[#3A3A39] text-white py-10 rounded-tl-[50px] rounded-tr-[50px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Version mobile - Design amélioré */}
+        {/* Version mobile */}
         <div className="block lg:hidden space-y-12">
           {/* Logo avec halo animé */}
           <motion.div 
@@ -63,23 +63,25 @@ const Footer = () => {
               <div className="absolute inset-2 bg-white/10 rounded-full backdrop-blur-sm" />
               {/* Logo */}
               <div className="relative h-full w-full flex items-center justify-center">
-                <img
-                  src="/images/logo2.png"
-                  alt="Zana Logo"
-                  className="w-16 h-16 object-contain drop-shadow-lg"
-                  style={{
-                    WebkitBackfaceVisibility: 'hidden',
-                    backfaceVisibility: 'hidden',
-                    filter: 'brightness(1.1)',
-                  }}
-                />
+                <div className="w-20 h-20 rounded-full bg-[#FE5000] flex items-center justify-center shadow-md">
+                  <img
+                    src="/images/logo2.png"
+                    alt="Zana Logo"
+                    className="w-16 h-16 object-contain drop-shadow-lg"
+                    style={{
+                      WebkitBackfaceVisibility: 'hidden',
+                      backfaceVisibility: 'hidden',
+                      filter: 'brightness(1.1)',
+                    }}
+                  />
+                </div>
               </div>
             </div>
             {/* Séparateur dégradé */}
             <div className="h-1 w-16 bg-gradient-to-r from-[#ff4b4b] to-[#ff6b6b] rounded-full mx-auto" />
           </motion.div>
 
-          {/* Liens rapides sous forme de cartes */}
+          {/* Liens rapides */}
           <div className="text-center">
             <motion.h3
               initial={{ opacity: 0 }}
@@ -115,7 +117,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact - Cartes arrondies avec icônes stylisées */}
+          {/* Contact */}
           <div className="text-center">
             <motion.h3
               initial={{ opacity: 0 }}
@@ -176,7 +178,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Réseaux sociaux - Boutons 3D */}
+          {/* Réseaux sociaux */}
           <div className="text-center">
             <h4 className="text-lg font-semibold mb-4 text-white/80">Suivez-nous</h4>
             <div className="flex justify-center space-x-6">
@@ -188,7 +190,7 @@ const Footer = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-lg transition-all">
+                <div className="w-14 h-14 bg-[#FE5000] rounded-full flex items-center justify-center shadow-xl group-hover:shadow-lg transition-all">
                   <Instagram size={28} className="text-white" />
                 </div>
               </motion.a>
@@ -200,14 +202,14 @@ const Footer = () => {
                 whileTap={{ scale: 0.95 }}
                 className="group"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-black via-gray-800 to-gray-900 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-lg transition-all">
+                <div className="w-14 h-14 bg-[#FE5000] rounded-full flex items-center justify-center shadow-xl group-hover:shadow-lg transition-all">
                   <TikTokIcon />
                 </div>
               </motion.a>
             </div>
           </div>
 
-          {/* Copyright avec séparateur moderne */}
+          {/* Copyright */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -220,23 +222,24 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Version desktop - Inchangée */}
-        {/* Version desktop - Updated social icons */}
+        {/* Version desktop */}
         <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Logo & réseaux sociaux */}
           <div className="text-center sm:text-left">
             <div className="flex justify-center sm:justify-start items-center mb-4">
               <div className="h-14 w-14 md:h-20 md:w-20 flex items-center justify-center">
-                <img 
-                  src="/images/logo2.png"
-                  alt="Zana Logo"
-                  className="w-full h-full object-contain"
-                  style={{ 
-                    WebkitBackfaceVisibility: 'hidden',
-                    backfaceVisibility: 'hidden',
-                    transform: 'scale(1.3)',
-                  }}
-                />
+                <div className="w-full h-full rounded-full bg-[#FE5000] flex items-center justify-center shadow-md">
+                  <img 
+                    src="/images/logo2.png"
+                    alt="Zana Logo"
+                    className="w-10 h-10 md:w-16 md:h-16 object-contain drop-shadow-lg"
+                    style={{ 
+                      WebkitBackfaceVisibility: 'hidden',
+                      backfaceVisibility: 'hidden',
+                      filter: 'brightness(1.1)',
+                    }}
+                  />
+                </div>
               </div>
             </div>
             <p className="text-white mb-4 text-sm sm:text-base">
@@ -265,7 +268,6 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          {/* Logo & réseaux sociaux */}
 
           {/* Quick Links */}
           <div className="text-center sm:text-left">
