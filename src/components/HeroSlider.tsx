@@ -97,7 +97,8 @@ const HeroSlider = () => {
 
         {/* Bouton Menu modifié pour utiliser la traduction */}
         <motion.div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          className=" mt-4 mx-auto
+      md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
