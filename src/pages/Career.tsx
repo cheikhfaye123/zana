@@ -62,17 +62,17 @@ const Career = () => {
 
   if (submitted) {
     return (
-      <div className="fixed inset-0 bg-white flex items-center justify-center p-6">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-center max-w-md"
+          className="text-center max-w-md w-full bg-white rounded-xl shadow-sm p-6"
         >
           <h2 className="text-2xl font-bold text-[#94ba85] mb-4">¡Gracias por tu interés!</h2>
-          <p className="mb-6">Hemos recibido tu información. Por favor, envía tu CV a nuestro correo electrónico.</p>
+          <p className="mb-6 text-gray-600">Hemos recibido tu información. Por favor, envía tu CV a nuestro correo electrónico.</p>
           <a 
             href={`mailto:streetpastazana@gmail.com?subject=CV%20para%20Zana%20Street%20Pasta%20-%20${encodeURIComponent(formData.fullName)}`}
-            className="inline-flex items-center justify-center px-4 py-2 bg-[#94ba85] text-white rounded-md hover:bg-[#e64444]"
+            className="inline-flex items-center justify-center px-4 py-2 bg-[#94ba85] text-white rounded-md hover:bg-[#e64444] transition-colors"
           >
             <Mail className="mr-2" size={16} />
             Enviar CV por email
@@ -120,7 +120,7 @@ const Career = () => {
                 required
                 value={formData.fullName}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b] focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#94ba85] focus:border-transparent outline-none"
               />
             </div>
 
@@ -136,7 +136,7 @@ const Career = () => {
                   required
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#94ba85] focus:border-transparent outline-none"
                 />
               </div>
               <div>
@@ -150,7 +150,7 @@ const Career = () => {
                   required
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4b4b]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#94ba85] focus:border-transparent outline-none"
                 />
               </div>
             </div>
