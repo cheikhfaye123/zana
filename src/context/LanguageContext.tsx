@@ -84,7 +84,7 @@ const translations = {
 'footer.slogan': 'Deliciosa pasta fresca hecha diariamente con ingredientes de calidad.',
     'footer.copyright': '© 2025 Zana Street world Pasta. Todos los derechos reservados.',
     'gallery.title': 'FOTOS Y VIDEOS',
-    'gallery.interior': 'Nuestro Interior Acogedor',
+    'gallery.interior': 'Nuestro local',
     'gallery.private': 'Área Privada',
     'gallery.bar': 'Nuestro Bar',
     'gallery.outdoor': 'Nuestros menus',
@@ -109,7 +109,43 @@ const translations = {
     'news.app.title': 'En breve nuestra app Zana',
     'news.app.excerpt': 'Pide tus platos de pasta favoritos sobre la marcha con nuestra nueva aplicación móvil. Disponible ahora en iOS y Android.',
     'news.special.title': 'Chefs Special: Ragu blanco de salchicha de Requena',
-    'news.special.excerpt': 'Nuestro chef premiado presenta una lujosa pasta con setas silvestres y parmesano envejecido.'
+    'news.special.excerpt': 'Nuestro chef premiado presenta una lujosa pasta con setas silvestres y parmesano envejecido.',
+    'nav.quienesSomos': 'QUIÉNES SOMOS',
+    'quienesSomos.title': 'NUESTRA HISTORIA',
+    'quienesSomos.chefTitle': 'Nuestro equipo de chefs',
+    'quienesSomos.signature': 'ZANA STREET WORLD PASTA',
+    'quienesSomos.fullStory': `SOMOS ZANA,Dos chefs, amigos y viajeros.
+Amantes de la cocina auténtica.
+Ciudadanos de un país llamado mundo.
+
+Todo comenzó durante la pandemia, cuando el mundo estaba en pausa
+y nosotros cocinábamos para las personas que más queríamos:
+amigos y familia.
+
+La buena comida casera se convirtió en un ritual,
+un lenguaje propio,
+y en una tradición que fue creciendo con el tiempo.
+
+ZANA nació algún tiempo después, tras un viaje a Italia que nos cambió la vida.
+Allí conocimos a un maestro de la pasta que nos inspiró
+a transformar todo lo que habíamos aprendido en un concepto único:
+pasta de alta gastronomía con alma callejera.
+
+Somos curiosos, creativos y obsesionados con los buenos ingredientes.
+Traemos los sabores del sur de Europa en clave street food:
+divertido, relajado y accesible.
+Pero con un nivel de calidad que se siente en cada bocado.
+
+Toda nuestra pasta se elabora fresca cada día,
+con harinas superiores, traídas directamente de campos italianos.
+Nuestras salsas se cocinan de forma artesanal,
+con respeto por el medio ambiente,
+ingredientes sostenibles y procesos auténticos.
+
+Cada salsa es el resultado de un viaje y una colaboración hermosa.
+El resultado es una experiencia de sabor que viaja contigo.
+
+In pasta we trust.`,
   },
   FR: {
     ...menuButtonTranslations.FR,
@@ -187,7 +223,7 @@ const translations = {
 'footer.slogan': 'Pâtes fraîches préparées quotidiennement avec des ingrédients de qualité.',
     'footer.copyright': '© 2025 Zana Street world Pasta. Tous droits réservés.',
     'gallery.title': 'PHOTOS ET VIDÉOS',
-    'gallery.interior': 'Notre Intérieur Cosy',
+    'gallery.interior': 'Notre établissement',
     'gallery.private': 'Espace Privé',
     'gallery.bar': 'Notre Bar',
     'gallery.outdoor': 'Nos menus',
@@ -212,7 +248,31 @@ const translations = {
     'news.app.title': 'Bientôt notre application Zana',
     'news.app.excerpt': 'Commandez vos plats de pâtes préférés en déplacement avec notre nouvelle application mobile. Disponible maintenant sur iOS et Android.',
     'news.special.title': 'Spécial Chef : Ragu blanc à la saucisse de Requena',
-    'news.special.excerpt': 'Notre chef étoilé présente des pâtes luxueuses aux champignons sauvages et parmesan affiné.'
+    'news.special.excerpt': 'Notre chef étoilé présente des pâtes luxueuses aux champignons sauvages et parmesan affiné.',
+    'nav.quienesSomos': 'QUI SOMMES-NOUS',
+    'quienesSomos.title': 'NOTRE HISTOIRE',
+    'quienesSomos.chefTitle': 'NOTRE CHEF',
+    'quienesSomos.signature': 'ZANA STREET WORLD PASTA',
+    'quienesSomos.fullStory':`NOUS SOMMES ZANA,
+Deux chefs, amis et voyageurs. Passionnés de cuisine authentique. Citoyens d’un pays appelé le monde.
+Tout a commencé pendant la pandémie, lorsque le monde était à l’arrêt et que nous cuisinions pour ceux que nous aimions le plus : nos amis et notre famille.
+La bonne cuisine maison est devenue un rituel, un langage à part entière, et une tradition qui a grandi avec les années.
+
+ZANA est née quelque temps plus tard, après un voyage en Italie qui a changé notre vie.
+Là-bas, nous avons rencontré un maître de la pasta qui nous a inspirés à transformer tout ce que nous avions appris en une proposition unique : des pâtes de haute gastronomie avec une âme de street food.
+
+Nous sommes curieux, créatifs, et fous de bons produits.
+Nous apportons la saveur du sud de l’Europe dans un esprit street food : ludique, décontracté, accessible.
+Mais avec un niveau de qualité qu’on ressent à chaque bouchée.
+
+Toutes nos pâtes sont préparées chaque jour avec des farines de haute qualité, directement issues des champs italiens.
+Nos sauces sont cuisinées de manière artisanale, dans le respect de l’environnement, avec des ingrédients durables et des méthodes authentiques.
+
+Chaque sauce est le fruit d’un voyage et d’un bel accord.
+Le résultat : une expérience de saveurs qui voyage avec toi.
+
+       In pasta we trust.`,
+    
   },
   EN: {
     ...menuButtonTranslations.EN,
@@ -293,7 +353,7 @@ const translations = {
 'footer.slogan': 'Delicious pasta made fresh daily with quality ingredients.',
     'footer.copyright': '© 2025 Zana Street world Pasta. All rights reserved.',
     'gallery.title': 'PHOTOS & VIDEOS',
-    'gallery.interior': 'Our Cozy Interior',
+    'gallery.interior': 'Our place',
     'gallery.private': 'Private Dining Area',
     'gallery.bar': 'Our Restaurant Bar',
     'gallery.outdoor': 'Our menu',
@@ -318,7 +378,31 @@ const translations = {
     'news.app.title': 'Coming Soon: Zana App',
     'news.app.excerpt': 'Order your favorite pasta dishes on the go with our new mobile app. Available now on iOS and Android.',
     'news.special.title': 'Chefs\' Special: White Ragu with Requena Sausage',
-    'news.special.excerpt': 'Our award-winning chef presents a luxurious pasta with wild mushrooms and aged parmesan.'
+    'news.special.excerpt': 'Our award-winning chef presents a luxurious pasta with wild mushrooms and aged parmesan.',
+
+    'nav.quienesSomos': 'ABOUT US',
+    'quienesSomos.title': 'OUR STORY',
+    'quienesSomos.signature': 'ZANA STREET WORLD PASTA',
+    'quienesSomos.chefTitle': 'OUR CHEF',
+    'quienesSomos.fullStory': `WE ARE ZANA,
+Two chefs, friends, and travelers. Lovers of authentic cuisine. Citizens of a country called the world.
+It all began during the pandemic, when the world was on pause and we were cooking for the people we loved most: friends and family.
+Good homemade food became a ritual, a language of its own, and a tradition that grew over the years.
+
+ZANA was born some time later, after a life-changing trip to Italy.
+There, we met a pasta master who inspired us to turn everything we had learned into a unique concept: high-end pasta with a street food soul.
+
+We’re curious, creative, and obsessed with great ingredients.
+We bring the flavors of Southern Europe in a street food style: fun, laid-back, and accessible.
+But with a level of quality you can taste in every bite.
+
+All our pasta is made fresh daily with superior flours, sourced directly from Italian fields.
+Our sauces are crafted by hand, with respect for the environment, using sustainable ingredients and authentic processes.
+
+Each sauce is the result of a journey and a beautiful collaboration.
+The result is a flavor experience that travels with you.
+
+In pasta we trust.`
   }
 };
 

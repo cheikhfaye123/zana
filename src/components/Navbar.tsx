@@ -123,6 +123,7 @@ const Navbar = () => {
           <Link to="/career" className={`hover:underline ${location.pathname === '/career' ? 'underline' : ''}`}>{t('nav.career')}</Link>
           <Link to="/feedback" className={`hover:underline ${location.pathname === '/feedback' ? 'underline' : ''}`}>{t('nav.feedback')}</Link>
           <Link to="/franchising" className={`hover:underline ${location.pathname === '/franchising' ? 'underline' : ''}`}>{t('nav.franchising')}</Link>
+          <Link to="/quienes-somos" className={`hover:underline ${location.pathname === '/quienes-somos' ? 'underline' : ''}`}>{t('nav.quienesSomos')}</Link>
         </div>
 
         {/* Social icons and language */}
@@ -194,7 +195,8 @@ const Navbar = () => {
                 { to: "/news", text: t('nav.news') },
                 { to: "/career", text: t('nav.career') },
                 { to: "/feedback", text: t('nav.feedback') },
-                { to: "/franchising", text: t('nav.franchising') }
+                { to: "/franchising", text: t('nav.franchising') },
+                { to: "/quienes-somos", text: t('nav.quienesSomos') }
               ].map((item, index) => (
                 <div
                   key={index}

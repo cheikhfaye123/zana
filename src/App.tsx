@@ -9,6 +9,7 @@ import News from './pages/News';
 import Career from './pages/Career';
 import Feedback from './pages/Feedback';
 import Franchising from './pages/Franchising';
+import QuienesSomos from './pages/QuienesSomos';
 
 // Components
 import Navbar from './components/Navbar';
@@ -53,6 +54,7 @@ function App() {
               <Route path="/career" element={<Career />} />
               <Route path="/feedback" element={<Feedback />} />
               <Route path="/franchising" element={<Franchising />} />
+              <Route path="/quienes-somos" element={<QuienesSomos />} />
             </Routes>
             <Footer />
           </div>
