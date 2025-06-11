@@ -76,7 +76,7 @@ const QuienesSomos = () => {
               opacity: 0,
             }}
           >
-            <div className="space-y-6 text-justify">
+            <div className="space-y-6 text-justify bg-gradient-to-br from-white/5 to-white/15 rounded-xl p-6 border-l-4 border-[#FE5000]">
               {storyParagraphs.map((paragraph, index) => (
                 <p 
                   key={index} 
