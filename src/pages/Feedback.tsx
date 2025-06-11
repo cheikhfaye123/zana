@@ -86,15 +86,15 @@ const Feedback = () => {
 
   if (submitted) {
     return (
-      <div className="fixed inset-0 bg-white flex items-center justify-center p-6">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-center max-w-md"
+          className="text-center max-w-md w-full bg-white rounded-xl shadow-sm p-6"
         >
           <CheckCircle size={64} className="text-green-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-[#94ba85] mb-2">¡Gracias por tu opinión!</h2>
-          <p className="mb-6 text-gray-700">Hemos recibido tu feedback. ¡Gracias por ayudarnos a mejorar!</p>
+          <p className="mb-6 text-gray-600">Hemos recibido tu feedback. ¡Gracias por ayudarnos a mejorar!</p>
           <button
             onClick={() => {
               setSubmitted(false);
@@ -146,7 +146,7 @@ const Feedback = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#94ba85] focus:border-transparent outline-none"
               />
             </div>
 
@@ -161,7 +161,7 @@ const Feedback = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 "
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#94ba85] focus:border-transparent outline-none"
               />
             </div>
 
@@ -177,7 +177,7 @@ const Feedback = () => {
                   required
                   value={formData.visitDate}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#94ba85] focus:border-transparent outline-none"
                 />
               </div>
 
@@ -191,7 +191,7 @@ const Feedback = () => {
                   required
                   value={formData.location}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 "
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#94ba85] focus:border-transparent outline-none"
                 >
                   <option value="">Selecciona un local</option>
                   <option value="C/ Barcelonina 2, Valencia">C/ Barcelonina 2, Valencia</option>
@@ -234,7 +234,7 @@ const Feedback = () => {
                 value={formData.comments}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 "
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#94ba85] focus:border-transparent outline-none"
                 placeholder="Comparte tu experiencia..."
               />
             </div>
