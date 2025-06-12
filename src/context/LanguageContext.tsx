@@ -83,6 +83,7 @@ const translations = {
 'footer.contact': 'CONTÁCTANOS',
 'footer.slogan': 'Deliciosa pasta fresca hecha diariamente con ingredientes de calidad.',
     'footer.copyright': '© 2025 Zana Street world Pasta. Todos los derechos reservados.',
+    'footer.social': 'Síguenos en redes sociales',
     'gallery.title': 'FOTOS Y VIDEOS',
     'gallery.interior': 'Nuestro local',
     'gallery.private': 'Área Privada',
@@ -113,7 +114,7 @@ const translations = {
     'nav.quienesSomos': 'QUIÉNES SOMOS',
     'quienesSomos.title': 'NUESTRA HISTORIA',
     'quienesSomos.chefTitle': 'Nuestro equipo de chefs',
-    'quienesSomos.signature': 'ZANA STREET WORLD PASTA',
+    'quienesSomos.signature': 'ZANA ',
     'quienesSomos.fullStory': `SOMOS ZANA,Dos chefs, amigos y viajeros.
 Amantes de la cocina auténtica.
 Ciudadanos de un país llamado mundo.
@@ -222,6 +223,7 @@ In pasta we trust.`,
 'footer.contact': 'CONTACTEZ-NOUS',
 'footer.slogan': 'Pâtes fraîches préparées quotidiennement avec des ingrédients de qualité.',
     'footer.copyright': '© 2025 Zana Street world Pasta. Tous droits réservés.',
+    'footer.social': 'Suivez-nous sur les réseaux sociaux',
     'gallery.title': 'PHOTOS ET VIDÉOS',
     'gallery.interior': 'Notre établissement',
     'gallery.private': 'Espace Privé',
@@ -352,6 +354,7 @@ Le résultat : une expérience de saveurs qui voyage avec toi.
 'footer.contact': 'CONTACT US',
 'footer.slogan': 'Delicious pasta made fresh daily with quality ingredients.',
     'footer.copyright': '© 2025 Zana Street world Pasta. All rights reserved.',
+    'footer.social': 'Follow us on social media',
     'gallery.title': 'PHOTOS & VIDEOS',
     'gallery.interior': 'Our place',
     'gallery.private': 'Private Dining Area',

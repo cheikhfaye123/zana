@@ -180,7 +180,7 @@ const Footer = () => {
 
           {/* Réseaux sociaux */}
           <div className="text-center">
-            <h4 className="text-lg font-semibold mb-4 text-white/80">Suivez-nous</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white/80">{t('footer.social')}</h4>
             <div className="flex justify-center space-x-6">
               <motion.a
                 href="https://www.instagram.com/zanapasta"
