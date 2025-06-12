@@ -188,7 +188,7 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Links - Main content with scroll */}
-            <div className="flex-1 overflow-y-auto py-2">
+            <div className="flex-1 overflow-y-auto py-4">
               <div className="px-4 space-y-1">
                 {[
                   { href: "#visit-us", onClick: handleLocationClick, text: t('nav.locations') },
