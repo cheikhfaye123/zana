@@ -189,7 +189,7 @@ const Navbar = () => {
 
             {/* Mobile Links - Main content with scroll */}
             <div className="flex-1 overflow-y-auto py-4">
-              <div className="px-4 space-y-1">
+              <div className="px-4 space-y-3">
                 {[
                   { href: "#visit-us", onClick: handleLocationClick, text: t('nav.locations') },
                   { to: "/menu", text: t('nav.menu') },
