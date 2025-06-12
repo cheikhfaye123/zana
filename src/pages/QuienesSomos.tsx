@@ -53,7 +53,7 @@ const QuienesSomos = () => {
               opacity: 0,
             }}
           >
-           <div className="h-60 md:h-72 w-full border-4 border-[#FE5000] rounded-lg overflow-hidden shadow-2xl bg-black">
+           <div className="h-60 md:h-72 w-full border-4 border-[#A16207] rounded-lg overflow-hidden shadow-2xl bg-black">
               <img 
                 src="/images/identité/chef.jpg" 
                 alt={t('quienesSomos.chefTitle')}

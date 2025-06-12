@@ -37,7 +37,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
-        setIsMenuOpen(false); // close mobile menu if resizing to desktop
+        setIsMenuOpen(false);
         document.body.style.overflow = 'unset';
       }
     };
@@ -80,7 +80,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50 transition-all duration-300 bg-[#292727] text-white py-2 px-4 md:px-8">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#292727] py-2' : 'bg-[#292727] py-2'} text-white px-4 md:px-8`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3">
           <div className="h-16 w-16 md:h-20 md:w-20 flex items-center justify-center">
@@ -162,11 +162,11 @@ const Navbar = () => {
           ></div>
 
           <div
-            className={`fixed top-0 right-0 h-screen w-72 bg-[#FE5000] shadow-2xl transform transition-all duration-500 ease-out ${
+            className={`fixed top-0 right-0 h-[100dvh] w-72 bg-[#FE5000] shadow-2xl transform transition-all duration-500 ease-out ${
               isMenuOpen 
                 ? 'translate-x-0 opacity-100 scale-100' 
                 : 'translate-x-full opacity-0 scale-95'
-            } z-50`}
+            } z-50 flex flex-col`}
             style={{
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
             }}
@@ -187,59 +187,61 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Mobile Links */}
-            <div className="px-6 py-8 space-y-2">
-              {[
-                { href: "#visit-us", onClick: handleLocationClick, text: t('nav.locations') },
-                { to: "/menu", text: t('nav.menu') },
-                { to: "/news", text: t('nav.news') },
-                { to: "/career", text: t('nav.career') },
-                { to: "/feedback", text: t('nav.feedback') },
-                { to: "/franchising", text: t('nav.franchising') },
-                { to: "/quienes-somos", text: t('nav.quienesSomos') }
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className={`transform transition-all duration-500 ease-out ${
-                    isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
-                  }`}
-                  style={{ transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : '0ms' }}
-                >
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      onClick={item.onClick}
-                      className="group block py-4 px-4 rounded-xl text-lg font-medium hover:bg-white/10 transition-all duration-300 border-l-4 border-transparent hover:border-white/50"
-                    >
-                      <span className="flex items-center justify-between">
-                        {item.text}
-                        <svg className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </span>
-                    </a>
-                  ) : (
-                    <Link
-                      to={item.to!}
-                      className={`group block py-4 px-4 rounded-xl text-lg font-medium hover:bg-white/10 transition-all duration-300 border-l-4 border-transparent hover:border-white/50 ${
-                        location.pathname === item.to ? 'bg-white/20 border-white font-bold' : ''
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <span className="flex items-center justify-between">
-                        {item.text}
-                        <svg className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </span>
-                    </Link>
-                  )}
-                </div>
-              ))}
+            {/* Mobile Links - Main content with scroll */}
+            <div className="flex-1 overflow-y-auto py-4">
+              <div className="px-6 space-y-2">
+                {[
+                  { href: "#visit-us", onClick: handleLocationClick, text: t('nav.locations') },
+                  { to: "/menu", text: t('nav.menu') },
+                  { to: "/news", text: t('nav.news') },
+                  { to: "/career", text: t('nav.career') },
+                  { to: "/feedback", text: t('nav.feedback') },
+                  { to: "/franchising", text: t('nav.franchising') },
+                  { to: "/quienes-somos", text: t('nav.quienesSomos') }
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className={`transform transition-all duration-500 ease-out ${
+                      isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
+                    }`}
+                    style={{ transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : '0ms' }}
+                  >
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        onClick={item.onClick}
+                        className="group block py-4 px-4 rounded-xl text-lg font-medium hover:bg-white/10 transition-all duration-300 border-l-4 border-transparent hover:border-white/50"
+                      >
+                        <span className="flex items-center justify-between">
+                          {item.text}
+                          <svg className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </span>
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.to!}
+                        className={`group block py-4 px-4 rounded-xl text-lg font-medium hover:bg-white/10 transition-all duration-300 border-l-4 border-transparent hover:border-white/50 ${
+                          location.pathname === item.to ? 'bg-white/20 border-white font-bold' : ''
+                        }`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <span className="flex items-center justify-between">
+                          {item.text}
+                          <svg className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </span>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Mobile Footer */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10 bg-black/10">
+            {/* Mobile Footer - Fixed at bottom */}
+            <div className="p-6 border-t border-white/10 bg-[#FE5000]">
               <div className="flex justify-center space-x-6">
                 <a 
                   href="https://www.instagram.com/zanapasta?igsh=MnZyOWYyeWNkMHdo" 
