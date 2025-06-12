@@ -172,15 +172,15 @@ const Navbar = () => {
             }}
           >
             {/* Mobile Header */}
-            <div className="p-6 border-b border-white/10">
+            <div className="p-4 border-b border-white/10">
               <div className="flex justify-between items-center">
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                   <span className="text-white/70 text-sm font-medium tracking-wide">MENU</span>
                 </div>
                 <button
                   onClick={handleLanguageChange}
-                  className="border-2 border-white/30 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 text-sm font-medium hover:bg-white hover:text-[#ff4b4b] transition-all duration-300 transform hover:scale-105"
+                  className="border border-white/30 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium hover:bg-white hover:text-[#ff4b4b] transition-all duration-300"
                 >
                   {language}
                 </button>
@@ -188,8 +188,8 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Links - Main content with scroll */}
-            <div className="flex-1 overflow-y-auto py-4">
-              <div className="px-6 space-y-2">
+            <div className="flex-1 overflow-y-auto py-2">
+              <div className="px-4 space-y-1">
                 {[
                   { href: "#visit-us", onClick: handleLocationClick, text: t('nav.locations') },
                   { to: "/menu", text: t('nav.menu') },
@@ -210,11 +210,11 @@ const Navbar = () => {
                       <a
                         href={item.href}
                         onClick={item.onClick}
-                        className="group block py-4 px-4 rounded-xl text-lg font-medium hover:bg-white/10 transition-all duration-300 border-l-4 border-transparent hover:border-white/50"
+                        className="group block py-3 px-3 rounded-lg text-base font-medium hover:bg-white/10 transition-all duration-300 border-l-2 border-transparent hover:border-white/50"
                       >
                         <span className="flex items-center justify-between">
                           {item.text}
-                          <svg className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                           </svg>
                         </span>
@@ -222,14 +222,14 @@ const Navbar = () => {
                     ) : (
                       <Link
                         to={item.to!}
-                        className={`group block py-4 px-4 rounded-xl text-lg font-medium hover:bg-white/10 transition-all duration-300 border-l-4 border-transparent hover:border-white/50 ${
+                        className={`group block py-3 px-3 rounded-lg text-base font-medium hover:bg-white/10 transition-all duration-300 border-l-2 border-transparent hover:border-white/50 ${
                           location.pathname === item.to ? 'bg-white/20 border-white font-bold' : ''
                         }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
                         <span className="flex items-center justify-between">
                           {item.text}
-                          <svg className="w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                           </svg>
                         </span>
@@ -240,28 +240,28 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Mobile Footer - Fixed at bottom */}
-            <div className="p-6 border-t border-white/10 bg-[#FE5000]">
-              <div className="flex justify-center space-x-6">
+            {/* Mobile Footer - Compact version */}
+            <div className="p-3 border-t border-white/10 bg-[#FE5000]">
+              <div className="flex justify-center space-x-3">
                 <a 
                   href="https://www.instagram.com/zanapasta?igsh=MnZyOWYyeWNkMHdo" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center transform hover:scale-110 transition-all duration-300"
+                  className="w-9 h-9 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center transform hover:scale-110 transition-all duration-300"
                 >
-                  <Instagram size={24} className="text-white" />
+                  <Instagram size={18} className="text-white" />
                 </a>
                 <a 
                   href="https://www.tiktok.com/@zana_pasta?_t=ZN-8wnBQVfvclq&_r=1" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center transform hover:scale-110 transition-all duration-300"
+                  className="w-9 h-9 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center transform hover:scale-110 transition-all duration-300"
                 >
-                  <TikTokIcon size={24} className="text-white" />
+                  <TikTokIcon size={18} className="text-white" />
                 </a>
               </div>
-              <div className="text-center mt-4">
-                <span className="text-white/50 text-xs tracking-widest">ZANA PASTA</span>
+              <div className="text-center mt-1">
+                <span className="text-white/50 text-[10px] tracking-widest">ZANA PASTA</span>
               </div>
             </div>
           </div>
