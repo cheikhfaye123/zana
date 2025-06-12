@@ -37,66 +37,76 @@ const QuienesSomos = () => {
   const storyParagraphs = t('quienesSomos.fullStory').split('\n\n');
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4 md:px-8 bg-white text-black">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-          {t('quienesSomos.title')}
-        </h1>
+    <div className="min-h-screen pt-28 pb-16 px-4 md:px-8 bg-gradient-to-b from-white to-gray-50 text-black">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#292727] relative inline-block">
+            <span className="relative z-10">{t('quienesSomos.title')}</span>
+            <span className="absolute bottom-0 left-0 w-full h-2 bg-[#FE5000]/30 -z-0" style={{ transform: 'translateY(5px)' }}></span>
+          </h1>
+        </div>
 
-        <div className="flex flex-col md:flex-row gap-0 md:gap-12 items-start">
-          {/* Image avec cadre à gauche - hauteur réduite */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+          {/* Image avec effet moderne */}
           <div 
             ref={imageRef}
-            className="w-full md:w-5/12 relative mb-8 md:mb-0"
+            className="w-full lg:w-5/12 relative mb-8 lg:mb-0 group"
             style={{
               transform: 'translateX(-30px)',
               opacity: 0,
             }}
           >
-           <div className="h-60 md:h-72 w-full border-4 border-[#A16207] rounded-lg overflow-hidden shadow-2xl bg-black">
+            <div className="relative overflow-hidden rounded-xl shadow-2xl h-72 w-full">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20 z-10"></div>
               <img 
                 src="/images/identité/chef.jpg" 
                 alt={t('quienesSomos.chefTitle')}
-                className="w-full h-full object-cover opacity-90"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 style={{
                   objectPosition: 'center center'
                 }}
               />
-            </div>
-            <div className="absolute -bottom-3 -right-3 bg-[#FE5000] text-white px-3 py-1 rounded text-sm font-bold">
-              {t('quienesSomos.chefTitle')}
+              <div className="absolute">
+                <span className="bg-[#FE5000] text-white px-4 py-1 rounded-lg text-lg font-bold inline-block transform -skew-x-6 shadow-lg">
+                  {t('quienesSomos.chefTitle')}
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Texte à droite - parfaitement aligné et typographie soignée */}
+          {/* Texte avec mise en page améliorée */}
           <div 
             ref={textRef}
-            className="w-full md:w-7/12 flex flex-col justify-start"
+            className="w-full lg:w-7/12 flex flex-col justify-start"
             style={{
               opacity: 0,
             }}
           >
-            <div className="space-y-6 text-justify bg-gradient-to-br from-white/5 to-white/15 rounded-xl p-6 border-l-4 border-[#FE5000]">
+            <div className="space-y-6 text-justify bg-white rounded-xl p-8 shadow-lg relative before:absolute before:top-0 before:left-0 before:w-2 before:h-full before:bg-gradient-to-b from-[#FE5000] to-[#A16207]">
               {storyParagraphs.map((paragraph, index) => (
                 <p 
                   key={index} 
-                  className="text-lg leading-[1.8] tracking-wide text-black/90"
-                  style={{
-                    textAlignLast: 'left',
-                    wordSpacing: '0.05em',
-                    hyphens: 'auto'
-                  }}
+                  className="text-lg leading-relaxed text-gray-800 relative pl-4"
                 >
+                  {index === 0 && (
+                    <span className="text-5xl text-[#FE5000] font-serif absolute -left-2 -top-4">“</span>
+                  )}
                   {paragraph}
+                  {index === storyParagraphs.length - 1 && (
+                    <span className="text-5xl text-[#FE5000] font-serif absolute -right-2 -bottom-4">”</span>
+                  )}
                 </p>
               ))}
             </div>
 
-            {/* Signature alignée à droite */}
-            <div className="mt-10 text-right">
-              <p className="text-2xl italic text-[#FE5000] font-serif tracking-wider">
-                {t('quienesSomos.signature')}
-              </p>
+            {/* Signature stylisée */}
+            <div className="mt-12 text-right">
+              <div className="inline-flex flex-col items-end">
+                <div className="w-24 h-1 bg-[#FE5000] mb-2"></div>
+                <p className="text-2xl italic text-[#FE5000] font-serif tracking-wider">
+                  {t('quienesSomos.signature')}
+                </p>
+              </div>
             </div>
           </div>
         </div>
