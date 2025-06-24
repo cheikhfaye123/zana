@@ -112,3 +112,22 @@ html {
   font-weight: 700;
   font-size: 1rem;
 }
+
+
+/* Classe pour bien gérer le texte dans la section */
+.text-content {
+  word-spacing: normal;
+  letter-spacing: normal;
+  white-space: normal;
+  hyphens: auto;
+}
+
+/* Espacement entre paragraphes */
+.text-content p {
+  margin-bottom: 1.5rem; /* Ajuste à ton goût */
+}
+
+/* Supprime margin bottom sur dernier paragraphe pour éviter marge inutile */
+.text-content p:last-child {
+  margin-bottom: 0;
+}

@@ -115,38 +115,8 @@ const translations = {
     'quienesSomos.title': 'NUESTRA HISTORIA',
     'quienesSomos.chefTitle': 'Nuestro equipo de chefs',
     'quienesSomos.signature': 'ZANA ',
-    'quienesSomos.fullStory': `SOMOS ZANA, Dos chefs, amigos y viajeros.
-Amantes de la cocina auténtica.
-Ciudadanos de un país llamado mundo.
-
-Todo comenzó durante la pandemia, cuando el mundo estaba en pausa
-y nosotros cocinábamos para las personas que más queríamos:
-amigos y familia.
-
-La buena comida casera se convirtió en un ritual,
-un lenguaje propio,
-y en una tradición que fue creciendo con el tiempo.
-
-ZANA nació algún tiempo después, tras un viaje a Italia que nos cambió la vida.
-Allí conocimos a un maestro de la pasta que nos inspiró
-a transformar todo lo que habíamos aprendido en un concepto único:
-pasta de alta gastronomía con alma callejera.
-
-Somos curiosos, creativos y obsesionados con los buenos ingredientes.
-Traemos los sabores del sur de Europa en clave street food:
-divertido, relajado y accesible.
-Pero con un nivel de calidad que se siente en cada bocado.
-
-Toda nuestra pasta se elabora fresca cada día,
-con harinas superiores, traídas directamente de campos italianos.
-Nuestras salsas se cocinan de forma artesanal,
-con respeto por el medio ambiente,
-ingredientes sostenibles y procesos auténticos.
-
-Cada salsa es el resultado de un viaje y una colaboración hermosa.
-El resultado es una experiencia de sabor que viaja contigo.
-
-In pasta we trust.`,
+    'quienesSomos.fullStory': "<p>SOMOS ZANA, Dos chefs, amigos y viajeros.</p><p>Amantes de la cocina auténtica.</p><p>Ciudadanos de un país llamado mundo.</p><p>Todo comenzó durante la pandemia, cuando el mundo estaba en pausa y nosotros cocinábamos para las personas que más queríamos: amigos y familia.</p><p>La buena comida casera se convirtió en un ritual, un lenguaje propio, y en una tradición que fue creciendo con el tiempo.</p><p>ZANA nació algún tiempo después, tras un viaje a Italia que nos cambió la vida. Allí conocimos a un maestro de la pasta que nos inspiró a transformar todo lo que habíamos aprendido en un concepto único: pasta de alta gastronomía con alma callejera.</p><p>Somos curiosos, creativos y obsesionados con los buenos ingredientes. Traemos los sabores del sur de Europa en clave street food: divertido, relajado y accesible. Pero con un nivel de calidad que se siente en cada bocado.</p><p>Toda nuestra pasta se elabora fresca cada día, con harinas superiores, traídas directamente de campos italianos. Nuestras salsas se cocinan de forma artesanal, con respeto por el medio ambiente, ingredientes sostenibles y procesos auténticos.</p><p>Cada salsa es el resultado de un viaje y una colaboración hermosa. El resultado es una experiencia de sabor que viaja contigo.</p><p class='text-right italic mt-3'>In pasta we trust.</p>",
+    
   },
   FR: {
     ...menuButtonTranslations.FR,

@@ -37,7 +37,7 @@ const QuienesSomos = () => {
   const storyParagraphs = t('quienesSomos.fullStory').split('\n\n');
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4 md:px-8 bg-gradient-to-b from-white to-gray-50 text-black">
+    <div className="min-h-screen pt-25 pb-12 px-4 md:px-8 bg-gradient-to-b from-white to-gray-50 text-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#292727] relative inline-block">
@@ -81,41 +81,40 @@ const QuienesSomos = () => {
             style={{
               opacity: 0,
             }}
-          >  <div className="space-y-3 sm:space-y-4 bg-white rounded-xl p-5 sm:p-8 shadow-lg relative before:absolute before:top-0 before:left-0 before:w-2 before:h-full before:bg-gradient-to-b from-[#FE5000] to-[#A16207]">
-          {storyParagraphs.map((paragraph, index) => (
-            <p 
-              key={index} 
-              className="text-sm sm:text-base leading-snug sm:leading-relaxed text-gray-800 relative pl-4 font-sans text-left sm:text-justify"
-            >
-              {index === 0 && (
-                <span className="text-3xl sm:text-4xl text-[#FE5000] font-serif absolute -left-1 -top-3">"</span>
-              )}
-              {paragraph}
-              {index === storyParagraphs.length - 1 && (
-                <span className="text-3xl sm:text-4xl text-[#FE5000] font-serif absolute -right-1 -bottom-3">"</span>
-              )}
-            </p>
-          ))}
-        </div>
-       
-  
+          >
+            <div className="space-y-6 text-justify bg-white rounded-xl p-6 sm:p-8 shadow-lg relative before:absolute before:top-0 before:left-0 before:w-2 before:h-full before:bg-gradient-to-b from-[#FE5000] to-[#A16207] text-content">
+            {storyParagraphs.map((paragraph, index) => (
+  <p 
+    key={index} 
+    className="text-base sm:text-lg leading-relaxed text-gray-800 relative pl-4 font-sans"
+  >
+    {index === 0 && (
+      <span className="text-4xl sm:text-5xl text-[#FE5000] font-serif absolute -left-2 -top-4">"</span>
+    )}
+    <span
+      dangerouslySetInnerHTML={{ __html: paragraph }}
+    />
+    {index === storyParagraphs.length - 1 && (
+      <span className="text-4xl sm:text-5xl text-[#FE5000] font-serif absolute -right-2 -bottom-4">"</span>
+    )}
+  </p>
+))}
+            </div>
 
             {/* Signature stylisée */}
-            {/* Signature stylisée avec logo */}
-<div className="mt-8 sm:mt-12 text-right">
-  <div className="inline-flex flex-col items-end">
-    <div className="w-24 h-1 bg-[#FE5000] mb-2"></div>
-    {/* Logo Zana */}
-    <img 
-      src="/images/identité/logo2.png" 
-      alt="Zana Signature"
-      className="h-10 sm:h-12 w-auto object-contain" 
-      style={{
-        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-      }}
-    />
-  </div>
-</div>
+            <div className="mt-8 sm:mt-12 text-right">
+              <div className="inline-flex flex-col items-end">
+                <div className="w-24 h-1 bg-[#FE5000] mb-2"></div>
+                <img 
+                  src="/images/identité/logo2.png" 
+                  alt="Zana Signature"
+                  className="h-10 sm:h-12 w-auto object-contain" 
+                  style={{
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
