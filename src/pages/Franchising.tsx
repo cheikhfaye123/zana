@@ -7,7 +7,7 @@ const Franchising = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
-    <div className="pt-16 pb-12 sm:pt-20 sm:pb-16">
+    <div className="pt-24 pb-12 sm:pt-32 sm:pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10 sm:mb-16">
@@ -15,7 +15,7 @@ const Franchising = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-['Dancing_Script'] text-[#ff4b4b] mb-3 sm:mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#292727] mb-9 sm:mb-4"
           >
             Franchise Opportunities
           </motion.h1>

@@ -115,7 +115,7 @@ const translations = {
     'quienesSomos.title': 'NUESTRA HISTORIA',
     'quienesSomos.chefTitle': 'Nuestro equipo de chefs',
     'quienesSomos.signature': 'ZANA ',
-    'quienesSomos.fullStory': `SOMOS ZANA,Dos chefs, amigos y viajeros.
+    'quienesSomos.fullStory': `SOMOS ZANA, Dos chefs, amigos y viajeros.
 Amantes de la cocina auténtica.
 Ciudadanos de un país llamado mundo.
 

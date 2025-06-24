@@ -115,7 +115,7 @@ const Feedback = () => {
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl font-['Dancing_Script'] text-[#292727] mb-2 pt-9"
+            className="mt-14 text-3xl sm:text-4xl md:text-5xl font-bold text-[#292727] mb-9 sm:mb-4 text-center"
           >
             Danos tu Opinión
           </motion.h1>
