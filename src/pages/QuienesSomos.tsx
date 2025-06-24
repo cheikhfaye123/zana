@@ -37,7 +37,7 @@ const QuienesSomos = () => {
   const storyParagraphs = t('quienesSomos.fullStory').split('\n\n');
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4 md:px-8 bg-gradient-to-b from-white to-gray-50 text-black">
+    <div className="min-h-screen pt-24 pb-12 px-4 md:px-8 bg-gradient-to-b from-white to-gray-50 text-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#292727] relative inline-block">

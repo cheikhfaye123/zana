@@ -157,7 +157,7 @@ const Gallery = () => {
           </h3>
           <div className="flex justify-center items-center gap-2 text-gray-500">
             <span className="text-sm">
-              {currentIndex + 1} sur {galleryItems.length}
+              {currentIndex + 1} / {galleryItems.length}
             </span>
           </div>
         </motion.div>

@@ -112,7 +112,7 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
                   <X size={20} />
                 </button>
 
-                <h2 className="text-2xl font-['Dancing_Script'] text-[#292727] mb-4 text-center">
+                <h2 className="text-2xl font-bold text-[#292727] mb-4 text-center">
                   Franchise Application
                 </h2>
 
