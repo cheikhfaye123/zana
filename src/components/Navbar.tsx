@@ -80,8 +80,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#292727] py-2' : 'bg-[#292727] py-2'} text-white px-4 md:px-8`}>
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#292727] py-2' : 'bg-[#292727] py-2'} text-white `}>
+      <div className="w-full flex justify-between items-center px-4 md:px-8">
         <Link to="/" className="flex items-center gap-3">
           <div className="h-16 w-16 md:h-20 md:w-20 flex items-center justify-center">
             <img 

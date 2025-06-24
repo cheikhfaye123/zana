@@ -99,7 +99,7 @@ const Home = () => {
                   viewport={{ once: true }}
                   className="flex items-start p-3 sm:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#ff4b4b] to-[#ff6b6b] rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FE5000] to-[#FE5000] rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
                     <MapPin size={18} className="sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>
@@ -115,7 +115,7 @@ const Home = () => {
                   viewport={{ once: true }}
                   className="flex items-start p-3 sm:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#292727] to-[#3f3f3f] rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FE5000] to-[#FE5000] rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
                     <Phone size={18} className="sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>
@@ -131,7 +131,7 @@ const Home = () => {
                   viewport={{ once: true }}
                   className="flex items-start p-3 sm:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FE5000] to-[#FE5000] rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
                     <Clock size={18} className="sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>
@@ -148,7 +148,7 @@ const Home = () => {
       {/* Call to Action avec le bouton "Ver en el mapa" */}
       <section className="bg-white py-16 text-[#292727] text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-['Dancing_Script'] mb-6">{t('cta.hungry')}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('cta.hungry')}</h2>
           <p className="text-xl mb-8 max-w-xl mx-auto">{t('cta.visit')}</p>
           
           <motion.div
@@ -162,7 +162,7 @@ const Home = () => {
               href="https://maps.google.com/?q=C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, España"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7e7a7a] to-[#7e7a7a] text-white font-semibold px-6 py-3 rounded-full hover:from-[#ff3b3b] hover:to-[#ff5b5b] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7e7a7a] to-[#7e7a7a] text-white font-semibold px-6 py-3 rounded-full hover:from-[#ff3b3b] hover:to-[#FE5000] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               <MapPin size={18} />
               {t('cta.view_map')}

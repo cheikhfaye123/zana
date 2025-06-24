@@ -82,22 +82,22 @@ const QuienesSomos = () => {
               opacity: 0,
             }}
           >
-            <div className="space-y-4 sm:space-y-6 text-left bg-white rounded-xl p-6 sm:p-8 shadow-lg relative before:absolute before:top-0 before:left-0 before:w-2 before:h-full before:bg-gradient-to-b from-[#FE5000] to-[#A16207]">
-              {storyParagraphs.map((paragraph, index) => (
-                <p 
-                  key={index} 
-                  className="text-base sm:text-lg leading-relaxed text-gray-800 relative pl-4 font-sans"
-                >
-                  {index === 0 && (
-                    <span className="text-4xl sm:text-5xl text-[#FE5000] font-serif absolute -left-2 -top-4">"</span>
-                  )}
-                  {paragraph}
-                  {index === storyParagraphs.length - 1 && (
-                    <span className="text-4xl sm:text-5xl text-[#FE5000] font-serif absolute -right-2 -bottom-4">"</span>
-                  )}
-                </p>
-              ))}
-            </div>
+          <div className="space-y-3 sm:space-y-4 text-justify bg-white rounded-xl p-5 sm:p-8 shadow-lg relative before:absolute before:top-0 before:left-0 before:w-2 before:h-full before:bg-gradient-to-b from-[#FE5000] to-[#A16207]">
+  {storyParagraphs.map((paragraph, index) => (
+    <p 
+      key={index} 
+      className="text-sm sm:text-base leading-snug sm:leading-relaxed text-gray-800 relative pl-4 font-sans"
+    >
+      {index === 0 && (
+        <span className="text-3xl sm:text-4xl text-[#FE5000] font-serif absolute -left-1 -top-3">"</span>
+      )}
+      {paragraph}
+      {index === storyParagraphs.length - 1 && (
+        <span className="text-3xl sm:text-4xl text-[#FE5000] font-serif absolute -right-1 -bottom-3">"</span>
+      )}
+    </p>
+  ))}
+</div>
 
             {/* Signature stylisée */}
             {/* Signature stylisée avec logo */}
