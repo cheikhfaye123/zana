@@ -82,7 +82,7 @@ const QuienesSomos = () => {
               opacity: 0,
             }}
           >
-            <div className="space-y-4 sm:space-y-6 text-justify bg-white rounded-xl p-6 sm:p-8 shadow-lg relative before:absolute before:top-0 before:left-0 before:w-2 before:h-full before:bg-gradient-to-b from-[#FE5000] to-[#A16207]">
+            <div className="space-y-4 sm:space-y-6 text-left bg-white rounded-xl p-6 sm:p-8 shadow-lg relative before:absolute before:top-0 before:left-0 before:w-2 before:h-full before:bg-gradient-to-b from-[#FE5000] to-[#A16207]">
               {storyParagraphs.map((paragraph, index) => (
                 <p 
                   key={index} 
