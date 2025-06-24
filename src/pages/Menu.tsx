@@ -50,15 +50,13 @@ const Menu = () => {
             {t('nav.menu')}
           </motion.h1>
           <motion.p
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.5, delay: 0.2 }}
-  className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-2 leading-relaxed"
->
-  Elige tu tipo de pasta, después descubre nuestras salsas auténticas,
-  elaboradas con productos de alta calidad y de forma artesanal por chefs profesionales.
-  Déjate viajar por el mundo, bocado tras bocado.
-</motion.p>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-2"
+          >
+            {t('menu.subtitle')}
+          </motion.p>
         </div>
 
         {/* Category Filter Buttons */}
