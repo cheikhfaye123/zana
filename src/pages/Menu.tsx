@@ -50,13 +50,14 @@ const Menu = () => {
             {t('nav.menu')}
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-2"
-          >
-            {t('menu.subtitle')}
-          </motion.p>
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-6 leading-relaxed tracking-wide text-justify"
+>
+  {t('menu.subtitle')}
+</motion.p>
+
         </div>
 
         {/* Category Filter Buttons */}
