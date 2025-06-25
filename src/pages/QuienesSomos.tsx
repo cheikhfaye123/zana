@@ -76,24 +76,24 @@ const QuienesSomos = () => {
             className="w-full lg:w-7/12 flex flex-col justify-start"
           >
             <div className="relative bg-white shadow-md rounded-xl p-4 sm:p-6 space-y-4 text-left before:absolute before:top-0 before:left-0 before:w-1.5 before:h-full before:bg-gradient-to-b from-[#FE5000] to-[#A16207]">
-              {storyParagraphs.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="text-sm sm:text-base leading-relaxed sm:leading-loose text-gray-800 font-light relative px-3 py-0.5"
-                >
-                  {index === 0 && (
-                    <span className="text-3xl text-[#FE5000] font-serif absolute -left-4 -top-2">“</span>
-                  )}
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: paragraph.replace(/<p>|<\/p>/g, ''),
-                    }}
-                  />
-                  {index === storyParagraphs.length - 1 && (
-                    <span className="text-3xl text-[#FE5000] font-serif absolute -right-4 -bottom-2">”</span>
-                  )}
-                </p>
-              ))}
+            {storyParagraphs.map((paragraph, index) => (
+  <p
+    key={index}
+    className="text-sm sm:text-base leading-relaxed sm:leading-loose text-gray-800 font-light relative px-3 py-0.5 pl-6 sm:pl-8"
+  >
+    {index === 0 && (
+      <span className="text-3xl text-[#FE5000] font-serif absolute left-1 top-0">“</span>
+    )}
+    <span
+      dangerouslySetInnerHTML={{
+        __html: paragraph.replace(/<p>|<\/p>/g, ''),
+      }}
+    />
+    {index === storyParagraphs.length - 1 && (
+      <span className="text-3xl text-[#FE5000] font-serif absolute right-1 bottom-0">”</span>
+    )}
+  </p>
+))}
             </div>
 
             {/* Signature */}
