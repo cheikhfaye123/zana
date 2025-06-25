@@ -1,12 +1,4 @@
-# Rediriger www vers non-www
-
-https://www.pastazana.com/* https://pastazana.com/:splat 301!
-
-# Forcer HTTPS sur tout le site
-
+https://www.pastazana.com/_ https://pastazana.com/:splat 301!
 http://pastazana.com/_ https://pastazana.com/:splat 301!
 http://www.pastazana.com/_ https://pastazana.com/:splat 301!
-
-# SPA fallback
-
-/\* /index.html 200
+/_ /index.html 200
