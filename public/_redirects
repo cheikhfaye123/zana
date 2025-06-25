@@ -1,4 +1,1 @@
-https://www.pastazana.com/_ https://pastazana.com/:splat 301!
-http://pastazana.com/_ https://pastazana.com/:splat 301!
-http://www.pastazana.com/_ https://pastazana.com/:splat 301!
-/_ /index.html 200
+/\* /index.html 200
