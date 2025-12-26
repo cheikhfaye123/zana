@@ -83,20 +83,20 @@ const Career = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+    <div className="min-h-screen bg-[#FD5121] p-4 md:p-8">
       <div className="max-w-md mx-auto">
         <div className="text-center mb-8 pt-9">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl font-bold text-[#292727] mb-2 pt-9"
+            className="text-3xl font-bold text-[#000000] mb-2 pt-9"
           >
             Únete a Nuestro Equipo
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className=" text-sm text-gray-600"
+            className=" text-sm text-white"
           >
             Comienza tu trayectoria en Zana Street world Pasta
           </motion.p>

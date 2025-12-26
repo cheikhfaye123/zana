@@ -43,11 +43,11 @@ const QuienesSomos = () => {
     .filter(p => p && p !== '<p></p>');
 
   return (
-    <section className="min-h-screen pt-32 pb-16 px-4 md:px-8 bg-gradient-to-b from-white to-gray-100 text-gray-900">
-      <div className="max-w-6xl mx-auto">
+    <section className="min-h-screen pt-32 pb-16 px-4 md:px-8 bg-gradient-to-b from-white to-gray-100 text-gray-900 ">
+      <div className="max-w-6xl mx-auto ">
         {/* Titre */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#292727] relative inline-block">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#000000] relative inline-block">
             <span className="relative z-10">{t('quienesSomos.title')}</span>
             <span className="absolute bottom-0 left-0 w-full h-1.5 bg-[#FE5000]/30 -z-0 translate-y-1.5"></span>
           </h1>

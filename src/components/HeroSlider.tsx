@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext'; // Ajout de l'import
+import { useLanguage } from '../context/LanguageContext';
 
 const slides = [
   {
@@ -34,7 +34,7 @@ const slides = [
 const HeroSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const { t } = useLanguage(); // Ajout du hook useLanguage
+  const { t } = useLanguage();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,7 +54,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative bg-[#a3a2a2] w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <div className="relative bg-[#FD5121] w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center relative">
         <AnimatePresence mode="wait">
           <motion.div
@@ -65,12 +65,46 @@ const HeroSlider = () => {
             transition={{ duration: 0.5 }}
             className="text-white text-center md:text-left md:w-1/2 mb-8 md:mb-0"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-['Dancing_Script'] mb-4 sm:mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6">
               {slides[currentIndex].title}
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl max-w-md mx-auto md:mx-0">
+            <p className="text-lg sm:text-xl md:text-2xl max-w-md mx-auto md:mx-0 mb-6">
               {slides[currentIndex].description}
             </p>
+            
+            {/* Bouton VER MENÚ positionné à gauche sous le texte */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="flex justify-center md:justify-start"
+            >
+              <Link to="/menu">
+                <motion.button
+                  className="bg-white text-[#000000] font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "#ffffff",
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  onHoverStart={() => setIsHovered(true)}
+                  onHoverEnd={() => setIsHovered(false)}
+                >
+                  <motion.span
+                    animate={{
+                      x: isHovered ? [0, 2, -2, 2, 0] : 0
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      repeat: isHovered ? Infinity : 0
+                    }}
+                  >
+                    {t('menu.button.view')}
+                  </motion.span>
+                </motion.button>
+              </Link>
+            </motion.div>
           </motion.div>
         </AnimatePresence>
 
@@ -94,50 +128,10 @@ const HeroSlider = () => {
             </div>
           </motion.div>
         </AnimatePresence>
-
-        {/* Bouton Menu modifié pour utiliser la traduction */}
-        <motion.div
-          className=" mt-4 mx-auto
-      md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
-          <Link to="/menu">
-            <motion.button
-              className="bg-[#FE5000] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "#e64800",
-                transition: { duration: 0.2 }
-              }}
-              whileTap={{ scale: 0.95 }}
-              onHoverStart={() => setIsHovered(true)}
-              onHoverEnd={() => setIsHovered(false)}
-            >
-              <motion.span
-                animate={{
-                  x: isHovered ? [0, 2, -2, 2, 0] : 0
-                }}
-                transition={{
-                  duration: 0.5,
-                  repeat: isHovered ? Infinity : 0
-                }}
-              >
-                {t('menu.button.view')} {/* Utilisation de la traduction */}
-              </motion.span>
-            </motion.button>
-          </Link>
-        </motion.div>
       </div>
 
-      {/* Navigation Arrows */}
-      
-
-      
-
       {/* Dots Navigation */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}

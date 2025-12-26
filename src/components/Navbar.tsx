@@ -80,7 +80,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#292727] py-2' : 'bg-[#292727] py-2'} text-white `}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#FE5000] py-2' : 'bg-[#FD5121] py-2'} text-white border-b border-white `}>
       <div className="w-full flex justify-between items-center px-4 md:px-8">
         <Link to="/" className="flex items-center gap-3">
           <div className="h-16 w-16 md:h-20 md:w-20 flex items-center justify-center">
@@ -116,7 +116,7 @@ const Navbar = () => {
         </button>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-6 font-bold">
           <a href="#visit-us" onClick={handleLocationClick} className="hover:underline">{t('nav.locations')}</a>
           <Link to="/menu" className={`hover:underline ${location.pathname === '/menu' ? 'underline' : ''}`}>{t('nav.menu')}</Link>
           <Link to="/news" className={`hover:underline ${location.pathname === '/news' ? 'underline' : ''}`}>{t('nav.news')}</Link>
@@ -138,17 +138,17 @@ const Navbar = () => {
             href="https://www.instagram.com/zanapasta?igsh=MnZyOWYyeWNkMHdo" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="w-10 h-10 bg-[#FE5000] rounded-full flex items-center justify-center hover:opacity-80 transition-all"
+            className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:opacity-80 transition-all"
           >
-            <Instagram size={20} className="text-white" />
+            <Instagram size={20} className="text-[#FD5121]" />
           </a>
           <a 
             href="https://www.tiktok.com/@zana_pasta?_t=ZN-8wnBQVfvclq&_r=1" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="w-10 h-10 bg-[#FE5000] rounded-full flex items-center justify-center hover:opacity-80 transition-all"
+            className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:opacity-80 transition-all"
           >
-            <TikTokIcon size={20} className="text-white" />
+            <TikTokIcon size={20} className="text-[#FD5121]" />
           </a>
         </div>
 

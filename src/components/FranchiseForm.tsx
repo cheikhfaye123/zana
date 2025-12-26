@@ -76,7 +76,7 @@ const FranchiseForm = ({ isOpen, onClose }: FranchiseFormProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-gray-50  flex items-center justify-center p-4 z-50 overflow-y-auto"
+          className="fixed inset-0 bg-[#FD5121]  flex items-center justify-center p-4 z-50 overflow-y-auto"
         >
           <motion.div
             initial={{ scale: 0.95, y: 20 }}

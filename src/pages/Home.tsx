@@ -1,36 +1,168 @@
 import { motion } from 'framer-motion';
 import HeroSlider from '../components/HeroSlider';
 import Gallery from '../components/Gallery';
-import { MapPin, Award, Phone, Clock } from 'lucide-react';
+import { MapPin, Zap, Lightbulb } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { useLocation } from '../context/LocationContext';
+import { useEffect, useRef } from 'react';
+import Testimonials from '../components/Testimonials';
+// Déclaration globale pour Google Maps
+declare global {
+  interface Window {
+    google: any;
+    initMap: () => void;
+  }
+}
 
 const Home = () => {
   const { t } = useLanguage();
-  const locationInfo = useLocation();
+  const mapRef = useRef<HTMLDivElement>(null);
+  
+  // Initialisation Google Maps
+  useEffect(() => {
+    const loadGoogleMaps = () => {
+      if (!window.google) {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDxEwxjNRwNafVMSSu3JLoLKckZO_0TwhM&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        window.initMap = initMap;
+        document.head.appendChild(script);
+      } else {
+        initMap();
+      }
+    };
+
+    const initMap = () => {
+      if (!mapRef.current || !window.google) return;
+
+      const locations = [
+        {
+          position: { lat: 39.47142704091176, lng: -0.3762519711641526 },
+          title: "Zana Pasta - Barcelonina",
+          address: "C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, España",
+          url: "https://maps.app.goo.gl/i8D6f7GGyPMLHmHT8"
+        },
+        {
+          position: { lat: 39.474601306652026, lng: -0.347177538626442 },
+          title: "Zana Pasta - Blasco Ibáñez",
+          address: "C/ Blasco Ibáñez 87, Algiros, 46022, Museros, Valencia",
+          url: "https://maps.app.goo.gl/MKJrPEFPvXfgGZ5K8"
+        }
+      ];
+
+      const map = new google.maps.Map(mapRef.current, {
+        center: { lat: 39.4739, lng: -0.3663 },
+        zoom: 13,
+        styles: [
+          {
+            featureType: "all",
+            elementType: "geometry",
+            stylers: [{ color: "#1a2332" }]
+          },
+          {
+            featureType: "all",
+            elementType: "labels.text.fill",
+            stylers: [{ color: "#8ec3b9" }]
+          },
+          {
+            featureType: "all",
+            elementType: "labels.text.stroke",
+            stylers: [{ color: "#1a2332" }]
+          },
+          {
+            featureType: "water",
+            elementType: "geometry",
+            stylers: [{ color: "#0d1b2a" }]
+          },
+          {
+            featureType: "road",
+            elementType: "geometry",
+            stylers: [{ color: "#2c3e50" }]
+          },
+          {
+            featureType: "road",
+            elementType: "geometry.stroke",
+            stylers: [{ color: "#1a2332" }]
+          },
+          {
+            featureType: "poi",
+            elementType: "geometry",
+            stylers: [{ color: "#1e2a3a" }]
+          },
+          {
+            featureType: "transit",
+            elementType: "geometry",
+            stylers: [{ color: "#1e2a3a" }]
+          }
+        ]
+      });
+
+      locations.forEach((location) => {
+        // Créer un pin en forme de goutte (comme Google Maps)
+        const markerIcon = {
+          path: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+          fillColor: "#FD5121",
+          fillOpacity: 1,
+          strokeColor: "#FFFFFF",
+          strokeWeight: 2,
+          scale: 2.5,
+          anchor: new google.maps.Point(12, 22),
+        };
+
+        const marker = new google.maps.Marker({
+          position: location.position,
+          map: map,
+          title: location.title,
+          icon: markerIcon,
+          animation: google.maps.Animation.DROP
+        });
+
+        marker.addListener("click", () => {
+          window.open(location.url, "_blank");
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+          content: `<div style="padding: 12px; font-family: Arial, sans-serif;">
+            <h3 style="margin: 0 0 8px 0; color: #FD5121; font-weight: bold; font-size: 16px;">${location.title}</h3>
+            <p style="margin: 0; color: #666; font-size: 13px; line-height: 1.4;">${location.address}</p>
+            <a href="${location.url}" target="_blank" style="display: inline-block; margin-top: 8px; color: #FD5121; text-decoration: none; font-weight: 500; font-size: 13px;">Ver en Google Maps →</a>
+          </div>`
+        });
+
+        marker.addListener("click", () => {
+          infoWindow.open(map, marker);
+        });
+      });
+    };
+
+    loadGoogleMaps();
+  }, []);
   
   return (
     <div className="pt-16">
       <HeroSlider />
       
       <Gallery />
+      <Testimonials />
       
-      {/* Features Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Section 4 Cartes - CERCANÍA, RAPIDEZ, INNOVACIÓN */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-lg shadow-md text-center"
+              className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
             >
-              <div className="w-16 h-16 bg-[#292727] rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin size={24} className="text-white" />
+              <div className="w-16 h-16 bg-[#FD5121] rounded-full flex items-center justify-center mx-auto mb-6">
+                <MapPin size={32} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t('nav.locations')}</h3>
-              <p className="text-gray-600">C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, España</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-800">CERCANÍA</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Ingredientes regionales con denominación de origen.
+              </p>
             </motion.div>
             
             <motion.div
@@ -38,135 +170,104 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-lg shadow-md text-center"
+              className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
             >
-              <div className="w-16 h-16 bg-[#292727] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award size={24} className="text-white" />
+              <div className="w-16 h-16 bg-[#FD5121] rounded-full flex items-center justify-center mx-auto mb-6">
+                <Zap size={32} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t('location.quality')}</h3>
-              <p className="text-gray-600">{t('location.quality.desc')}</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-800">RAPIDEZ</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Nuestras pastas se hacen en un máximo de cinco minutos.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+            >
+              <div className="w-16 h-16 bg-[#FD5121] rounded-full flex items-center justify-center mx-auto mb-6">
+                <Lightbulb size={32} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-gray-800">INNOVACIÓN</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Innovamos con sabores del mundo, todos los meses.
+              </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Location Section - Sans bouton */}
-      <section id="visit-us" className="py-12 sm:py-16 bg-gradient-to-br from-gray-50 to-white scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+      {/* Section Google Map avec 2 localisations */}
+      <section id="visit-us" className="relative py-8 md:py-12" style={{ backgroundImage: `url('/images/macaroni.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        {/* Overlay orange semi-transparent (optionnel) */}
+        <div className="absolute inset-0 bg-[#FD5121]/70"></div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-[#292727] mb-8 sm:mb-12"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white mb-8"
           >
             {t('location.title')}
           </motion.h2>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-4xl mx-auto hover:shadow-2xl transition-all duration-300"
           >
-            <div className="relative h-[250px] sm:h-[350px] md:h-[500px] overflow-hidden bg-gray-100">
-              <img 
-                src="/images/location.png"
-                alt="Valencia Location"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                onError={(e) => {
-                  console.error("Erreur de chargement de l'image location");
-                  e.currentTarget.src = 'https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=1260';
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-              
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-                <div className="flex items-center gap-2">
-                  <MapPin size={16} className="text-[#ff4b4b]" />
-                  <span className="text-sm font-medium text-[#292727]">Valencia</span>
+            {/* Google Map */}
+            <div 
+              ref={mapRef}
+              className="h-[400px] md:h-[500px] w-full shadow-2xl"
+            />
+
+            {/* Cartes des 2 localisations - Même dimension pour les 2 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8 px-8 md:px-16">
+              <motion.a
+                href="https://maps.app.goo.gl/i8D6f7GGyPMLHmHT8"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="bg-white p-4 rounded-3xl hover:shadow-xl transition-all duration-300 w-full max-w-xs mx-0"
+              >
+                <div className="flex flex-col items-center text-center h-full justify-center min-h-[120px]">
+                  <div className="w-8 h-8 bg-[#FD5121] rounded-full flex items-center justify-center mb-2">
+                    <MapPin className="w-4 h-4 text-white" />
+                  </div>
+                  <h3 className="text-sm md:text-base font-bold text-gray-800 mb-1 leading-tight">C/ BARCELONINA 2,<br />46002 VALENCIA</h3>
+                  <p className="text-gray-500 text-xs">10:00 - 00:00</p>
                 </div>
-              </div>
-            </div>
-            
-            <div className="p-4 sm:p-6 md:p-8">
-              <div className="grid gap-4 sm:gap-6">
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-start p-3 sm:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
-                >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FE5000] to-[#FE5000] rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
-                    <MapPin size={18} className="sm:w-5 sm:h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#292727] mb-1 text-sm sm:text-base">{t('location.address')}</h4>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{locationInfo.address}</p>
-                  </div>
-                </motion.div>
+              </motion.a>
 
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="flex items-start p-3 sm:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
-                >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FE5000] to-[#FE5000] rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
-                    <Phone size={18} className="sm:w-5 sm:h-5 text-white" />
+              <motion.a
+                href="https://maps.app.goo.gl/MKJrPEFPvXfgGZ5K8"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-white p-4 rounded-3xl hover:shadow-xl transition-all duration-300 w-full max-w-xs ml-auto"
+              >
+                <div className="flex flex-col items-center text-center h-full justify-center min-h-[120px]">
+                  <div className="w-8 h-8 bg-[#FD5121] rounded-full flex items-center justify-center mb-2">
+                    <MapPin className="w-4 h-4 text-white" />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-[#292727] mb-1 text-sm sm:text-base">{t('location.phone')}</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">{locationInfo.phone}</p>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="flex items-start p-3 sm:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
-                >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FE5000] to-[#FE5000] rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
-                    <Clock size={18} className="sm:w-5 sm:h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#292727] mb-1 text-sm sm:text-base">{t('location.hours_title')}</h4>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{locationInfo.hours}</p>
-                  </div>
-                </motion.div>
-              </div>
+                  <h3 className="text-sm md:text-base font-bold text-gray-800 mb-1 leading-tight">AV BLASCO IBÁÑEZ 87,<br />46022</h3>
+                  <p className="text-gray-500 text-xs">10:00 - 00:00</p>
+                </div>
+              </motion.a>
             </div>
-          </motion.div>
-        </div>
-      </section>
-      
-      {/* Call to Action avec le bouton "Ver en el mapa" */}
-      <section className="bg-white py-16 text-[#292727] text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('cta.hungry')}</h2>
-          <p className="text-xl mb-8 max-w-xl mx-auto">{t('cta.visit')}</p>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="flex justify-center"
-          >
-            <a 
-              href="https://maps.google.com/?q=C/ Barcelonina 2, Ciutat Vella, 46002 Valencia, España"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7e7a7a] to-[#7e7a7a] text-white font-semibold px-6 py-3 rounded-full hover:from-[#ff3b3b] hover:to-[#FE5000] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-            >
-              <MapPin size={18} />
-              {t('cta.view_map')}
-            </a>
           </motion.div>
         </div>
       </section>

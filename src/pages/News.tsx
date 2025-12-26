@@ -39,14 +39,14 @@ const News = () => {
   ];
 
   return (
-    <div className="pt-20 pb-16 bg-gray-50">
+    <div className="pt-20 pb-16 bg-[#FD5121]">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold text-[#292727] mb-3 pt-9"
+            className="text-4xl md:text-5xl font-bold text-[#000000] mb-3 pt-9"
           >
             {t('news.latest')}
           </motion.h1>
@@ -54,13 +54,13 @@ const News = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg text-white max-w-2xl mx-auto"
           >
             {t('news.stay_updated')}
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 -mt-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 -mt-7 max-w-4xl mx-auto">
           {newsItems.map((item, index) => (
             <motion.article
               key={item.id}
@@ -70,7 +70,7 @@ const News = () => {
               viewport={{ once: true }}
               className="bg-white rounded-lg shadow-sm border border-gray-300 overflow-hidden flex flex-col h-full"
             >
-              <div className="w-full aspect-[4/3] flex items-center justify-center bg-gray-100 p-3 overflow-hidden">
+              <div className="w-full aspect-[16/9] flex items-center justify-center bg-gray-100 p-2 overflow-hidden">
                 <img 
                   src={item.image} 
                   alt={item.title}

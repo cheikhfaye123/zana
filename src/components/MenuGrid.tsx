@@ -65,6 +65,14 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       image: '/images/menu/trufa.png'
     },
     {
+      id: 'pasta-diavola',
+      name: t('menu.pasta.diavola.title'),
+      description: t('menu.pasta.diavola.description'),
+      price: '7.9',
+      category: CATEGORIES.SPECIAL,
+      image: '/images/menu/diavola.png'
+    },
+    {
       id: 'alfredo-pollo',
       name: t('menu.alfredo.pollo.title'),
       description: t('menu.alfredo.pollo.description'),
@@ -103,6 +111,14 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       price: '7.9',
       category: CATEGORIES.LOCAL,
       image: '/images/menu/ragu-blanco.png'
+    },
+    {
+      id: 'mac-n-cheese',
+      name: t('menu.special.mac.cheese.title'),
+      description: t('menu.special.mac.cheese.description'),
+      price: '7.9',
+      category: CATEGORIES.SPECIAL,
+      image: '/images/menu/mac-and-cheese.png'
     }
   ];
 
@@ -170,14 +186,14 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
             className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
             onClick={() => setSelectedDish(dish)}
           >
-            <div className="relative pt-[70%] sm:pt-[75%] bg-gray-50">
+            <div className="relative pt-[70%] sm:pt-[75%]" style={{ backgroundColor: '#ffe77b' }}>
               <img
                 src={dish.image}
                 alt={dish.name}
                 className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
               />
             </div>
-            <div className="p-3 sm:p-4">
+            <div className="p-3 sm:p-4" style={{ backgroundColor: '#ffe77b' }}>
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{dish.name}</h3>
               <div className="flex justify-between items-center mt-2">
                 <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
@@ -208,14 +224,14 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                 className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
                 onClick={() => setSelectedDish(dessert)}
               >
-                <div className="relative pt-[70%] sm:pt-[75%] bg-gray-50">
+                <div className="relative pt-[70%] sm:pt-[75%]" style={{ backgroundColor: '#ffe77b' }}>
                   <img
                     src={dessert.image}
                     alt={dessert.name}
                     className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
                   />
                 </div>
-                <div className="p-3 sm:p-4  border-gray-300">
+                <div className="p-3 sm:p-4  border-gray-300" style={{ backgroundColor: '#ffe77b' }}>
                   <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{dessert.name}</h3>
                   <div className="flex justify-between items-center mt-2">
                     <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
@@ -248,14 +264,14 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
       onClick={() => setSelectedDish(beverage)}
     >
-      <div className="relative pt-[70%] sm:pt-[75%] bg-gray-50">
+      <div className="relative pt-[70%] sm:pt-[75%]" style={{ backgroundColor: '#ffe77b' }}>
         <img
           src={beverage.image}
           alt={beverage.name}
           className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
         />
       </div>
-      <div className="p-3 sm:p-4  border-gray-300">
+      <div className="p-3 sm:p-4  border-gray-300" style={{ backgroundColor: '#ffe77b' }}>
         <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{beverage.name}</h3>
         <div className="flex justify-between items-center mt-2">
           <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
@@ -288,7 +304,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
               className="bg-white rounded-xl border-2 border-gray-300 shadow-xl w-full max-w-[95vw] sm:max-w-md max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative h-48 sm:h-56 w-full bg-gray-50 flex items-center justify-center">
+              <div className="relative h-48 sm:h-56 w-full bg-gray-50 flex items-center justify-center" style={{ backgroundColor: '#ffe77b' }}>
                 <img
                   src={selectedDish.image}
                   alt={selectedDish.name}
@@ -303,8 +319,8 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                   </svg>
                 </button>
               </div>
-              <div className="p-4 sm:p-6">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-gray-200">
+              <div className="p-4 sm:p-6" style={{ backgroundColor: '#ffe77b' }}>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 ">
                   <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-0">
                     {selectedDish.name}
                   </h2>

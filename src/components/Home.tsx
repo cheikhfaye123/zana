@@ -8,7 +8,7 @@ const Home = () => {
   const { t } = useLanguage();
   
   return (
-    <div className="pt-16">
+    <div className="pt-16" style={{ backgroundColor: '#FE5000' }}>
       <HeroSlider />
       
       <Gallery />

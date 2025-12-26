@@ -109,20 +109,20 @@ const Feedback = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+    <div className="min-h-screen bg-[#FD5121] p-4 md:p-8">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8 pt-9">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-14 text-3xl sm:text-4xl md:text-5xl font-bold text-[#292727] mb-9 sm:mb-4 text-center"
+            className="mt-14 text-3xl sm:text-4xl md:text-5xl font-bold text-[#000000] mb-9 sm:mb-4 text-center"
           >
             Danos tu Opinión
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-sm text-gray-600"
+            className="text-sm text-white"
           >
             Ayúdanos a mejorar tu experiencia.
           </motion.p>

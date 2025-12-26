@@ -38,14 +38,14 @@ const Menu = () => {
   };
 
   return (
-    <div className="pt-20 pb-16 bg-gray-50 min-h-screen">
+    <div className="pt-20 pb-16 bg-[#FD5121] min-h-screen">
       <div className="max-w-7xl mx-auto px-3 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#292727] mb-3 sm:mb-4 pt-9"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#000000] mb-3 sm:mb-4 pt-9"
           >
             {t('nav.menu')}
           </motion.h1>
@@ -53,7 +53,7 @@ const Menu = () => {
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   transition={{ duration: 0.5, delay: 0.2 }}
-  className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-6 leading-relaxed tracking-wide text-justify"
+  className="text-base sm:text-lg md:text-xl text-white max-w-3xl mx-auto px-4 sm:px-6 leading-relaxed tracking-wide text-justify"
 >
   {t('menu.subtitle')}
 </motion.p>
@@ -69,8 +69,8 @@ const Menu = () => {
             onClick={() => handleCategoryClick(null)}
             className={`px-3 py-1 sm:px-5 sm:py-2 text-sm sm:text-base rounded-full border-2 transition-all ${
               activeCategory === null
-                ? 'bg-[#292727] text-white border-white'
-                : 'bg-white text-gray-700 border-gray-400 hover:border-[#292727]'
+                ? 'bg-white text-black font-bold scale-105'
+                : 'bg-white text-black hover:scale-105'
             }`}
           >
             {t('menu.all')}
@@ -86,8 +86,8 @@ const Menu = () => {
                 onClick={() => handleCategoryClick(category.translationKey)}
                 className={`px-3 py-1 sm:px-5 sm:py-2 text-sm sm:text-base rounded-full border-2 transition-all ${
                   activeCategoryKey === category.translationKey
-                    ? 'bg-[#292727] text-white border-white'
-                    : 'bg-white text-gray-700 border-gray-400 hover:border-gray-500'
+                    ? 'bg-white text-black font-bold scale-105'
+                    : 'bg-white text-black font-medium hover:scale-105'
                 }`}
               >
                 {translatedCategory}
