@@ -22,7 +22,7 @@ const Home = () => {
     const loadGoogleMaps = () => {
       if (!window.google) {
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDxEwxjNRwNafVMSSu3JLoLKckZO_0TwhM&callback=initMap`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBozpv7IOTds4fxHazJ0v3FLsirzdLtakY&callback=initMap`;
         script.async = true;
         script.defer = true;
         window.initMap = initMap;
