@@ -44,7 +44,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       id: 'tomate-albahaca',
       name: t('menu.tomate.albahaca.title'),
       description: t('menu.tomate.albahaca.description'),
-      price: '6.5',
+      price: '3.9',
       category: CATEGORIES.CLASSIC,
       image: '/images/menu/tomate-albahaca.png'
     },
