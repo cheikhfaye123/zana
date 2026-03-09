@@ -29,11 +29,7 @@ const Gallery = () => {
       url: '/images/outdoor.jpg',
       titleKey: 'gallery.outdoor'
     },
-    {
-      type: 'video',
-      url: '/videos/video2.mp4',
-      title: 'Stranger Things'
-    },
+    
     {
       type: 'image',
       url: '/images/zanacup.png',
