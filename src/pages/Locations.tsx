@@ -8,11 +8,31 @@ const Locations = () => {
   const locations = [
     {
       id: 1,
-      city: 'Valencia',
-      address: locationInfo.address,
+      city: 'Valencia — C/ Barcelonina',
+      address: 'C/ Barcelonina 2, Valencia',
       phone: locationInfo.phone,
       hours: locationInfo.hours,
+      mapsUrl: 'https://maps.google.com/?q=C/+Barcelonina+2,+Valencia',
       image: 'https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      id: 2,
+      city: 'Valencia — Blasco Ibáñez',
+      address: 'Av. Blasco Ibáñez 87, Valencia',
+      phone: locationInfo.phone,
+      hours: locationInfo.hours,
+      mapsUrl: 'https://maps.google.com/?q=Av.+Blasco+Ibáñez+87,+Valencia',
+      image: 'https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      id: 3,
+      city: 'Benidorm',
+      address: 'Av. del Mediterráneo 3, 03503 Benidorm',
+      phone: locationInfo.phone,
+      hours: locationInfo.hours,
+      mapsUrl: 'https://maps.app.goo.gl/cqSb5VX57vr3UZDH7',
+      image: 'https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&w=600',
+      isNew: true
     }
   ];
 
@@ -26,7 +46,7 @@ const Locations = () => {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl font-['Dancing_Script'] text-[#ff4b4b] mb-4"
           >
-            Our Location
+            Our Locations
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -34,11 +54,11 @@ const Locations = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl text-gray-600 max-w-2xl mx-auto"
           >
-            Visit us at our restaurant in Valencia and enjoy our delicious pasta dishes.
+            Visit us at one of our restaurants and enjoy our delicious pasta dishes.
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {locations.map((location, index) => (
             <motion.div
               key={location.id}
@@ -46,14 +66,19 @@ const Locations = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg shadow-md overflow-hidden max-w-2xl mx-auto w-full"
+              className="bg-white rounded-lg shadow-md overflow-hidden w-full"
             >
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden relative">
                 <img 
                   src={location.image} 
                   alt={location.city}
                   className="w-full h-full object-cover"
                 />
+                {location.isNew && (
+                  <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1 rounded-full">
+                    ¡Nuevo!
+                  </span>
+                )}
               </div>
               <div className="p-6">
                 <h2 className="text-2xl font-bold mb-4">{location.city}</h2>
@@ -72,7 +97,7 @@ const Locations = () => {
                   </div>
                 </div>
                 <a 
-                  href={`https://maps.google.com/?q=${location.address}`}
+                  href={location.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-6 bg-[#ff4b4b] text-white px-4 py-2 rounded-md hover:bg-[#e64444] transition-colors"

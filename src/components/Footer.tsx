@@ -34,7 +34,6 @@ const Footer = () => {
           <div className="flex flex-col items-center space-y-8">
             {/* Logo */}
             <div className="flex flex-col items-start">
-              {/* Cercles agrandis et alignés sur la largeur de ZANA */}
               <div className="flex justify-between w-[85px] mb-2 ml-8">
                 <div className="w-6 h-6 bg-[#FE5000] rounded-full"></div>
                 <div className="w-6 h-6 bg-[#FE5000] rounded-full"></div>
@@ -91,6 +90,8 @@ const Footer = () => {
                 <p>VALENCIA</p>
                 <p className="pt-2">AV BLASCO IBÁÑEZ 87,</p>
                 <p>VALENCIA</p>
+                <p className="pt-2">AV. DEL MEDITERRÁNEO 3,</p>
+                <p>03503 BENIDORM</p>
               </div>
             </div>
           </div>
@@ -107,7 +108,6 @@ const Footer = () => {
         <div className="hidden lg:flex lg:justify-between lg:items-start">
           {/* Logo */}
           <div className="flex flex-col items-start">
-            {/* Cercles agrandis et alignés sur la largeur de ZANA */}
             <div className="flex justify-between w-[115px] mb-2 ml-8">
               <div className="w-8 h-8 bg-[#FE5000] rounded-full"></div>
               <div className="w-8 h-8 bg-[#FE5000] rounded-full"></div>
@@ -164,6 +164,8 @@ const Footer = () => {
               <p>VALENCIA</p>
               <p className="pt-3">AV BLASCO IBÁÑEZ 87,</p>
               <p>VALENCIA</p>
+              <p className="pt-3">AV. DEL MEDITERRÁNEO 3,</p>
+              <p>03503 BENIDORM</p>
             </div>
           </div>
         </div>

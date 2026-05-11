@@ -5,7 +5,7 @@ import { MapPin, Zap, Lightbulb } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useEffect, useRef } from 'react';
 import Testimonials from '../components/Testimonials';
-// Déclaration globale pour Google Maps
+
 declare global {
   interface Window {
     google: any;
@@ -17,7 +17,6 @@ const Home = () => {
   const { t } = useLanguage();
   const mapRef = useRef<HTMLDivElement>(null);
   
-  // Initialisation Google Maps
   useEffect(() => {
     const loadGoogleMaps = () => {
       if (!window.google) {
@@ -45,60 +44,33 @@ const Home = () => {
         {
           position: { lat: 39.474601306652026, lng: -0.347177538626442 },
           title: "Zana Pasta - Blasco Ibáñez",
-          address: "C/ Blasco Ibáñez 87, Algiros, 46022, Museros, Valencia",
+          address: "C/ Blasco Ibáñez 87, Algiros, 46022 Valencia, España",
           url: "https://maps.app.goo.gl/MKJrPEFPvXfgGZ5K8"
+        },
+        {
+          position: { lat: 38.53983, lng: -0.13155 },
+          title: "Zana Pasta - Benidorm",
+          address: "Av. del Mediterráneo 3, 03503 Benidorm, Alicante",
+          url: "https://maps.app.goo.gl/cqSb5VX57vr3UZDH7"
         }
       ];
 
-      const map = new google.maps.Map(mapRef.current, {
-        center: { lat: 39.4739, lng: -0.3663 },
-        zoom: 13,
+      const map = new window.google.maps.Map(mapRef.current, {
+        center: { lat: 39.1, lng: -0.26 },
+        zoom: 9,
         styles: [
-          {
-            featureType: "all",
-            elementType: "geometry",
-            stylers: [{ color: "#1a2332" }]
-          },
-          {
-            featureType: "all",
-            elementType: "labels.text.fill",
-            stylers: [{ color: "#8ec3b9" }]
-          },
-          {
-            featureType: "all",
-            elementType: "labels.text.stroke",
-            stylers: [{ color: "#1a2332" }]
-          },
-          {
-            featureType: "water",
-            elementType: "geometry",
-            stylers: [{ color: "#0d1b2a" }]
-          },
-          {
-            featureType: "road",
-            elementType: "geometry",
-            stylers: [{ color: "#2c3e50" }]
-          },
-          {
-            featureType: "road",
-            elementType: "geometry.stroke",
-            stylers: [{ color: "#1a2332" }]
-          },
-          {
-            featureType: "poi",
-            elementType: "geometry",
-            stylers: [{ color: "#1e2a3a" }]
-          },
-          {
-            featureType: "transit",
-            elementType: "geometry",
-            stylers: [{ color: "#1e2a3a" }]
-          }
+          { featureType: "all", elementType: "geometry", stylers: [{ color: "#1a2332" }] },
+          { featureType: "all", elementType: "labels.text.fill", stylers: [{ color: "#8ec3b9" }] },
+          { featureType: "all", elementType: "labels.text.stroke", stylers: [{ color: "#1a2332" }] },
+          { featureType: "water", elementType: "geometry", stylers: [{ color: "#0d1b2a" }] },
+          { featureType: "road", elementType: "geometry", stylers: [{ color: "#2c3e50" }] },
+          { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#1a2332" }] },
+          { featureType: "poi", elementType: "geometry", stylers: [{ color: "#1e2a3a" }] },
+          { featureType: "transit", elementType: "geometry", stylers: [{ color: "#1e2a3a" }] }
         ]
       });
 
       locations.forEach((location) => {
-        // Créer un pin en forme de goutte (comme Google Maps)
         const markerIcon = {
           path: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
           fillColor: "#FD5121",
@@ -106,22 +78,18 @@ const Home = () => {
           strokeColor: "#FFFFFF",
           strokeWeight: 2,
           scale: 2.5,
-          anchor: new google.maps.Point(12, 22),
+          anchor: new window.google.maps.Point(12, 22),
         };
 
-        const marker = new google.maps.Marker({
+        const marker = new window.google.maps.Marker({
           position: location.position,
           map: map,
           title: location.title,
           icon: markerIcon,
-          animation: google.maps.Animation.DROP
+          animation: window.google.maps.Animation.DROP
         });
 
-        marker.addListener("click", () => {
-          window.open(location.url, "_blank");
-        });
-
-        const infoWindow = new google.maps.InfoWindow({
+        const infoWindow = new window.google.maps.InfoWindow({
           content: `<div style="padding: 12px; font-family: Arial, sans-serif;">
             <h3 style="margin: 0 0 8px 0; color: #FD5121; font-weight: bold; font-size: 16px;">${location.title}</h3>
             <p style="margin: 0; color: #666; font-size: 13px; line-height: 1.4;">${location.address}</p>
@@ -131,6 +99,7 @@ const Home = () => {
 
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
+          window.open(location.url, "_blank");
         });
       });
     };
@@ -145,7 +114,7 @@ const Home = () => {
       <Gallery />
       <Testimonials />
       
-      {/* Section 4 Cartes - CERCANÍA, RAPIDEZ, INNOVACIÓN */}
+      {/* Section 3 Cartes */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -200,9 +169,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section Google Map avec 2 localisations */}
+      {/* Section Google Map avec 3 localisations */}
       <section id="visit-us" className="relative py-8 md:py-12" style={{ backgroundImage: `url('/images/macaroni.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        {/* Overlay orange semi-transparent (optionnel) */}
         <div className="absolute inset-0 bg-[#FD5121]/70"></div>
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -228,8 +196,8 @@ const Home = () => {
               className="h-[400px] md:h-[500px] w-full shadow-2xl"
             />
 
-            {/* Cartes des 2 localisations - Même dimension pour les 2 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8 px-8 md:px-16">
+            {/* Cards 3 localisations */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-6 md:mt-8 px-4 md:px-16">
               <motion.a
                 href="https://maps.app.goo.gl/i8D6f7GGyPMLHmHT8"
                 target="_blank"
@@ -238,14 +206,14 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="bg-white p-4 rounded-3xl hover:shadow-xl transition-all duration-300 w-full max-w-xs mx-0"
+                className="bg-white p-4 rounded-3xl hover:shadow-xl transition-all duration-300 w-full mx-auto"
               >
                 <div className="flex flex-col items-center text-center h-full justify-center min-h-[120px]">
                   <div className="w-8 h-8 bg-[#FD5121] rounded-full flex items-center justify-center mb-2">
                     <MapPin className="w-4 h-4 text-white" />
                   </div>
                   <h3 className="text-sm md:text-base font-bold text-gray-800 mb-1 leading-tight">C/ BARCELONINA 2,<br />46002 VALENCIA</h3>
-                  <p className="text-gray-500 text-xs">10:00 - 00:00</p>
+                  <p className="text-gray-500 text-xs">10:30 - 01:00</p>
                 </div>
               </motion.a>
 
@@ -257,14 +225,34 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-white p-4 rounded-3xl hover:shadow-xl transition-all duration-300 w-full max-w-xs ml-auto"
+                className="bg-white p-4 rounded-3xl hover:shadow-xl transition-all duration-300 w-full mx-auto"
               >
                 <div className="flex flex-col items-center text-center h-full justify-center min-h-[120px]">
                   <div className="w-8 h-8 bg-[#FD5121] rounded-full flex items-center justify-center mb-2">
                     <MapPin className="w-4 h-4 text-white" />
                   </div>
-                  <h3 className="text-sm md:text-base font-bold text-gray-800 mb-1 leading-tight">AV BLASCO IBÁÑEZ 87,<br />46022</h3>
-                  <p className="text-gray-500 text-xs">10:00 - 00:00</p>
+                  <h3 className="text-sm md:text-base font-bold text-gray-800 mb-1 leading-tight">AV BLASCO IBÁÑEZ 87,<br />46022 VALENCIA</h3>
+                  <p className="text-gray-500 text-xs">10:30 - 01:00</p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="https://maps.app.goo.gl/cqSb5VX57vr3UZDH7"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-white p-4 rounded-3xl hover:shadow-xl transition-all duration-300 w-full mx-auto relative overflow-hidden"
+              >
+                <span className="absolute top-2 right-2 bg-black text-white text-[10px] font-bold px-2 py-0.5 rounded-full">¡Nuevo!</span>
+                <div className="flex flex-col items-center text-center h-full justify-center min-h-[120px]">
+                  <div className="w-8 h-8 bg-[#FD5121] rounded-full flex items-center justify-center mb-2">
+                    <MapPin className="w-4 h-4 text-white" />
+                  </div>
+                  <h3 className="text-sm md:text-base font-bold text-gray-800 mb-1 leading-tight">AV. DEL MEDITERRÁNEO 3,<br />03503 BENIDORM</h3>
+                  <p className="text-gray-500 text-xs">11:00 - 01:30</p>
                 </div>
               </motion.a>
             </div>

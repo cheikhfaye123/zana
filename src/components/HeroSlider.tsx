@@ -28,6 +28,12 @@ const slides = [
     image: '/images/menu/ragu-blanco.png',
     title: 'LOCAL',
     description: 'Ragú blanco de salchicha de Requena'
+  },
+  {
+    id: 5,
+    image: '/images/menu/amatriciana.png',
+    title: 'ESPECIAL',
+    description: 'amatriciana'
   }
 ];
 
