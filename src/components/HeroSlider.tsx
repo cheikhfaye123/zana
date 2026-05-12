@@ -32,7 +32,7 @@ const slides = [
   {
     id: 5,
     image: '/images/menu/amatriciana.png',
-    title: 'PASRA DEL MES',
+    title: 'PASTA DEL MES',
     description: 'amatriciana'
   }
 ];
