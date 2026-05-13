@@ -10,7 +10,7 @@ const News = () => {
   const pastaDelMes = {
     name: t('news.pasta_del_mes.name'),
     description: t('news.pasta_del_mes.description'),
-    image: "/images/menu/ragu-blanco.png"
+    image: "/images/menu/amatriciana.png"
   };
 
   const newsItems = [

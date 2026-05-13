@@ -103,7 +103,7 @@ const translations = {
   'news.benidorm.excerpt': '¡Paren las rotativas! No es una apertura cualquiera. ¡ZANA acaba de inaugurar su PRIMERÍSIMA franquicia en la historia! Benidorm es ciudad de récords, de energía y de primeras veces, por eso nuestra primera expansión tenía que ser aquí. Lo que vas a encontrar: el ADN original, espíritu debutante y un equipo de leyenda. ¡Forma parte de nuestra historia! Estamos en AVENIDA DEL MEDITERRÁNEO 3, estrenando esta nueva etapa bajo el sol de Benidorm.',
     'news.pasta_del_mes.badge': 'Pasta del Mes',
   'news.pasta_del_mes.name': 'Amatriciana',
-  'news.pasta_del_mes.description': 'refrescante y sabrosa, perfecta para la semana de pasta del Mes.',
+  'news.pasta_del_mes.description': 'El pecado original de Roma (y el más rico).Si buscas la verdadera felicidad en un plato, deja de buscar: se llama Amatriciana.Nacida en las montañas de Amatrice y perfeccionada en las tabernas de Roma, esta salsa es el equilibrio perfecto entre el crujiente del guanciale, el dulzor del tomate y el golpe rebelde del pecorino romano.',
   'career.title': 'Únete a Nuestro Equipo',
     'career.subtitle': 'Comienza tu viaje con Zana Street world Pasta',
     'feedback.title': 'Tu Opinión',
