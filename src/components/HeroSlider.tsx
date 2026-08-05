@@ -4,50 +4,52 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
-const slides = [
-  {
-    id: 1,
-    image: '/images/menu/ragu-bolognese.png',
-    title: 'CLÁSICA',
-    description: 'Ragú a la Bolognese'
-  },
-  {
-    id: 2,
-    image: '/images/menu/pesto-de-aguacate.png',
-    title: 'ESPECIAL',
-    description: 'Pesto de aguacate'
-  },
-  {
-    id: 3,
-    image: '/images/menu/harissa.png',
-    title: 'SABORES DEL MUNDO',
-    description: 'Harissa con Tomate y Atún'
-  },
-  {
-    id: 4,
-    image: '/images/menu/ragu-blanco.png',
-    title: 'LOCAL',
-    description: 'Ragú blanco de salchicha de Requena'
-  },
-  {
-    id: 5,
-    image: '/images/menu/amatriciana.png',
-    title: 'PASTA DEL MES',
-    description: 'amatriciana'
-  }
-];
-
 const HeroSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const { t } = useLanguage();
 
+  const slides = [
+    {
+      id: 1,
+      image: '/images/menu/ragu-bolognese.png',
+      title: 'CLÁSICA',
+      description: 'Ragú a la Bolognese'
+    },
+    {
+      id: 2,
+      image: '/images/menu/pesto-de-aguacate.png',
+      title: 'ESPECIAL',
+      description: 'Pesto de aguacate'
+    },
+    {
+      id: 3,
+      image: '/images/menu/harissa.png',
+      title: 'SABORES DEL MUNDO',
+      description: 'Harissa con Tomate y Atún'
+    },
+    {
+      id: 4,
+      image: '/images/menu/ragu-blanco.png',
+      title: 'LOCAL',
+      description: 'Ragú blanco de salchicha de Requena'
+    },
+    {
+      id: 5,
+      image: '/images/menu/bogavante.png',
+      title: 'PASTA DEL MES',
+      description: t('news.pasta_del_mes.description')
+    }
+  ];
+
+  const slidesLength = slides.length;
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slidesLength);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slidesLength]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
