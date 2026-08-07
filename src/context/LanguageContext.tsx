@@ -26,7 +26,7 @@ const translations = {
     'menu.category.local': 'LOCAL',
     'menu.category.desserts': 'DULCE',
     'menu.category.drinks': 'BEBIDA',
-	'menu.item.description': 'Descripción',
+    'menu.item.description': 'Descripción',
     
     // Plats classiques
     'menu.classic.ragu.title': 'Ragú a la Bolognesa',
@@ -35,35 +35,47 @@ const translations = {
     'menu.classic.carbonara.description': 'Pecorino, guanciale, huevo, parmesano, pimienta',
     'menu.tomate.albahaca.title': 'Tomate y Albahaca',
     'menu.tomate.albahaca.description': 'Tomate fresco, albahaca, ajo, aceite de oliva virgen extra',
-	 // Plats spéciaux
+
+    // Plats spéciaux
     'menu.trufa.parmesano.title': 'Trufa y Parmesano',
     'menu.trufa.parmesano.description': 'Salsa de trufa negra, parmesano reggiano, mantequilla',
     'menu.pasta.diavola.title': 'diavola',
-    'menu.pasta.diavola.description':'Fusilli, salsa de tomate picante, chile, ajo, aceite de oliva, parmesano',
+    'menu.pasta.diavola.description': 'Fusilli, salsa de tomate picante, chile, ajo, aceite de oliva, parmesano',
     'menu.pesto.aguacate.title': 'Pesto de Aguacate',
     'menu.pesto.aguacate.description': 'Aguacate, albahaca, piñones, ajo, aceite de oliva',
     'menu.alfredo.pollo.title': 'Alfredo con Pollo',
-	'menu.alfredo.pollo.description': 'Pollo, salsa alfredo, champiñones, parmesano',
-  "menu.special.mac.cheese.title": "Macarrones con Queso",
-  "menu.special.mac.cheese.description": "Macarrones con salsa de queso cheddar cremoso",
-    
+    'menu.alfredo.pollo.description': 'Pollo, salsa alfredo, champiñones, parmesano',
+    'menu.special.mac.cheese.title': 'Macarrones con Queso',
+    'menu.special.mac.cheese.description': 'Macarrones con salsa de queso cheddar cremoso',
+    'menu.bufala.title': 'Pasta Búfala',
+    'menu.bufala.description': 'Pasta, mozzarella de búfala, verdura de verano a la brasa, tomates cherry y albahaca.',
+    'menu.ranchera.title': 'Pasta Ranchera',
+    'menu.ranchera.description': 'Pasta, pollo, salsa ranchera, gorgonzola y cebolla caramelizada.',
+    'menu.bogavante.title': 'Pasta Bogavante',
+    'menu.bogavante.description': 'Pasta en salsa de bisque de bogavante, tomate cherry, mantequilla especiada, albahaca y medio bogavante fresco.',
+
     // Saveurs du monde
     'menu.pollo.tikka.title': 'Pollo Tikka Masala',
     'menu.pollo.tikka.description': 'Pollo, tomate, cebolla, ajo, especias indias, nata',
     'menu.world.harissa.title': 'Atún con Harissa',
     'menu.world.harissa.description': 'Atún, harissa, pimiento rojo, ajo, comino',
     'menu.world.huancaina.title': ' Huancaína',
-    'menu.world.huancaina.description': 'Queso crema, aji amarillo,leche evaporada',
-    
+    'menu.world.huancaina.description': 'Queso crema, aji amarillo, leche evaporada',
+    'menu.pulpo.title': 'Pulpo a la Putanesca',
+    'menu.pulpo.description': 'Vibrante fusión mediterránea con salsa puttanesca napolitana (tomate, anchoas, aceitunas negras, alcaparras y ajo) con pulpo tierno en versión tapa.',
+
     // Saveurs locales
     'menu.local.requena.title': 'Ragú Blanco de Requena',
     'menu.local.requena.description': 'Salchicha de Requena, setas, vino blanco, nata',
-	// Desserts
+
+    // Desserts
     'menu.desserts.white.lotus.title': ' White Lotus',
     'menu.desserts.white.lotus.description': 'Chocolate blanco, frambuesa, coco',
     'menu.desserts.ferrero.gold.title': 'Ferrero Gold',
     'menu.desserts.ferrero.gold.description': 'Chocolate, avellana, crocante',
-    
+    'menu.mousse.title': 'Mousse Amalfi',
+    'menu.mousse.description': 'Mousse de queso y chocolate blanco, migas de galleta, maracuyá y limones de la Costa de Amalfi.',
+
     // Boissons
     'menu.drinks.coca.title': 'Coca-Cola',
     'menu.drinks.coca.zero.title': 'Coca-Cola Zero',
@@ -71,11 +83,11 @@ const translations = {
     'menu.drinks.lemonade.title': 'Limonada Casera',
     'menu.drinks.turia.title': 'Cerveza Turia',
     'menu.drinks.non.alcoholic.title': 'Cerveza Sin Alcohol',
-	
-	   'location.address': 'Dirección',
-'location.phone': 'Teléfono',
-'location.hours_title': 'Horario',
-'cta.view_map': 'Ver en el mapa',
+
+    'location.address': 'Dirección',
+    'location.phone': 'Teléfono',
+    'location.hours_title': 'Horario',
+    'cta.view_map': 'Ver en el mapa',
     'location.title': 'VISÍTANOS',
     'location.hours': 'Lun-Dom: 11:00 - 22:00',
     'location.quality': 'Calidad Premium',
@@ -84,8 +96,8 @@ const translations = {
     'cta.visit': 'Visítanos en Valencia y prueba el auténtico sabor de Zana Street world Pasta',
     'cta.directions': 'Cómo Llegar',
     'footer.quicklinks': 'ENLACES RÁPIDOS',
-'footer.contact': 'CONTÁCTANOS',
-'footer.slogan': 'Deliciosa pasta fresca hecha diariamente con ingredientes de calidad.',
+    'footer.contact': 'CONTÁCTANOS',
+    'footer.slogan': 'Deliciosa pasta fresca hecha diariamente con ingredientes de calidad.',
     'footer.copyright': '© 2025 Zana Street world Pasta. Todos los derechos reservados.',
     'footer.social': 'Síguenos',
     'gallery.title': 'GALERÍA',
@@ -96,15 +108,15 @@ const translations = {
     'gallery.zanacup': 'Nuestros Vasos',
     'gallery.pasta_fresca': 'Nuestra Pasta Fresca',
     'gallery.spaghetti': 'Espaguetis frescos',
-    'gallery.elaboration':'Calidad que puedes ver',
+    'gallery.elaboration': 'Calidad que puedes ver',
     'news.title': 'Últimas Noticias',
     'news.subtitle': 'Mantente al día con las últimas novedades de Zana Street world Pasta',
     'news.benidorm.title': '¡HISTÓRICO! Nuestra PRIMERA franquicia aterriza en Benidorm',
-  'news.benidorm.excerpt': '¡Paren las rotativas! No es una apertura cualquiera. ¡ZANA acaba de inaugurar su PRIMERÍSIMA franquicia en la historia! Benidorm es ciudad de récords, de energía y de primeras veces, por eso nuestra primera expansión tenía que ser aquí. Lo que vas a encontrar: el ADN original, espíritu debutante y un equipo de leyenda. ¡Forma parte de nuestra historia! Estamos en AVENIDA DEL MEDITERRÁNEO 3, estrenando esta nueva etapa bajo el sol de Benidorm.',
+    'news.benidorm.excerpt': '¡Paren las rotativas! No es una apertura cualquiera. ¡ZANA acaba de inaugurar su PRIMERÍSIMA franquicia en la historia! Benidorm es ciudad de récords, de energía y de primeras veces, por eso nuestra primera expansión tenía que ser aquí. Lo que vas a encontrar: el ADN original, espíritu debutante y un equipo de leyenda. ¡Forma parte de nuestra historia! Estamos en AVENIDA DEL MEDITERRÁNEO 3, estrenando esta nueva etapa bajo el sol de Benidorm.',
     'news.pasta_del_mes.badge': 'Pasta del Mes',
-  'news.pasta_del_mes.name': 'Pasta en salsa de bisque de bogavante',
-  'news.pasta_del_mes.description': 'Lobster bisque sauce, cherry tomatoes, spiced butter, basil and half a fresh lobster. 19€',
-  'career.title': 'Únete a Nuestro Equipo',
+    'news.pasta_del_mes.name': 'Pasta en salsa de bisque de bogavante',
+    'news.pasta_del_mes.description': 'Salsa de bisque de bogavante, tomate cherry, mantequilla especiada, albahaca y medio bogavante fresco. 19€',
+    'career.title': 'Únete a Nuestro Equipo',
     'career.subtitle': 'Comienza tu viaje con Zana Street world Pasta',
     'feedback.title': 'Tu Opinión',
     'feedback.subtitle': 'Valoramos tu opinión y nos esforzamos por mejorar tu experiencia',
@@ -127,8 +139,7 @@ const translations = {
     'quienesSomos.title': 'NUESTRA HISTORIA',
     'quienesSomos.chefTitle': 'Nuestro equipo de chefs',
     'quienesSomos.signature': 'ZANA ',
-    
-'quienesSomos.fullStory': `
+    'quienesSomos.fullStory': `
 <p>SOMOS ZANA, Dos chefs, amigos y viajeros.</p>
 <p>Amantes de la cocina auténtica.</p>
 <p>Ciudadanos de un país llamado mundo.</p>
@@ -140,7 +151,6 @@ const translations = {
 <p>Cada salsa es el resultado de un viaje y una colaboración hermosa. El resultado es una experiencia de sabor que viaja contigo.</p>
 <p class="text-right italic mt-3">In pasta we trust.</p>
 `,
-    
   },
   FR: {
     ...menuButtonTranslations.FR,
@@ -158,7 +168,7 @@ const translations = {
     'menu.category.local': 'LOCAL',
     'menu.category.desserts': 'DESSERT',
     'menu.category.drinks': 'BOISSON',
-	'menu.item.description': 'Description',
+    'menu.item.description': 'Description',
     
     // Plats classiques
     'menu.classic.ragu.title': 'Ragù à la Bolognaise',
@@ -172,30 +182,42 @@ const translations = {
     'menu.trufa.parmesano.title': 'Truffe et Parmesan',
     'menu.trufa.parmesano.description': 'Sauce à la truffe noire, parmesan reggiano, beurre',
     'menu.pasta.diavola.title': 'Pâtes Diavola',
-    'menu.pasta.diavola.description':'Fusilli, sauce tomate épicée, piment, ail, huile d\'olive, parmesan',
+    'menu.pasta.diavola.description': 'Fusilli, sauce tomate épicée, piment, ail, huile d\'olive, parmesan',
     'menu.pesto.aguacate.title': 'Pesto d\'Avocat',
     'menu.pesto.aguacate.description': 'Avocat, basilic, pignons, ail, huile d\'olive',
     'menu.alfredo.pollo.title': 'Alfredo au Poulet',
     'menu.alfredo.pollo.description': 'Poulet, sauce alfredo, champignons, parmesan',
-    "menu.special.mac.cheese.title": "Macaronis au Fromage",
-"menu.special.mac.cheese.description": "Macaronis à la sauce au fromage cheddar crémeux",
-    
+    'menu.special.mac.cheese.title': 'Macaronis au Fromage',
+    'menu.special.mac.cheese.description': 'Macaronis à la sauce au fromage cheddar crémeux',
+    'menu.bufala.title': 'Pasta Búfala',
+    'menu.bufala.description': 'Pâtes, mozzarella de bufflonne, légumes d\'été grillés, tomates cerises et basilic.',
+    'menu.ranchera.title': 'Pasta Ranchera',
+    'menu.ranchera.description': 'Pâtes, poulet, sauce ranch, gorgonzola et oignon caramélisé.',
+    'menu.bogavante.title': 'Pasta Homard',
+    'menu.bogavante.description': 'Pâtes en sauce bisque de homard, tomates cerises, beurre épicé, basilic et demi-homard frais.',
+
     // Saveurs du monde
     'menu.pollo.tikka.title': 'Poulet Tikka Masala',
     'menu.pollo.tikka.description': 'Poulet, tomates, oignons, ail, épices indiennes, crème',
     'menu.world.harissa.title': 'Thon à la Harissa',
     'menu.world.harissa.description': 'Thon, harissa, poivron rouge, ail, cumin',
-    
+    'menu.world.huancaina.title': 'Huancaína',
+    'menu.world.huancaina.description': 'Fromage frais, aji amarillo, lait évaporé',
+    'menu.pulpo.title': 'Poulpe Puttanesca',
+    'menu.pulpo.description': 'Fusion méditerranéenne avec sauce puttanesca napolitaine (tomate, anchois, olives noires, câpres et ail) avec du poulpe tendre en version tapa.',
+
     // Saveurs locales
     'menu.local.requena.title': 'Ragù Blanc de Requena',
     'menu.local.requena.description': 'Saucisse de Requena, champignons, vin blanc, crème',
-    
+
     // Desserts
     'menu.desserts.white.lotus.title': ' White Lotus',
     'menu.desserts.white.lotus.description': 'Chocolat blanc, framboise, noix de coco',
     'menu.desserts.ferrero.gold.title': 'Ferrero Gold',
     'menu.desserts.ferrero.gold.description': 'Chocolat, noisette, croustillant',
-    
+    'menu.mousse.title': 'Mousse Amalfi',
+    'menu.mousse.description': 'Mousse de fromage et chocolat blanc, miettes de biscuit, fruit de la passion et citrons de la Côte Amalfitaine.',
+
     // Boissons
     'menu.drinks.coca.title': 'Coca-Cola',
     'menu.drinks.coca.zero.title': 'Coca-Cola Zero',
@@ -203,13 +225,11 @@ const translations = {
     'menu.drinks.lemonade.title': 'Limonade Maison',
     'menu.drinks.turia.title': 'Bière Turia',
     'menu.drinks.non.alcoholic.title': 'Bière Sans Alcool',
-    
-	
-	'location.address': 'Adresse',
-'location.phone': 'Téléphone',
-'location.hours_title': 'Horaires',
-'cta.view_map': 'Voir sur la carte',
-	
+
+    'location.address': 'Adresse',
+    'location.phone': 'Téléphone',
+    'location.hours_title': 'Horaires',
+    'cta.view_map': 'Voir sur la carte',
     'location.title': 'VISITEZ-NOUS',
     'location.hours': 'Lun-Dim: 11h00 - 22h00',
     'location.quality': 'Qualité Premium',
@@ -218,8 +238,8 @@ const translations = {
     'cta.visit': "Visitez-nous à Valencia et goûtez à l'authentique saveur de Zana Street world Pasta",
     'cta.directions': 'Itinéraire',
     'footer.quicklinks': 'LIENS RAPIDES',
-'footer.contact': 'CONTACTEZ-NOUS',
-'footer.slogan': 'Pâtes fraîches préparées quotidiennement avec des ingrédients de qualité.',
+    'footer.contact': 'CONTACTEZ-NOUS',
+    'footer.slogan': 'Pâtes fraîches préparées quotidiennement avec des ingrédients de qualité.',
     'footer.copyright': '© 2025 Zana Street world Pasta. Tous droits réservés.',
     'footer.social': 'Suivez-nous',
     'gallery.title': 'GALERIE',
@@ -230,7 +250,7 @@ const translations = {
     'gallery.zanacup': 'Nos pots',
     'gallery.pasta_fresca': 'Nos Pâtes Fraîches',
     'gallery.spaghetti': 'Spaghetti frais',
-    'gallery.elaboration':'La qualité que vous pouvez voir',
+    'gallery.elaboration': 'La qualité que vous pouvez voir',
     'news.title': 'Dernières Actualités',
     'news.subtitle': 'Restez informé des dernières nouvelles de Zana Street world Pasta',
     'career.title': 'Rejoignez Notre Équipe',
@@ -253,16 +273,15 @@ const translations = {
     'news.special.title': 'Spécial Chef : Ragu blanc à la saucisse de Requena',
     'news.special.excerpt': 'Notre chef étoilé présente des pâtes luxueuses aux champignons sauvages et parmesan affiné.',
     'news.benidorm.title': 'HISTORIQUE ! Notre PREMIÈRE franchise débarque à Benidorm',
-'news.benidorm.excerpt': 'Arrêtez les rotatives ! Ce n\'est pas une ouverture ordinaire. ZANA vient d\'inaugurer sa toute PREMIÈRE franchise de l\'histoire ! Benidorm est une ville de records, d\'énergie et de premières fois — c\'est pourquoi notre première expansion devait être ici. Ce que vous y trouverez : notre ADN original, l\'enthousiasme du premier jour multiplié par mille, et une équipe légendaire. Faites partie de notre histoire ! Nous sommes au AVENIDA DEL MEDITERRÁNEO 3, lançant ce nouveau chapitre sous le soleil de Benidorm.',
-'news.pasta_del_mes.badge': 'Pâtes du Mois',
-  'news.pasta_del_mes.name': 'Pasta en sauce bisque de homard',
-  'news.pasta_del_mes.description': 'Sauce bisque de homard, tomates cerises, beurre épicé, basilic et demi-homard frais. 19€',  
-'nav.quienesSomos': 'QUI SOMMES-NOUS',
+    'news.benidorm.excerpt': 'Arrêtez les rotatives ! Ce n\'est pas une ouverture ordinaire. ZANA vient d\'inaugurer sa toute PREMIÈRE franchise de l\'histoire ! Benidorm est une ville de records, d\'énergie et de premières fois — c\'est pourquoi notre première expansion devait être ici. Ce que vous y trouverez : notre ADN original, l\'enthousiasme du premier jour multiplié par mille, et une équipe légendaire. Faites partie de notre histoire ! Nous sommes au AVENIDA DEL MEDITERRÁNEO 3, lançant ce nouveau chapitre sous le soleil de Benidorm.',
+    'news.pasta_del_mes.badge': 'Pâtes du Mois',
+    'news.pasta_del_mes.name': 'Pasta en sauce bisque de homard',
+    'news.pasta_del_mes.description': 'Sauce bisque de homard, tomates cerises, beurre épicé, basilic et demi-homard frais. 19€',
+    'nav.quienesSomos': 'QUI SOMMES-NOUS',
     'quienesSomos.title': 'NOTRE HISTOIRE',
     'quienesSomos.chefTitle': 'NOTRE CHEF',
     'quienesSomos.signature': 'ZANA STREET WORLD PASTA',
-    // Version FR
-'quienesSomos.fullStory': `
+    'quienesSomos.fullStory': `
 <p>NOUS SOMMES ZANA,</p>
 <p>Deux chefs, amis et voyageurs.</p>
 <p>Passionnés de cuisine authentique.</p>
@@ -297,7 +316,7 @@ const translations = {
     'menu.category.local': 'LOCAL',
     'menu.category.desserts': 'DESSERT',
     'menu.category.drinks': 'DRINKS',
-	'menu.item.description': 'Description',
+    'menu.item.description': 'Description',
     
     // Classic dishes
     'menu.classic.ragu.title': 'Bolognese Ragu',
@@ -311,30 +330,42 @@ const translations = {
     'menu.trufa.parmesano.title': 'Truffle and Parmesan',
     'menu.trufa.parmesano.description': 'Black truffle sauce, parmesan reggiano, butter',
     'menu.pasta.diavola.title': 'Diavola Pasta',
-    'menu.pasta.diavola.description':'Fusilli, spicy tomato sauce, chili, garlic, olive oil, parmesan',
+    'menu.pasta.diavola.description': 'Fusilli, spicy tomato sauce, chili, garlic, olive oil, parmesan',
     'menu.pesto.aguacate.title': 'Avocado Pesto',
     'menu.pesto.aguacate.description': 'Avocado, basil, pine nuts, garlic, olive oil',
     'menu.alfredo.pollo.title': 'Chicken Alfredo',
     'menu.alfredo.pollo.description': 'Chicken, alfredo sauce, mushrooms, parmesan',
-    "menu.special.mac.cheese.title": "Mac n Cheese",
-"menu.special.mac.cheese.description": "Creamy cheddar cheese sauce macaroni",
-    
+    'menu.special.mac.cheese.title': 'Mac n Cheese',
+    'menu.special.mac.cheese.description': 'Creamy cheddar cheese sauce macaroni',
+    'menu.bufala.title': 'Búfala Pasta',
+    'menu.bufala.description': 'Pasta, buffalo mozzarella, grilled summer vegetables, cherry tomatoes and basil.',
+    'menu.ranchera.title': 'Ranchera Pasta',
+    'menu.ranchera.description': 'Pasta, chicken, ranch sauce, gorgonzola and caramelized onion.',
+    'menu.bogavante.title': 'Lobster Pasta',
+    'menu.bogavante.description': 'Pasta in lobster bisque sauce, cherry tomatoes, spiced butter, basil and half a fresh lobster.',
+
     // World flavors
     'menu.pollo.tikka.title': 'Chicken Tikka Masala',
     'menu.pollo.tikka.description': 'Chicken, tomatoes, onions, garlic, Indian spices, cream',
     'menu.world.harissa.title': 'Harissa Tuna',
     'menu.world.harissa.description': 'Tuna, harissa, red pepper, garlic, cumin',
-    
+    'menu.world.huancaina.title': 'Huancaína',
+    'menu.world.huancaina.description': 'Cream cheese, aji amarillo, evaporated milk',
+    'menu.pulpo.title': 'Octopus Puttanesca',
+    'menu.pulpo.description': 'Vibrant Mediterranean fusion with Neapolitan puttanesca sauce (tomato, anchovies, black olives, capers and garlic) with tender octopus as a tapa.',
+
     // Local flavors
     'menu.local.requena.title': 'White Ragu with Requena Sausage',
     'menu.local.requena.description': 'Requena sausage, mushrooms, white wine, cream',
-    
+
     // Desserts
     'menu.desserts.white.lotus.title': 'White Lotus',
     'menu.desserts.white.lotus.description': 'White chocolate, raspberry, coconut',
     'menu.desserts.ferrero.gold.title': 'Ferrero Gold',
     'menu.desserts.ferrero.gold.description': 'Chocolate, hazelnut, crisp',
-    
+    'menu.mousse.title': 'Amalfi Mousse',
+    'menu.mousse.description': 'White chocolate cheese mousse, cookie crumble, passion fruit and Amalfi Coast lemons.',
+
     // Drinks
     'menu.drinks.coca.title': 'Coca-Cola',
     'menu.drinks.coca.zero.title': 'Coca-Cola Zero',
@@ -343,15 +374,10 @@ const translations = {
     'menu.drinks.turia.title': 'Turia Beer',
     'menu.drinks.non.alcoholic.title': 'Non-Alcoholic Beer',
 
-
     'location.address': 'Address',
-'location.phone': 'Phone',
-'location.hours_title': 'Opening Hours',
-'cta.view_map': 'View on Map',
-    
-	
-	
-	
+    'location.phone': 'Phone',
+    'location.hours_title': 'Opening Hours',
+    'cta.view_map': 'View on Map',
     'location.title': 'VISIT US',
     'location.hours': 'Mon-Sun: 11:00 AM - 10:00 PM',
     'location.quality': 'Premium Quality',
@@ -360,8 +386,8 @@ const translations = {
     'cta.visit': 'Visit us in Valencia and taste the authentic flavor of Zana Street world Pasta',
     'cta.directions': 'Get Directions',
     'footer.quicklinks': 'QUICK LINKS',
-'footer.contact': 'CONTACT US',
-'footer.slogan': 'Delicious pasta made fresh daily with quality ingredients.',
+    'footer.contact': 'CONTACT US',
+    'footer.slogan': 'Delicious pasta made fresh daily with quality ingredients.',
     'footer.copyright': '© 2025 Zana Street world Pasta. All rights reserved.',
     'footer.social': 'Follow us',
     'gallery.title': 'GALLERY',
@@ -372,15 +398,15 @@ const translations = {
     'gallery.zanacup': 'Our Zana Cups',
     'gallery.pasta_fresca': 'Our Fresh Pasta',
     'gallery.spaghetti': 'Fresh spaghetti',
-    'gallery.elaboration':'Quality you can see',
+    'gallery.elaboration': 'Quality you can see',
     'news.title': 'Latest News',
     'news.subtitle': 'Stay updated with the latest happenings at Zana Street world Pasta',
     'news.benidorm.title': 'HISTORIC! Our FIRST franchise lands in Benidorm',
-'news.benidorm.excerpt': 'Stop the press! This is not just any opening. ZANA has just inaugurated its very FIRST franchise in history! Benidorm is a city of records, energy and firsts — that\'s why our first expansion had to be here. What you\'ll find: our original DNA, the excitement of opening day multiplied by a thousand, and a legendary team. Be part of our history! We are at AVENIDA DEL MEDITERRÁNEO 3, launching this new chapter under the Benidorm sun.',
+    'news.benidorm.excerpt': 'Stop the press! This is not just any opening. ZANA has just inaugurated its very FIRST franchise in history! Benidorm is a city of records, energy and firsts — that\'s why our first expansion had to be here. What you\'ll find: our original DNA, the excitement of opening day multiplied by a thousand, and a legendary team. Be part of our history! We are at AVENIDA DEL MEDITERRÁNEO 3, launching this new chapter under the Benidorm sun.',
     'news.pasta_del_mes.badge': 'Pasta of the Month',
-    'news.pasta_del_mes.name': 'Pasta in lobster bisque sauce ',
-    'news.pasta_del_mes.description': ' Lobster bisque sauce, cherry tomatoes, spiced butter, basil and half a fresh lobster. 19€',
-'career.title': 'Join Our Team',
+    'news.pasta_del_mes.name': 'Pasta in lobster bisque sauce',
+    'news.pasta_del_mes.description': 'Lobster bisque sauce, cherry tomatoes, spiced butter, basil and half a fresh lobster. 19€',
+    'career.title': 'Join Our Team',
     'career.subtitle': 'Start your journey with Zana Street world Pasta',
     'feedback.title': 'Your Feedback',
     'feedback.subtitle': 'We value your opinion and strive to improve your dining experience',
@@ -399,7 +425,6 @@ const translations = {
     'news.app.excerpt': 'Order your favorite pasta dishes on the go with our new mobile app. Available now on iOS and Android.',
     'news.special.title': 'Chefs\' Special: White Ragu with Requena Sausage',
     'news.special.excerpt': 'Our award-winning chef presents a luxurious pasta with wild mushrooms and aged parmesan.',
-
     'nav.quienesSomos': 'ABOUT US',
     'quienesSomos.title': 'OUR STORY',
     'quienesSomos.signature': 'ZANA STREET WORLD PASTA',

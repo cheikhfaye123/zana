@@ -81,6 +81,30 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       image: '/images/menu/alfredo.png'
     },
     {
+      id: 'bufala',
+      name: t('menu.bufala.title'),
+      description: t('menu.bufala.description'),
+      price: '7.9',
+      category: CATEGORIES.SPECIAL,
+      image: '/images/menu/bufala.png'
+    },
+    {
+      id: 'ranchera',
+      name: t('menu.ranchera.title'),
+      description: t('menu.ranchera.description'),
+      price: '7.9',
+      category: CATEGORIES.SPECIAL,
+      image: '/images/menu/ranchera.png'
+    },
+    {
+      id: 'bogavante',
+      name: t('menu.bogavante.title'),
+      description: t('menu.bogavante.description'),
+      price: '19.9',
+      category: CATEGORIES.SPECIAL,
+      image: '/images/menu/bogavante.png'
+    },
+    {
       id: 'pollo-tikka',
       name: t('menu.pollo.tikka.title'),
       description: t('menu.pollo.tikka.description'),
@@ -103,6 +127,14 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       price: '7.9',
       category: CATEGORIES.WORLD,
       image: '/images/menu/harissa.png'
+    },
+    {
+      id: 'pulpo',
+      name: t('menu.pulpo.title'),
+      description: t('menu.pulpo.description'),
+      price: '5.5',
+      category: CATEGORIES.WORLD,
+      image: '/images/menu/pulpo.png'
     },
     {
       id: 'ragu-requena',
@@ -138,13 +170,21 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       price: '5.5',
       category: CATEGORIES.DESSERTS,
       image: '/images/menu/ferrero.png'
+    },
+    {
+      id: 'mousse-chocolate',
+      name: t('menu.mousse.title'),
+      description: t('menu.mousse.description'),
+      price: '4.9',
+      category: CATEGORIES.DESSERTS,
+      image: '/images/menu/mousse.png'
     }
   ];
 
   const beverages: DishProps[] = [
     { id: 'coca-cola', name: t('menu.drinks.coca.title'), price: '2', category: CATEGORIES.DRINKS, image: '/images/menu/coca-cola.png' },
     { id: 'coca-zero', name: t('menu.drinks.coca.zero.title'), price: '2', category: CATEGORIES.DRINKS, image: '/images/menu/coca-colazero.png' },
-    { id: 'agua', name: t('menu.drinks.water.title'), price: '2', category: CATEGORIES.DRINKS , image: '/images/menu/eau.png' },
+    { id: 'agua', name: t('menu.drinks.water.title'), price: '2', category: CATEGORIES.DRINKS, image: '/images/menu/eau.png' },
     { id: 'limonada', name: t('menu.drinks.lemonade.title'), price: '2', category: CATEGORIES.DRINKS, image: '/images/menu/limond.png' },
     {
       id: 'cerveza-turia',
@@ -231,7 +271,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                     className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
                   />
                 </div>
-                <div className="p-3 sm:p-4  border-gray-300" style={{ backgroundColor: '#ffe77b' }}>
+                <div className="p-3 sm:p-4 border-gray-300" style={{ backgroundColor: '#ffe77b' }}>
                   <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{dessert.name}</h3>
                   <div className="flex justify-between items-center mt-2">
                     <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
@@ -253,37 +293,36 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
             {t('menu.category.drinks')}
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-  {beverages.map((beverage) => (
-    <motion.div
-      key={beverage.id}
-      whileHover={{ y: -3 }}
-      whileTap={{ scale: 0.98 }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
-      onClick={() => setSelectedDish(beverage)}
-    >
-      <div className="relative pt-[70%] sm:pt-[75%]" style={{ backgroundColor: '#ffe77b' }}>
-        <img
-          src={beverage.image}
-          alt={beverage.name}
-          className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
-        />
-      </div>
-      <div className="p-3 sm:p-4  border-gray-300" style={{ backgroundColor: '#ffe77b' }}>
-        <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{beverage.name}</h3>
-        <div className="flex justify-between items-center mt-2">
-          <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
-            {getTranslatedCategory(beverage.category, t)}
-          </span>
-          <span className="text-base sm:text-lg font-bold text-[#ff4b4b]">{beverage.price}€</span>
-        </div>
-      </div>
-    </motion.div>
-  ))}
-</div>
-
+            {beverages.map((beverage) => (
+              <motion.div
+                key={beverage.id}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
+                onClick={() => setSelectedDish(beverage)}
+              >
+                <div className="relative pt-[70%] sm:pt-[75%]" style={{ backgroundColor: '#ffe77b' }}>
+                  <img
+                    src={beverage.image}
+                    alt={beverage.name}
+                    className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
+                  />
+                </div>
+                <div className="p-3 sm:p-4 border-gray-300" style={{ backgroundColor: '#ffe77b' }}>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{beverage.name}</h3>
+                  <div className="flex justify-between items-center mt-2">
+                    <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
+                      {getTranslatedCategory(beverage.category, t)}
+                    </span>
+                    <span className="text-base sm:text-lg font-bold text-[#ff4b4b]">{beverage.price}€</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </section>
       )}
 
@@ -320,7 +359,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                 </button>
               </div>
               <div className="p-4 sm:p-6" style={{ backgroundColor: '#ffe77b' }}>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 ">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4">
                   <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-0">
                     {selectedDish.name}
                   </h2>
