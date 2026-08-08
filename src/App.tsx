@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { MobileRedirect } from './components/MobileRedirect'; // Assurez-vous que le chemin est correct
+import { Analytics } from '@vercel/analytics/react'
 
 // Pages
 import Home from './pages/Home';  // Enlever l'extension .tsx
@@ -58,6 +59,7 @@ function App() {
             </Routes>
             <Footer />
           </div>
+          <Analytics />
         </Router>
       </LocationProvider>
     </LanguageProvider>
