@@ -45,7 +45,7 @@ const translations = {
     'menu.pesto.aguacate.description': 'Aguacate, albahaca, piñones, ajo, aceite de oliva',
     'menu.alfredo.pollo.title': 'Alfredo con Pollo',
     'menu.alfredo.pollo.description': 'Pollo, salsa alfredo, champiñones, parmesano',
-    'menu.special.mac.cheese.title': 'Macarrones con Queso',
+    'menu.special.mac.cheese.title': 'Mac and cheese',
     'menu.special.mac.cheese.description': 'Macarrones con salsa de queso cheddar cremoso',
     'menu.bufala.title': 'Pasta Búfala',
     'menu.bufala.description': 'Pasta, mozzarella de búfala, verdura de verano a la brasa, tomates cherry y albahaca.',
