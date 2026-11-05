@@ -10,7 +10,7 @@ const News = () => {
   const pastaDelMes = {
     name: t('news.pasta_del_mes.name'),
     description: t('news.pasta_del_mes.description'),
-    image: "/images/menu/amatriciana.png"
+    image: "/images/menu/bogavante.png"
   };
 
   const newsItems = [
@@ -105,11 +105,11 @@ const News = () => {
               viewport={{ once: true }}
               className="bg-white rounded-lg shadow-sm border border-gray-300 overflow-hidden flex flex-col h-full"
             >
-              <div className="w-full aspect-[16/9] flex items-center justify-center bg-gray-100 p-2 overflow-hidden">
+              <div className={`w-full ${item.image.includes('/menu/') ? 'aspect-square' : 'aspect-[16/9] p-2'} flex items-center justify-center bg-gray-100 overflow-hidden`}>
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="h-full w-full object-contain hover:scale-105 transition-transform duration-300"
+                  className={`h-full w-full ${item.image.includes('/menu/') ? 'object-cover' : 'object-contain'} hover:scale-105 transition-transform duration-300`}
                 />
               </div>
               <div className="p-4 flex-grow">
