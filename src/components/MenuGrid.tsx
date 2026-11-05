@@ -236,7 +236,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
             <div className="p-3 sm:p-4" style={{ backgroundColor: '#ffe77b' }}>
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-1">{dish.name}</h3>
               <div className="flex justify-between items-center mt-2">
-                <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300">
+              <span className="text-xs px-2 py-1 bg-gray-100 rounded-full border border-gray-300 truncate">
                   {getTranslatedCategory(dish.category, t)}
                 </span>
                 <span className="text-base sm:text-lg font-bold text-[#ff4b4b]">{dish.price}€</span>
