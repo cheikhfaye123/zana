@@ -133,7 +133,7 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
       name: t('menu.pulpo.title'),
       description: t('menu.pulpo.description'),
       price: '5.5',
-      category: CATEGORIES.SPECIAL,
+      category: CATEGORIES.WORLD,
       image: '/images/menu/pulpo.png'
     },
     {
@@ -226,11 +226,11 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
             className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
             onClick={() => setSelectedDish(dish)}
           >
-            <div className="relative pt-[100%]" style={{ backgroundColor: '#ffe77b' }}>
+            <div className="relative pt-[70%] sm:pt-[75%]" style={{ backgroundColor: '#ffe77b' }}>
               <img
                 src={dish.image}
                 alt={dish.name}
-                className="absolute top-0 left-0 w-full h-full object-contain p-0"
+                className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
               />
             </div>
             <div className="p-3 sm:p-4" style={{ backgroundColor: '#ffe77b' }}>
@@ -264,11 +264,11 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                 className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
                 onClick={() => setSelectedDish(dessert)}
               >
-                <div className="relative pt-[100%]" style={{ backgroundColor: '#ffe77b' }}>
+                <div className="relative pt-[70%] sm:pt-[75%]" style={{ backgroundColor: '#ffe77b' }}>
                   <img
                     src={dessert.image}
                     alt={dessert.name}
-                    className="absolute top-0 left-0 w-full h-full object-contain p-0"
+                    className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
                   />
                 </div>
                 <div className="p-3 sm:p-4 border-gray-300" style={{ backgroundColor: '#ffe77b' }}>
@@ -304,11 +304,11 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
                 className="bg-white rounded-xl border-2 border-gray-300 shadow-sm hover:shadow-md overflow-hidden cursor-pointer transition-all duration-300"
                 onClick={() => setSelectedDish(beverage)}
               >
-                <div className="relative pt-[100%]" style={{ backgroundColor: '#ffe77b' }}>
+                <div className="relative pt-[70%] sm:pt-[75%]" style={{ backgroundColor: '#ffe77b' }}>
                   <img
                     src={beverage.image}
                     alt={beverage.name}
-                    className="absolute top-0 left-0 w-full h-full object-contain p-0"
+                    className="absolute top-0 left-0 w-full h-full object-contain p-3 sm:p-4"
                   />
                 </div>
                 <div className="p-3 sm:p-4 border-gray-300" style={{ backgroundColor: '#ffe77b' }}>
@@ -343,11 +343,11 @@ const MenuGrid = ({ activeCategory }: { activeCategory: string | null }) => {
               className="bg-white rounded-xl border-2 border-gray-300 shadow-xl w-full max-w-[95vw] sm:max-w-md max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative aspect-square w-full bg-gray-50 flex items-center justify-center" style={{ backgroundColor: '#ffe77b' }}>
+              <div className="relative h-48 sm:h-56 w-full bg-gray-50 flex items-center justify-center" style={{ backgroundColor: '#ffe77b' }}>
                 <img
                   src={selectedDish.image}
                   alt={selectedDish.name}
-                  className="w-full h-full object-contain p-0"
+                  className="max-w-full max-h-full object-contain p-4 sm:p-6"
                 />
                 <button
                   className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white rounded-full p-1 sm:p-2 shadow-md border border-gray-300 hover:bg-gray-50 transition-colors"
