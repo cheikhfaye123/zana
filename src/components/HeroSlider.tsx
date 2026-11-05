@@ -130,7 +130,7 @@ const HeroSlider = () => {
                 <img
                   src={slides[currentIndex].image}
                   alt={slides[currentIndex].title}
-                  className="absolute inset-0 w-full h-full object-contain p-4"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
             </div>
